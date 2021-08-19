@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Posts on My New Hugo Site</title>
+    <link>http://example.org/posts/</link>
+    <description>Recent content in Posts on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="http://example.org/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>http://example.org/posts/%E5%A6%82%E4%BD%95%E5%B0%86.xml%E6%96%87%E4%BB%B6%E8%BD%AC%E6%8D%A2%E6%88%90.toml/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/posts/%E5%A6%82%E4%BD%95%E5%B0%86.xml%E6%96%87%E4%BB%B6%E8%BD%AC%E6%8D%A2%E6%88%90.toml/</guid>
+      <description>如何将.xml文件转换成.toml 引子 由于hugo官方默认的config文件为.toml格式，而我此处使用的皮肤官方页面全部采用.xml编写，根据作者来看他认为这样更简明。。。链接如下：Features · adityatelange/hugo-paper
+短时间内并没有找到自动转换工具，但是找到一个简单的格式模板，在此记录
+内容 原先的.xml配置内容：
+related: threshold:80 includeNewer:false toLower:false indices: -name:keywords weight:100 -name:date weight:10 转换之后的.toml配置内容：
+[related] threshold = 80.0 includeNewer = false toLower = false [[related.indices]] name = &amp;#34;ketwords&amp;#34; weight = 100.0 [[related.indices]] name = &amp;#34;date&amp;#34; weight = 10.0 更多的的：
+params: profileMode: enabled: true title: &amp;#34;&amp;lt;Title&amp;gt;&amp;#34; # optional default will be site title subtitle: &amp;#34;This is subtitle&amp;#34; imageUrl: &amp;#34;&amp;lt;image link&amp;gt;&amp;#34; # optional imageTitle: &amp;#34;&amp;lt;title of image as alt&amp;gt;&amp;#34; # optional imageWidth: 120 # custom size imageHeight: 120 # custom size buttons: - name: Archive url: &amp;#34;/archive&amp;#34; - name: Github url: &amp;#34;https://github.</description>
+    </item>
+    
+  </channel>
+</rss>
