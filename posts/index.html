@@ -133,13 +133,18 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2></h2>
+    <h2>如何将.xml文件转换成.toml</h2>
   </header>
   <section class="entry-content">
-    <p>部署Github网页端的一些总结 部署步骤  首先，清空远程库（也可以不清空，但一定要备份！接下来的操作将会覆盖掉你的远程库） 在命令提示符下进入site的位置，输入命令hugo生成\public目录 进入public右键git bash here 输入命令：git init出现如图所示小标算成功  接着，将文档放入缓存区：git add -A或git add . 然后将所有文件提交至本地仓库：git commit -am&#34;随便写点什么&#34; 远程创建新分支：git remote add origin 你的仓库的url 将文件推送至远程库git push -f origin master 合并分支：git push --set-upstream origin master 在github上Setting中的Page界面更改域名  </p>
+    <p>引子 由于hugo官方默认的config文件为.toml格式，而我此处使用的皮肤官方页面全部采用.xml编写，根据作者来看他认为这样更简明。。。链接如下：Features · adityatelange/hugo-paper
+短时间内并没有找到自动转换工具，但是找到一个简单的格式模板，在此记录
+内容 原先的.xml配置内容：
+related: threshold:80 includeNewer:false toLower:false indices: -name:keywords weight:100 -name:date weight:10 转换之后的.toml配置内容：
+[related] threshold = 80.0 includeNewer = false toLower = false [[related.indices]] name = &#34;ketwords&#34; weight = 100.0 [[related.indices]] name = &#34;date&#34; weight = 10.0 更多的的：
+params: profileMode: enabled: true title: &#34;&lt;Title&gt;&#34; # optional default will be site title subtitle: &#34;This is subtitle&#34; imageUrl: &#34;&lt;image link&gt;&#34; # optional imageTitle: &#34;&lt;title of image as alt&gt;&#34; # optional imageWidth: 120 # custom size imageHeight: 120 # custom size buttons: - name: Archive url: &#34;/archive&#34; - name: Github url: &#34;https://github....</p>
   </section>
-  <footer class="entry-footer"></footer>
-  <a class="entry-link" aria-label="post link to " href="https://www.tcmckrlitb.top/posts/%E9%83%A8%E7%BD%B2github%E7%BD%91%E9%A1%B5%E7%AB%AF%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%BB%E7%BB%93/"></a>
+  <footer class="entry-footer">August 19, 2021</footer>
+  <a class="entry-link" aria-label="post link to 如何将.xml文件转换成.toml" href="https://www.tcmckrlitb.top/posts/%E5%A6%82%E4%BD%95%E5%B0%86.xml%E6%96%87%E4%BB%B6%E8%BD%AC%E6%8D%A2%E6%88%90.toml/"></a>
 </article>
     </main>
     <footer class="footer">
