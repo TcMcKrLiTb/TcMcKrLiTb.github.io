@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <meta charset="utf-8">
+  
+    <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0">
+  
+    <meta name="theme-color" content="#375f7E">
+  
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+  
+  <title>ownCloud</title>
+  <link rel="manifest" href="manifest.json">
+  
+    <link href="css/web.css" rel="stylesheet">
+  
+  <script src="js/require.js"></script>
+  <noscript>
+    <style>
+      #enable-js-banner {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding: 0.5rem;
+        background-color: #467391;
+      }
+      #banner-content {
+        color: white;
+      }
+    </style>
+  </noscript>
+</head>
+<body>
+  <div id="owncloud"></div>
+  <noscript>
+    <div id="enable-js-banner"><h3 id="banner-content">Please enable JavaScript</h3></div>
+  </noscript>
+  <script>
+    requirejs.config({
+      baseUrl: "js",
+      paths: {"web-app-draw-io":"web-app-draw-io-5571f633","web-app-files":"web-app-files-06af769a","web-app-markdown-editor":"web-app-markdown-editor-dafcf64a","web-app-media-viewer":"web-app-media-viewer-ec936565","web-runtime":"web-runtime-03539e51","vendor":"vendor-fee82cbd","encodePath":"encodePath-70d2cd88"}
+    })
+
+    requirejs(['web-runtime'], function (runtime) {
+      runtime.exec()
+    })
+  </script>
+</body>
+</html>
