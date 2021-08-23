@@ -1,9 +1,0 @@
-{ "translations": {
-    "Contact birthdays" : "Cumpleaños",
-    "Personal" : "Personal",
-    "Contacts" : "Contactos",
-    "Technical details" : "Detalles técnicos",
-    "Remote Address: %s" : "Dirección Remota: %s",
-    "Request ID: %s" : "ID requiriente: %s"
-},"pluralForm" :"nplurals=2; plural=(n != 1);"
-}

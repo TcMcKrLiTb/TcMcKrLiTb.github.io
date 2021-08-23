@@ -1,6 +1,0 @@
-OC.L10N.register(
-    "federation",
-    {
-    "Add" : "যোগ করা"
-},
-"nplurals=2; plural=(n != 1);");

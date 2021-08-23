@@ -1,9 +1,0 @@
-{ "translations": {
-    "Username" : "Benutzername",
-    "Password" : "Passwort",
-    "Host" : "Host",
-    "Root" : "Root",
-    "Port" : "Port",
-    "Secure ftps://" : "Sicheres fpts://"
-},"pluralForm" :"nplurals=2; plural=(n != 1);"
-}

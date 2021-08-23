@@ -9,7 +9,24 @@
       <link>https://www.tcmckrlitb.top/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Thu, 19 Aug 2021 11:22:23 +0800</lastBuildDate><atom:link href="https://www.tcmckrlitb.top/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 23 Aug 2021 12:37:23 +0800</lastBuildDate><atom:link href="https://www.tcmckrlitb.top/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>关于double转int时结果不一致问题</title>
+      <link>https://www.tcmckrlitb.top/posts/%E5%85%B3%E4%BA%8Edouble%E8%BD%ACint%E6%97%B6%E7%BB%93%E6%9E%9C%E4%B8%8D%E4%B8%80%E8%87%B4%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Mon, 23 Aug 2021 12:37:23 +0800</pubDate>
+      
+      <guid>https://www.tcmckrlitb.top/posts/%E5%85%B3%E4%BA%8Edouble%E8%BD%ACint%E6%97%B6%E7%BB%93%E6%9E%9C%E4%B8%8D%E4%B8%80%E8%87%B4%E9%97%AE%E9%A2%98/</guid>
+      <description>问题背景： 先来看一个案例：
+#include &amp;lt;bits/stdc++.h&amp;gt; using namespace std; int main(void){ double a; int b; a = 64.35;a*= 100; b = a; b %= 10; cout &amp;lt;&amp;lt; b; return 0; } 很显然，通过常理推断，这里的答案应该输出5，但是他却输出了4
+我首先猜测是强制转换的问题，将第八行改成了b = (int)a测试运行之后竟然还是不对
+解答： float和double类型的主要设计目的是为了科学计算和工程计算。它们执行二进制浮点运算，这是为了在广域数值范围上提供较为精确的快速近似计算而精心设计的。
+然而，它们没有提供完全精确的结果，所以不应该被用于要求精确结果的场合。
+float和double类型对于货币计算尤为不合适，因为要让一个float或者double精确地表示0.1(或者10的任何负数次方值)是不可能的，这种舍入错误产生的原因是浮点数实际上是用二进制系统实现的，而分数在二进制系统中没有精确的表示，其道理就如同在十进制系统中无法精确表示1/3一样；再比如0.5在二进制系统中有精确表示，而0.55在二进制系统中没有精确表示。
+如上的情况，为了避免这个问题，另加上小数，如
+b = a + 0.01
+就可以使结果正确了。</description>
+    </item>
+    
     <item>
       <title>如何将.xml文件转换成.toml</title>
       <link>https://www.tcmckrlitb.top/posts/%E5%A6%82%E4%BD%95%E5%B0%86.xml%E6%96%87%E4%BB%B6%E8%BD%AC%E6%8D%A2%E6%88%90.toml/</link>
@@ -25,7 +42,7 @@ params: profileMode: enabled: true title: &amp;#34;&amp;lt;Title&amp;gt;&amp;#34
     </item>
     
     <item>
-      <title>部署Github网页端的一些总结</title>
+      <title>部署Github网页端的小步骤</title>
       <link>https://www.tcmckrlitb.top/posts/%E9%83%A8%E7%BD%B2github%E7%BD%91%E9%A1%B5%E7%AB%AF%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%BB%E7%BB%93/</link>
       <pubDate>Thu, 19 Aug 2021 11:22:23 +0800</pubDate>
       
