@@ -162,6 +162,21 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>关于Github中无法加载图片</h2>
+  </header>
+  <section class="entry-content">
+    <p>在配置了Github Pages之后，发现网站中所有图片都没有了，检查之后发现没有成功加载图片，
+但是查看Github仓库之后发现路径并没有问题，但是图片就是显示404
+即便是在仓库中显示这个文件是存在的，这里出现的问题就是文件命名规范的问题
+如果使用Github为图床时，文件的路径中文件夹名称首不能出现字符 &#34;_&#34;（下划线），不然会出现文件访问不了的情况，这时只需要将文件夹名称中下划线删除，然后批量修改HTML页面即可
+此时再访问网站页面即可发现问题已经解决~</p>
+  </section>
+  <footer class="entry-footer">August 24, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Theme PaperMod</footer>
+  <a class="entry-link" aria-label="post link to 关于Github中无法加载图片" href="https://www.tcmckrlitb.top/posts/%E5%85%B3%E4%BA%8Egithub%E4%B8%AD%E6%97%A0%E6%B3%95%E5%8A%A0%E8%BD%BD%E5%9B%BE%E7%89%87/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>关于double转int时结果不一致问题</h2>
   </header>
   <section class="entry-content">

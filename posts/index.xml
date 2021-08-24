@@ -9,7 +9,20 @@
       <link>https://www.tcmckrlitb.top/papermod-cover.png</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 23 Aug 2021 12:37:23 +0800</lastBuildDate><atom:link href="https://www.tcmckrlitb.top/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 24 Aug 2021 08:36:03 +0800</lastBuildDate><atom:link href="https://www.tcmckrlitb.top/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>关于Github中无法加载图片</title>
+      <link>https://www.tcmckrlitb.top/posts/%E5%85%B3%E4%BA%8Egithub%E4%B8%AD%E6%97%A0%E6%B3%95%E5%8A%A0%E8%BD%BD%E5%9B%BE%E7%89%87/</link>
+      <pubDate>Tue, 24 Aug 2021 08:36:03 +0800</pubDate>
+      
+      <guid>https://www.tcmckrlitb.top/posts/%E5%85%B3%E4%BA%8Egithub%E4%B8%AD%E6%97%A0%E6%B3%95%E5%8A%A0%E8%BD%BD%E5%9B%BE%E7%89%87/</guid>
+      <description>在配置了Github Pages之后，发现网站中所有图片都没有了，检查之后发现没有成功加载图片，
+但是查看Github仓库之后发现路径并没有问题，但是图片就是显示404
+即便是在仓库中显示这个文件是存在的，这里出现的问题就是文件命名规范的问题
+如果使用Github为图床时，文件的路径中文件夹名称首不能出现字符 &amp;quot;_&amp;quot;（下划线），不然会出现文件访问不了的情况，这时只需要将文件夹名称中下划线删除，然后批量修改HTML页面即可
+此时再访问网站页面即可发现问题已经解决~</description>
+    </item>
+    
     <item>
       <title>关于double转int时结果不一致问题</title>
       <link>https://www.tcmckrlitb.top/posts/%E5%85%B3%E4%BA%8Edouble%E8%BD%ACint%E6%97%B6%E7%BB%93%E6%9E%9C%E4%B8%8D%E4%B8%80%E8%87%B4%E9%97%AE%E9%A2%98/</link>
