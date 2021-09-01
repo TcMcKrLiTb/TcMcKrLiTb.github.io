@@ -131,34 +131,59 @@
                 </ul>
             </span>
         </div>
-        <ul id="menu">
-            <li>
-                <a href="https://www.tcmckrlitb.top/about/" title="About">
-                    <span>About</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://www.tcmckrlitb.top/archives" title="Archive">
-                    <span>Archive</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://www.tcmckrlitb.top/search/" title="Search (Alt &#43; /)" accesskey=/>
-                    <span>Search</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://www.tcmckrlitb.top/tags/" title="Tags">
-                    <span>Tags</span>
-                </a>
-            </li>
-        </ul>
+    <ul id="menu">
+        <li>
+            <a href="https://www.tcmckrlitb.top/about/" title="About">
+                <span>About</span>
+            </a>
+        </li>
+        <li>
+            <a href="https://www.tcmckrlitb.top/archives" title="Archive">
+                <span>Archive</span>
+            </a>
+        </li>
+        <li>
+            <a href="https://www.tcmckrlitb.top/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <span>Search</span>
+            </a>
+        </li>
+        <li>
+            <a href="https://www.tcmckrlitb.top/tags/" title="Tags">
+                <span>Tags</span>
+            </a>
+        </li>
+    </ul>
     </nav>
 </header>
 <main class="main"> 
 <header class="page-header"><div class="breadcrumbs"><a href="https://www.tcmckrlitb.top">Home</a></div>
   <h1>Posts</h1>
 </header>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>崭新CentOS7虚拟机换源</h2>
+  </header>
+  <section class="entry-content">
+    <p>近日整了一台CentOS虚拟机这里记录配置方法
+Linux版本：CentOS7
+软件：VMware Workstation Pro
+配置网络 首先将虚拟机配置为桥接模式
+首先ping一下127.0.0.1看看网卡是否是好的
+这个时候ping百度看看通不通，如果通了直接换源，如果没通继续：
+首先查看当前网络连接
+nmcli connection show 记住网络设备：
+设置DNS服务器
+nmcli con mod ens33 ipv4.dns &#34;114.114.114.114 8.8.8.8&#34; nmcli con up ens33 此时再ping即可ping通
+更换yum源 首先备份原来的CentOS官方yum源
+cp /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.bak 获取阿里的yum源覆盖本地官方yum源
+curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo 清理yum缓存，并生成新的缓存
+yum clean all yum makecache 此时测试下载：
+yum install -y wget yum install -y vim 没报错，成功！</p>
+  </section>
+  <footer class="entry-footer">September 1, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Theme PaperMod</footer>
+  <a class="entry-link" aria-label="post link to 崭新CentOS7虚拟机换源" href="https://www.tcmckrlitb.top/posts/%E5%B4%AD%E6%96%B0centos7%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%8D%A2%E6%BA%90/"></a>
+</article>
 
 <article class="post-entry"> 
   <header class="entry-header">
@@ -183,12 +208,14 @@
     <p>问题背景： 先来看一个案例：
 #include &lt;bits/stdc&#43;&#43;.h&gt; using namespace std; int main(void){ double a; int b; a = 64.35;a*= 100; b = a; b %= 10; cout &lt;&lt; b; return 0; } 很显然，通过常理推断，这里的答案应该输出5，但是他却输出了4
 我首先猜测是强制转换的问题，将第八行改成了b = (int)a测试运行之后竟然还是不对
-解答： float和double类型的主要设计目的是为了科学计算和工程计算。它们执行二进制浮点运算，这是为了在广域数值范围上提供较为精确的快速近似计算而精心设计的。
+解决： float和double类型的主要设计目的是为了科学计算和工程计算。它们执行二进制浮点运算，这是为了在广域数值范围上提供较为精确的快速近似计算而精心设计的。
 然而，它们没有提供完全精确的结果，所以不应该被用于要求精确结果的场合。
 float和double类型对于货币计算尤为不合适，因为要让一个float或者double精确地表示0.1(或者10的任何负数次方值)是不可能的，这种舍入错误产生的原因是浮点数实际上是用二进制系统实现的，而分数在二进制系统中没有精确的表示，其道理就如同在十进制系统中无法精确表示1/3一样；再比如0.5在二进制系统中有精确表示，而0.55在二进制系统中没有精确表示。
 如上的情况，为了避免这个问题，另加上小数，如
 b = a &#43; 0.01
-就可以使结果正确了。</p>
+就可以使结果正确了。
+原因分析： 首先，我们举出一个更方便理解的例子：我们如果去写一个代码来表示分数之间的加法，例如： $$ \frac 1 2 &#43; \frac 1 3 = \frac 5 6 $$ 但是如果我们如下写代码：
+int main(void){ double a, b, c, d; a = 1;a /= 3; b = 1;b /= 2; d = 5;d /= 6; c = a &#43; b; puts(c == d ?...</p>
   </section>
   <footer class="entry-footer">August 23, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Theme PaperMod</footer>
   <a class="entry-link" aria-label="post link to 关于double转int时结果不一致问题" href="https://www.tcmckrlitb.top/posts/%E5%85%B3%E4%BA%8Edouble%E8%BD%ACint%E6%97%B6%E7%BB%93%E6%9E%9C%E4%B8%8D%E4%B8%80%E8%87%B4%E9%97%AE%E9%A2%98/"></a>

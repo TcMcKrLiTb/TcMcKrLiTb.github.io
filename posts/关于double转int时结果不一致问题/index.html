@@ -10,12 +10,14 @@
 <meta name="description" content="问题背景： 先来看一个案例：
 #include &lt;bits/stdc&#43;&#43;.h&gt; using namespace std; int main(void){ double a; int b; a = 64.35;a*= 100; b = a; b %= 10; cout &lt;&lt; b; return 0; } 很显然，通过常理推断，这里的答案应该输出5，但是他却输出了4
 我首先猜测是强制转换的问题，将第八行改成了b = (int)a测试运行之后竟然还是不对
-解答： float和double类型的主要设计目的是为了科学计算和工程计算。它们执行二进制浮点运算，这是为了在广域数值范围上提供较为精确的快速近似计算而精心设计的。
+解决： float和double类型的主要设计目的是为了科学计算和工程计算。它们执行二进制浮点运算，这是为了在广域数值范围上提供较为精确的快速近似计算而精心设计的。
 然而，它们没有提供完全精确的结果，所以不应该被用于要求精确结果的场合。
 float和double类型对于货币计算尤为不合适，因为要让一个float或者double精确地表示0.1(或者10的任何负数次方值)是不可能的，这种舍入错误产生的原因是浮点数实际上是用二进制系统实现的，而分数在二进制系统中没有精确的表示，其道理就如同在十进制系统中无法精确表示1/3一样；再比如0.5在二进制系统中有精确表示，而0.55在二进制系统中没有精确表示。
 如上的情况，为了避免这个问题，另加上小数，如
 b = a &#43; 0.01
-就可以使结果正确了。">
+就可以使结果正确了。
+原因分析： 首先，我们举出一个更方便理解的例子：我们如果去写一个代码来表示分数之间的加法，例如： $$ \frac 1 2 &#43; \frac 1 3 = \frac 5 6 $$ 但是如果我们如下写代码：
+int main(void){ double a, b, c, d; a = 1;a /= 3; b = 1;b /= 2; d = 5;d /= 6; c = a &#43; b; puts(c == d ?">
 <meta name="author" content="Theme PaperMod">
 <link rel="canonical" href="https://www.tcmckrlitb.top/posts/%E5%85%B3%E4%BA%8Edouble%E8%BD%ACint%E6%97%B6%E7%BB%93%E6%9E%9C%E4%B8%8D%E4%B8%80%E8%87%B4%E9%97%AE%E9%A2%98/" />
 <link crossorigin="anonymous" href="/assets/css/stylesheet.min.6cba0d81b5f3f42bb578d49f402ba4175aa72b43def148780b8ad714c957c6f5.css" integrity="sha256-bLoNgbXz9Cu1eNSfQCukF1qnK0Pe8Uh4C4rXFMlXxvU=" rel="preload stylesheet" as="style">
@@ -34,12 +36,14 @@ b = a &#43; 0.01
 <meta property="og:description" content="问题背景： 先来看一个案例：
 #include &lt;bits/stdc&#43;&#43;.h&gt; using namespace std; int main(void){ double a; int b; a = 64.35;a*= 100; b = a; b %= 10; cout &lt;&lt; b; return 0; } 很显然，通过常理推断，这里的答案应该输出5，但是他却输出了4
 我首先猜测是强制转换的问题，将第八行改成了b = (int)a测试运行之后竟然还是不对
-解答： float和double类型的主要设计目的是为了科学计算和工程计算。它们执行二进制浮点运算，这是为了在广域数值范围上提供较为精确的快速近似计算而精心设计的。
+解决： float和double类型的主要设计目的是为了科学计算和工程计算。它们执行二进制浮点运算，这是为了在广域数值范围上提供较为精确的快速近似计算而精心设计的。
 然而，它们没有提供完全精确的结果，所以不应该被用于要求精确结果的场合。
 float和double类型对于货币计算尤为不合适，因为要让一个float或者double精确地表示0.1(或者10的任何负数次方值)是不可能的，这种舍入错误产生的原因是浮点数实际上是用二进制系统实现的，而分数在二进制系统中没有精确的表示，其道理就如同在十进制系统中无法精确表示1/3一样；再比如0.5在二进制系统中有精确表示，而0.55在二进制系统中没有精确表示。
 如上的情况，为了避免这个问题，另加上小数，如
 b = a &#43; 0.01
-就可以使结果正确了。" />
+就可以使结果正确了。
+原因分析： 首先，我们举出一个更方便理解的例子：我们如果去写一个代码来表示分数之间的加法，例如： $$ \frac 1 2 &#43; \frac 1 3 = \frac 5 6 $$ 但是如果我们如下写代码：
+int main(void){ double a, b, c, d; a = 1;a /= 3; b = 1;b /= 2; d = 5;d /= 6; c = a &#43; b; puts(c == d ?" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.tcmckrlitb.top/posts/%E5%85%B3%E4%BA%8Edouble%E8%BD%ACint%E6%97%B6%E7%BB%93%E6%9E%9C%E4%B8%8D%E4%B8%80%E8%87%B4%E9%97%AE%E9%A2%98/" /><meta property="og:image" content="https://www.tcmckrlitb.top/papermod-cover.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-08-23T12:37:23&#43;08:00" />
@@ -52,12 +56,14 @@ b = a &#43; 0.01
 <meta name="twitter:description" content="问题背景： 先来看一个案例：
 #include &lt;bits/stdc&#43;&#43;.h&gt; using namespace std; int main(void){ double a; int b; a = 64.35;a*= 100; b = a; b %= 10; cout &lt;&lt; b; return 0; } 很显然，通过常理推断，这里的答案应该输出5，但是他却输出了4
 我首先猜测是强制转换的问题，将第八行改成了b = (int)a测试运行之后竟然还是不对
-解答： float和double类型的主要设计目的是为了科学计算和工程计算。它们执行二进制浮点运算，这是为了在广域数值范围上提供较为精确的快速近似计算而精心设计的。
+解决： float和double类型的主要设计目的是为了科学计算和工程计算。它们执行二进制浮点运算，这是为了在广域数值范围上提供较为精确的快速近似计算而精心设计的。
 然而，它们没有提供完全精确的结果，所以不应该被用于要求精确结果的场合。
 float和double类型对于货币计算尤为不合适，因为要让一个float或者double精确地表示0.1(或者10的任何负数次方值)是不可能的，这种舍入错误产生的原因是浮点数实际上是用二进制系统实现的，而分数在二进制系统中没有精确的表示，其道理就如同在十进制系统中无法精确表示1/3一样；再比如0.5在二进制系统中有精确表示，而0.55在二进制系统中没有精确表示。
 如上的情况，为了避免这个问题，另加上小数，如
 b = a &#43; 0.01
-就可以使结果正确了。"/>
+就可以使结果正确了。
+原因分析： 首先，我们举出一个更方便理解的例子：我们如果去写一个代码来表示分数之间的加法，例如： $$ \frac 1 2 &#43; \frac 1 3 = \frac 5 6 $$ 但是如果我们如下写代码：
+int main(void){ double a, b, c, d; a = 1;a /= 3; b = 1;b /= 2; d = 5;d /= 6; c = a &#43; b; puts(c == d ?"/>
 
 
 <script type="application/ld+json">
@@ -86,12 +92,12 @@ b = a &#43; 0.01
   "@type": "BlogPosting",
   "headline": "关于double转int时结果不一致问题",
   "name": "关于double转int时结果不一致问题",
-  "description": "问题背景： 先来看一个案例：\n#include \u0026lt;bits/stdc++.h\u0026gt; using namespace std; int main(void){ double a; int b; a = 64.35;a*= 100; b = a; b %= 10; cout \u0026lt;\u0026lt; b; return 0; } 很显然，通过常理推断，这里的答案应该输出5，但是他却输出了4\n我首先猜测是强制转换的问题，将第八行改成了b = (int)a测试运行之后竟然还是不对\n解答： float和double类型的主要设计目的是为了科学计算和工程计算。它们执行二进制浮点运算，这是为了在广域数值范围上提供较为精确的快速近似计算而精心设计的。\n然而，它们没有提供完全精确的结果，所以不应该被用于要求精确结果的场合。\nfloat和double类型对于货币计算尤为不合适，因为要让一个float或者double精确地表示0.1(或者10的任何负数次方值)是不可能的，这种舍入错误产生的原因是浮点数实际上是用二进制系统实现的，而分数在二进制系统中没有精确的表示，其道理就如同在十进制系统中无法精确表示1/3一样；再比如0.5在二进制系统中有精确表示，而0.55在二进制系统中没有精确表示。\n如上的情况，为了避免这个问题，另加上小数，如\nb = a + 0.01\n就可以使结果正确了。",
+  "description": "问题背景： 先来看一个案例：\n#include \u0026lt;bits/stdc++.h\u0026gt; using namespace std; int main(void){ double a; int b; a = 64.35;a*= 100; b = a; b %= 10; cout \u0026lt;\u0026lt; b; return 0; } 很显然，通过常理推断，这里的答案应该输出5，但是他却输出了4\n我首先猜测是强制转换的问题，将第八行改成了b = (int)a测试运行之后竟然还是不对\n解决： float和double类型的主要设计目的是为了科学计算和工程计算。它们执行二进制浮点运算，这是为了在广域数值范围上提供较为精确的快速近似计算而精心设计的。\n然而，它们没有提供完全精确的结果，所以不应该被用于要求精确结果的场合。\nfloat和double类型对于货币计算尤为不合适，因为要让一个float或者double精确地表示0.1(或者10的任何负数次方值)是不可能的，这种舍入错误产生的原因是浮点数实际上是用二进制系统实现的，而分数在二进制系统中没有精确的表示，其道理就如同在十进制系统中无法精确表示1/3一样；再比如0.5在二进制系统中有精确表示，而0.55在二进制系统中没有精确表示。\n如上的情况，为了避免这个问题，另加上小数，如\nb = a + 0.01\n就可以使结果正确了。\n原因分析： 首先，我们举出一个更方便理解的例子：我们如果去写一个代码来表示分数之间的加法，例如： $$ \\frac 1 2 + \\frac 1 3 = \\frac 5 6 $$ 但是如果我们如下写代码：\nint main(void){ double a, b, c, d; a = 1;a /= 3; b = 1;b /= 2; d = 5;d /= 6; c = a + b; puts(c == d ?",
   "keywords": [
     
   ],
-  "articleBody": "问题背景： 先来看一个案例：\n#include  using namespace std; int main(void){ double a; int b; a = 64.35;a*= 100; b = a; b %= 10; cout  b; return 0; } 很显然，通过常理推断，这里的答案应该输出5，但是他却输出了4\n我首先猜测是强制转换的问题，将第八行改成了b = (int)a测试运行之后竟然还是不对\n解答： float和double类型的主要设计目的是为了科学计算和工程计算。它们执行二进制浮点运算，这是为了在广域数值范围上提供较为精确的快速近似计算而精心设计的。\n然而，它们没有提供完全精确的结果，所以不应该被用于要求精确结果的场合。\nfloat和double类型对于货币计算尤为不合适，因为要让一个float或者double精确地表示0.1(或者10的任何负数次方值)是不可能的，这种舍入错误产生的原因是浮点数实际上是用二进制系统实现的，而分数在二进制系统中没有精确的表示，其道理就如同在十进制系统中无法精确表示1/3一样；再比如0.5在二进制系统中有精确表示，而0.55在二进制系统中没有精确表示。\n如上的情况，为了避免这个问题，另加上小数，如\nb = a + 0.01\n就可以使结果正确了。\n",
-  "wordCount" : "44",
+  "articleBody": "问题背景： 先来看一个案例：\n#include  using namespace std; int main(void){ double a; int b; a = 64.35;a*= 100; b = a; b %= 10; cout  b; return 0; } 很显然，通过常理推断，这里的答案应该输出5，但是他却输出了4\n我首先猜测是强制转换的问题，将第八行改成了b = (int)a测试运行之后竟然还是不对\n解决： float和double类型的主要设计目的是为了科学计算和工程计算。它们执行二进制浮点运算，这是为了在广域数值范围上提供较为精确的快速近似计算而精心设计的。\n然而，它们没有提供完全精确的结果，所以不应该被用于要求精确结果的场合。\nfloat和double类型对于货币计算尤为不合适，因为要让一个float或者double精确地表示0.1(或者10的任何负数次方值)是不可能的，这种舍入错误产生的原因是浮点数实际上是用二进制系统实现的，而分数在二进制系统中没有精确的表示，其道理就如同在十进制系统中无法精确表示1/3一样；再比如0.5在二进制系统中有精确表示，而0.55在二进制系统中没有精确表示。\n如上的情况，为了避免这个问题，另加上小数，如\nb = a + 0.01\n就可以使结果正确了。\n原因分析： 首先，我们举出一个更方便理解的例子：我们如果去写一个代码来表示分数之间的加法，例如： $$ \\frac 1 2 + \\frac 1 3 = \\frac 5 6 $$ 但是如果我们如下写代码：\nint main(void){ double a, b, c, d; a = 1;a /= 3; b = 1;b /= 2; d = 5;d /= 6; c = a + b; puts(c == d ? \"true\" : \"false\"); } 就会神奇的发现程序运行结果是false。这是为什么呢？这就需要考虑小数失真，为什么会失真？\n首先我们看，代码运行完毕后，a的值应该是三分之一，但我们人类在进行表示的时候，只能表示出有限的位数，如零点三三循环，我们只能舍去精度后面的位数，这时，这个数字就会失真。\n再想，计算机存储数据采用二进制，目前的浮点数采用符号位-指数-尾数的方法进行存储。在十进制中，我们如下表示一个小数： $$ a.bc = a\\times10^0+b\\times10^{-1}+c\\times10^{-2} $$ 那么，如果是由01构成的二进制呢？我们大概只能这样： $$ a.b = m\\times2^0+n\\times2^{-1} $$ 这个时候就不难理解，我们表示0.5的时候，只需要像十进制一样保存二的负一次方就行了。但是如果想要表示0.1，就如同十进制中想要保存0.3一样，所以，当我们使用小数的时候，通常不去使用\" == \"（判等），而是去使用一个范围例如：(bool)(abs(a - b) 此时，采用这句话，带入刚才的程序：\n#include int main(void){ double a, b, c, d; a = 1;a /= 3; b = 1;b /= 2; d = 5;d /= 6; c = a + b; puts((abs(c - d)  1e-7) ? \"true\" : \"false\"); } 运行结果就是true啦~\n所以，为了避免以上情况再次发生，除了加上小数之外，我们还可以单独保存小数部分，将小数部分保存为整型，就可以解决很多困扰。\n",
+  "wordCount" : "156",
   "inLanguage": "en",
   "datePublished": "2021-08-23T12:37:23+08:00",
   "dateModified": "2021-08-23T12:37:23+08:00",
@@ -197,28 +203,28 @@ b = a &#43; 0.01
                 </ul>
             </span>
         </div>
-        <ul id="menu">
-            <li>
-                <a href="https://www.tcmckrlitb.top/about/" title="About">
-                    <span>About</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://www.tcmckrlitb.top/archives" title="Archive">
-                    <span>Archive</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://www.tcmckrlitb.top/search/" title="Search (Alt &#43; /)" accesskey=/>
-                    <span>Search</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://www.tcmckrlitb.top/tags/" title="Tags">
-                    <span>Tags</span>
-                </a>
-            </li>
-        </ul>
+    <ul id="menu">
+        <li>
+            <a href="https://www.tcmckrlitb.top/about/" title="About">
+                <span>About</span>
+            </a>
+        </li>
+        <li>
+            <a href="https://www.tcmckrlitb.top/archives" title="Archive">
+                <span>Archive</span>
+            </a>
+        </li>
+        <li>
+            <a href="https://www.tcmckrlitb.top/search/" title="Search (Alt &#43; /)" accesskey=/>
+                <span>Search</span>
+            </a>
+        </li>
+        <li>
+            <a href="https://www.tcmckrlitb.top/tags/" title="Tags">
+                <span>Tags</span>
+            </a>
+        </li>
+    </ul>
     </nav>
 </header>
 <main class="main">
@@ -240,7 +246,9 @@ b = a &#43; 0.01
                 <li>
                     <a href="#%e9%97%ae%e9%a2%98%e8%83%8c%e6%99%af" aria-label="问题背景：">问题背景：</a></li>
                 <li>
-                    <a href="#%e8%a7%a3%e7%ad%94" aria-label="解答：">解答：</a>
+                    <a href="#%e8%a7%a3%e5%86%b3" aria-label="解决：">解决：</a></li>
+                <li>
+                    <a href="#%e5%8e%9f%e5%9b%a0%e5%88%86%e6%9e%90" aria-label="原因分析：">原因分析：</a>
                 </li>
             </ul>
         </div>
@@ -262,13 +270,49 @@ b = a &#43; 0.01
 }
 </code></pre></div><p>很显然，通过常理推断，这里的答案应该输出<code>5</code>，但是他却输出了<code>4</code></p>
 <p>我首先猜测是强制转换的问题，将第八行改成了<code>b = (int)a</code>测试运行之后竟然还是不对</p>
-<h2 id="解答">解答：<a hidden class="anchor" aria-hidden="true" href="#解答">#</a></h2>
+<h2 id="解决">解决：<a hidden class="anchor" aria-hidden="true" href="#解决">#</a></h2>
 <p>float和double类型的主要设计目的是为了<strong>科学计算和工程计算</strong>。它们<strong>执行二进制浮点运算</strong>，这是为了在广域数值范围上提供较为精确的快速<strong>近似计算</strong>而精心设计的。</p>
 <p>然而，它们没有提供完全精确的结果，所以不应该被用于要求精确结果的场合。</p>
 <p><strong>float和double类型对于货币计算尤为不合适</strong>，因为要让一个float或者double精确地表示0.1(或者10的任何负数次方值)是不可能的，这种舍入错误产生的原因是<strong>浮点数实际上是用二进制系统实现的</strong>，而分数在二进制系统中没有精确的表示，其道理就如同在十进制系统中无法精确表示1/3一样；再比如0.5在二进制系统中有精确表示，而0.55在二进制系统中没有精确表示。</p>
 <p>如上的情况，为了避免这个问题，另加上小数，如</p>
 <p><code>b = a + 0.01</code></p>
 <p>就可以使结果正确了。</p>
+<h2 id="原因分析">原因分析：<a hidden class="anchor" aria-hidden="true" href="#原因分析">#</a></h2>
+<p>首先，我们举出一个更方便理解的例子：我们如果去写一个代码来表示分数之间的加法，例如：
+$$
+\frac 1 2 + \frac 1 3 = \frac 5 6
+$$
+但是如果我们如下写代码：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>){
+	<span style="color:#66d9ef">double</span> a, b, c, d;
+	a <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;a <span style="color:#f92672">/=</span> <span style="color:#ae81ff">3</span>;
+	b <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;b <span style="color:#f92672">/=</span> <span style="color:#ae81ff">2</span>;
+	d <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>;d <span style="color:#f92672">/=</span> <span style="color:#ae81ff">6</span>;
+	c <span style="color:#f92672">=</span> a <span style="color:#f92672">+</span> b;
+	puts(c <span style="color:#f92672">==</span> d <span style="color:#f92672">?</span> <span style="color:#e6db74">&#34;true&#34;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;false&#34;</span>);
+}
+</code></pre></div><p>就会神奇的发现程序运行结果是<code>false</code>。这是为什么呢？这就需要考虑<strong>小数失真</strong>，为什么会失真？</p>
+<p>首先我们看，代码运行完毕后，<code>a</code>的值应该是三分之一，但我们人类在进行表示的时候，只能表示出有限的位数，如零点三三循环，我们只能舍去精度后面的位数，这时，这个数字就会失真。</p>
+<p>再想，计算机存储数据采用二进制，目前的浮点数采用符号位-指数-尾数的方法进行存储。在十进制中，我们如下表示一个小数：
+$$
+a.bc = a\times10^0+b\times10^{-1}+c\times10^{-2}
+$$
+那么，如果是由<code>01</code>构成的二进制呢？我们大概只能这样：
+$$
+a.b = m\times2^0+n\times2^{-1}
+$$
+这个时候就不难理解，我们表示<code>0.5</code>的时候，只需要像十进制一样保存二的负一次方就行了。但是如果想要表示<code>0.1</code>，就如同十进制中想要保存<code>0.3</code>一样，所以，当我们使用小数的时候，通常不去使用<code>&quot; == &quot;</code>（判等），而是去使用一个范围例如：<code>(bool)(abs(a - b) &lt;= 1e-7)</code>此时，采用这句话，带入刚才的程序：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cmath&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>){
+	<span style="color:#66d9ef">double</span> a, b, c, d;
+	a <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;a <span style="color:#f92672">/=</span> <span style="color:#ae81ff">3</span>;
+	b <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;b <span style="color:#f92672">/=</span> <span style="color:#ae81ff">2</span>;
+	d <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>;d <span style="color:#f92672">/=</span> <span style="color:#ae81ff">6</span>;
+	c <span style="color:#f92672">=</span> a <span style="color:#f92672">+</span> b;
+	puts((abs(c <span style="color:#f92672">-</span> d) <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">1e-7</span>) <span style="color:#f92672">?</span> <span style="color:#e6db74">&#34;true&#34;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;false&#34;</span>);
+}
+</code></pre></div><p>运行结果就是<code>true</code>啦~</p>
+<p>所以，为了避免以上情况再次发生，除了加上小数之外，我们还可以单独保存小数部分，将小数部分保存为整型，就可以解决很多困扰。</p>
 
 
   </div>
