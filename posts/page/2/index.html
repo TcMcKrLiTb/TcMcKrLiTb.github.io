@@ -201,6 +201,22 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>如何将.xml文件转换成.toml</h2>
+  </header>
+  <section class="entry-content">
+    <p>引子 由于hugo官方默认的config文件为.toml格式，而我此处使用的皮肤官方页面全部采用.xml编写，根据作者来看他认为这样更简明。。。链接如下：Features · adityatelange/hugo-paper
+短时间内并没有找到自动转换工具，但是找到一个简单的格式模板，在此记录
+内容 原先的.xml配置内容：
+related: threshold:80 includeNewer:false toLower:false indices: -name:keywords weight:100 -name:date weight:10 转换之后的.toml配置内容：
+[related] threshold = 80.0 includeNewer = false toLower = false [[related.indices]] name = &#34;ketwords&#34; weight = 100.0 [[related.indices]] name = &#34;date&#34; weight = 10.0 更多的的：
+params: profileMode: enabled: true title: &#34;&lt;Title&gt;&#34; # optional default will be site title subtitle: &#34;This is subtitle&#34; imageUrl: &#34;&lt;image link&gt;&#34; # optional imageTitle: &#34;&lt;title of image as alt&gt;&#34; # optional imageWidth: 120 # custom size imageHeight: 120 # custom size buttons: - name: Archive url: &#34;/archive&#34; - name: Github url: &#34;https://github....</p>
+  </section>
+  <footer class="entry-footer">August 19, 2021&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Theme PaperMod</footer>
+  <a class="entry-link" aria-label="post link to 如何将.xml文件转换成.toml" href="https://www.tcmckrlitb.top/posts/2021-8-19-2/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>部署Github网页端的小步骤</h2>
   </header>
   <section class="entry-content">
