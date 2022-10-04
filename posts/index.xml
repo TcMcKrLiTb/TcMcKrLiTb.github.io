@@ -12,10 +12,10 @@
     <lastBuildDate>Wed, 01 Sep 2021 17:15:28 +0800</lastBuildDate><atom:link href="https://www.tcmckrlitb.top/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>崭新CentOS7虚拟机换源</title>
-      <link>https://www.tcmckrlitb.top/posts/%E5%B4%AD%E6%96%B0centos7%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%8D%A2%E6%BA%90/</link>
+      <link>https://www.tcmckrlitb.top/posts/2021-9-1/</link>
       <pubDate>Wed, 01 Sep 2021 17:15:28 +0800</pubDate>
       
-      <guid>https://www.tcmckrlitb.top/posts/%E5%B4%AD%E6%96%B0centos7%E8%99%9A%E6%8B%9F%E6%9C%BA%E6%8D%A2%E6%BA%90/</guid>
+      <guid>https://www.tcmckrlitb.top/posts/2021-9-1/</guid>
       <description>近日整了一台CentOS虚拟机这里记录配置方法
 Linux版本：CentOS7
 软件：VMware Workstation Pro
@@ -35,10 +35,10 @@ yum install -y wget yum install -y vim 没报错，成功！</description>
     
     <item>
       <title>关于Github中无法加载图片</title>
-      <link>https://www.tcmckrlitb.top/posts/%E5%85%B3%E4%BA%8Egithub%E4%B8%AD%E6%97%A0%E6%B3%95%E5%8A%A0%E8%BD%BD%E5%9B%BE%E7%89%87/</link>
+      <link>https://www.tcmckrlitb.top/posts/2021-8-24/</link>
       <pubDate>Tue, 24 Aug 2021 08:36:03 +0800</pubDate>
       
-      <guid>https://www.tcmckrlitb.top/posts/%E5%85%B3%E4%BA%8Egithub%E4%B8%AD%E6%97%A0%E6%B3%95%E5%8A%A0%E8%BD%BD%E5%9B%BE%E7%89%87/</guid>
+      <guid>https://www.tcmckrlitb.top/posts/2021-8-24/</guid>
       <description>在配置了Github Pages之后，发现网站中所有图片都没有了，检查之后发现没有成功加载图片，
 但是查看Github仓库之后发现路径并没有问题，但是图片就是显示404
 即便是在仓库中显示这个文件是存在的，这里出现的问题就是文件命名规范的问题
@@ -48,10 +48,10 @@ yum install -y wget yum install -y vim 没报错，成功！</description>
     
     <item>
       <title>关于double转int时结果不一致问题</title>
-      <link>https://www.tcmckrlitb.top/posts/%E5%85%B3%E4%BA%8Edouble%E8%BD%ACint%E6%97%B6%E7%BB%93%E6%9E%9C%E4%B8%8D%E4%B8%80%E8%87%B4%E9%97%AE%E9%A2%98/</link>
+      <link>https://www.tcmckrlitb.top/posts/2021-8-23/</link>
       <pubDate>Mon, 23 Aug 2021 12:37:23 +0800</pubDate>
       
-      <guid>https://www.tcmckrlitb.top/posts/%E5%85%B3%E4%BA%8Edouble%E8%BD%ACint%E6%97%B6%E7%BB%93%E6%9E%9C%E4%B8%8D%E4%B8%80%E8%87%B4%E9%97%AE%E9%A2%98/</guid>
+      <guid>https://www.tcmckrlitb.top/posts/2021-8-23/</guid>
       <description>问题背景： 先来看一个案例：
 #include &amp;lt;bits/stdc++.h&amp;gt; using namespace std; int main(void){ double a; int b; a = 64.35;a*= 100; b = a; b %= 10; cout &amp;lt;&amp;lt; b; return 0; } 很显然，通过常理推断，这里的答案应该输出5，但是他却输出了4
 我首先猜测是强制转换的问题，将第八行改成了b = (int)a测试运行之后竟然还是不对
@@ -67,10 +67,10 @@ int main(void){ double a, b, c, d; a = 1;a /= 3; b = 1;b /= 2; d = 5;d /= 6; c =
     
     <item>
       <title>如何将.xml文件转换成.toml</title>
-      <link>https://www.tcmckrlitb.top/posts/%E5%A6%82%E4%BD%95%E5%B0%86.xml%E6%96%87%E4%BB%B6%E8%BD%AC%E6%8D%A2%E6%88%90.toml/</link>
+      <link>https://www.tcmckrlitb.top/posts/2021-8-19-2/</link>
       <pubDate>Thu, 19 Aug 2021 11:22:23 +0800</pubDate>
       
-      <guid>https://www.tcmckrlitb.top/posts/%E5%A6%82%E4%BD%95%E5%B0%86.xml%E6%96%87%E4%BB%B6%E8%BD%AC%E6%8D%A2%E6%88%90.toml/</guid>
+      <guid>https://www.tcmckrlitb.top/posts/2021-8-19-2/</guid>
       <description>引子 由于hugo官方默认的config文件为.toml格式，而我此处使用的皮肤官方页面全部采用.xml编写，根据作者来看他认为这样更简明。。。链接如下：Features · adityatelange/hugo-paper
 短时间内并没有找到自动转换工具，但是找到一个简单的格式模板，在此记录
 内容 原先的.xml配置内容：
@@ -81,21 +81,38 @@ params: profileMode: enabled: true title: &amp;#34;&amp;lt;Title&amp;gt;&amp;#34
     
     <item>
       <title>部署Github网页端的小步骤</title>
-      <link>https://www.tcmckrlitb.top/posts/%E9%83%A8%E7%BD%B2github%E7%BD%91%E9%A1%B5%E7%AB%AF%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%BB%E7%BB%93/</link>
+      <link>https://www.tcmckrlitb.top/posts/2021-8-19-1/</link>
       <pubDate>Thu, 19 Aug 2021 11:22:23 +0800</pubDate>
       
-      <guid>https://www.tcmckrlitb.top/posts/%E9%83%A8%E7%BD%B2github%E7%BD%91%E9%A1%B5%E7%AB%AF%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%BB%E7%BB%93/</guid>
-      <description> 部署步骤   首先，清空远程库（也可以不清空，但一定要备份！接下来的操作将会覆盖掉你的远程库）
-  在命令提示符下进入site的位置，输入命令hugo生成\public目录
-  进入public右键git bash here
-  输入命令：git init出现如图所示小标算成功
-  接着，将文档放入缓存区：git add -A或git add .
-  然后将所有文件提交至本地仓库：git commit -am&amp;quot;随便写点什么&amp;quot;
-  远程创建新分支：git remote add origin 你的仓库的url
-  将文件推送至远程库git push -f origin master
-  合并分支：git push --set-upstream origin master
-  在github上Setting中的Page界面更改域名
-  </description>
+      <guid>https://www.tcmckrlitb.top/posts/2021-8-19-1/</guid>
+      <description>部署步骤 首先，清空远程库（也可以不清空，但一定要备份！接下来的操作将会覆盖掉你的远程库）
+在命令提示符下进入site的位置，输入命令hugo生成\public目录
+进入public右键git bash here
+输入命令：git init出现如图所示小标算成功
+接着，将文档放入缓存区：git add -A或git add .
+然后将所有文件提交至本地仓库：git commit -am&amp;quot;随便写点什么&amp;quot;
+远程创建新分支：git remote add origin 你的仓库的url
+将文件推送至远程库git push -f origin master
+合并分支：git push --set-upstream origin master
+在github上Setting中的Page界面更改域名</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://www.tcmckrlitb.top/posts/%E9%85%8D%E7%BD%AE%E5%9F%BA%E4%BA%8E-mirai-%E7%9A%84%E7%BE%A4%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA%E8%AE%B0%E5%BD%95%E4%B8%80/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.tcmckrlitb.top/posts/%E9%85%8D%E7%BD%AE%E5%9F%BA%E4%BA%8E-mirai-%E7%9A%84%E7%BE%A4%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA%E8%AE%B0%E5%BD%95%E4%B8%80/</guid>
+      <description>配置基于 Mirai 的群聊天机器人记录（一） [TOC]
+说在前面： 这一篇是配置 JAVA 环境，如果你已经正确下载 JAVA11 以上版本并且正确配置环境变量，那么请阅读接下来的文章。
+1、下载 JAVA 由于 Mirai 需要的 JAVA 环境是 JAVA11 及以上，所以目前官网这个页面：
+所获得的 JAVA8 并不符合要求，你需要搜索 OpenJDK 并找到这个：https://www.oracle.com/java/technologies/downloads/
+在此页面下选择你的系统对应的安装方式，（官方并没有 x86 的二进制文件，所以如果你想继续，请预装 x64 的系统）
+安装完之后请查看你的 C 盘。
+在 Program Files 文件夹中你应该可以找到名为 &amp;ldquo;jdk-*&amp;rdquo; 的文件夹，打开它，复制它的路径然后进入下一步
+2、配置环境变量 此时在命令提示符下使用 java 命令是没有用的，因为系统并不知道你要调用的程序是哪个，所以你需要进行环境变量的配置，这里提供两个配置教程：
+Windows 首先确保你为 PC 的管理员（大部分情况下都是），然后右键你的“此电脑”
+向下翻你会找到“高级系统设置”的链接，点进去，然后进入这个界面：</description>
     </item>
     
   </channel>
