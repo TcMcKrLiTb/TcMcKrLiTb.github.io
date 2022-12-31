@@ -77,7 +77,7 @@
         </div>
         <div class="stage-container remove">
             <div class="page_two hide">
-                <div id="text" style="display:none;"><p>倒计时<br><br>还有<span id="time"></span><br><span id="text1"></span><br>张释筱在这里祝你新年快乐！<br><br><br><br><br><br>彩蛋:点击屏幕任意地方即可放烟花<br><br><br><span id="copyright"></span></p></div>
+                <div id="text" style="display:none;"><p>倒计时<br><br>还有<span id="time"></span><br><span id="text1"></span><br><br>彩蛋:点击屏幕任意地方即可放烟花<br><span id="copyright"></span></p></div>
                 <div class="type_words" id="contents" style="font-size:1.15rem;line-height:1.5rem;"></div>
             </div>
             <div class="canvas-container">
@@ -252,8 +252,8 @@
     var diff2Minutes = Math.floor((diff2 - (diff2Years * 365 + diff2Days) * days - diff2Hours * hours) / minutes)
     var diff2Seconds = Math.floor((diff2 - (diff2Years * 365 + diff2Days) * days - diff2Hours * hours - diff2Minutes *
         minutes) / seconds)
-     if(todayMonth==1){if(todayDate==1){document.getElementById("text1").innerHTML =  "现在是1月1日,祝你"+todayYear+"新年快乐！"}}
-     else{document.getElementById("text1").innerHTML =  "提前祝你"+newYear+"新年快乐"}
+     if(todayMonth==1){if(todayDate==1){document.getElementById("text1").innerHTML =  "现在是1月1日,张释筱祝你"+todayYear+"新年快乐！"}}
+     else{document.getElementById("text1").innerHTML =  "张释筱提前祝你"+newYear+"新年快乐"}
      document.getElementById("time").innerHTML =  diffDays + "天" + diffHours + "小时" + diffMinutes + "分钟" + diffSeconds + "秒"+newYear
 }
 time()
