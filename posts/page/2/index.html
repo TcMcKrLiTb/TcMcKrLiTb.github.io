@@ -218,6 +218,46 @@ Windows 首先确保你为 PC 的管理员（大部分情况下都是），然�
   <footer class="entry-footer">1 min&nbsp;·&nbsp;Theme PaperMod</footer>
   <a class="entry-link" aria-label="post link to " href="https://www.tcmckrlitb.top/posts/%E9%85%8D%E7%BD%AE%E5%9F%BA%E4%BA%8E-mirai-%E7%9A%84%E7%BE%A4%E8%81%8A%E5%A4%A9%E6%9C%BA%E5%99%A8%E4%BA%BA%E8%AE%B0%E5%BD%95%E4%B8%80/"></a>
 </article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2>网络仿真软件ns3的下载与安装（VMware&amp;ubuntu）</h2>
+  </header>
+  <section class="entry-content">
+    <p>网络仿真软件ns3的下载与安装（VMware&amp;ubuntu） 一、VMware安装 VMware虚拟机安装多种多样，可参考下方链接：
+https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzA4MjU4MTg2Ng==&amp;action=getalbum&amp;album_id=3421466920749137927&amp;scene=21#wechat_redirect
+大家根据自身电脑配置情况酌情选择版本，这里不再赘述
+二、Ubuntu安装 此文写自2024-11-7，截止目前ns-3官网最高版本是3.43，根据官方安装手册，安装所需依赖版本如下表：
+查找资料可得Ubuntu版本和默认gcc/g&#43;&#43;版本对应表如下：
+Ubuntu版本 对应的默认gcc/g&#43;&#43;版本 Ubuntu14及更老 gcc/g&#43;&#43;4 Ubuntu16 gcc/g&#43;&#43;5.4 Ubuntu18 gcc/g&#43;&#43;7.5 Ubuntu20 gcc/g&#43;&#43;9.3 Ubuntu22 gcc/g&#43;&#43;11.2 所以这里我们选择Ubuntu22.04，选用阿里云的开源镜像，链接如下：
+https://mirrors.aliyun.com/ubuntu-releases/22.04/
+由于仿真需要图形化界面，选择ubuntu-22.04.5-desktop-amd64直接下载速度较慢，这里使用P2P磁链的下载模式，可以看到下载速度非常快
+下载的同时我们准备VMware的设置，点击新建虚拟机
+选择自定义，硬件兼容默认。
+选择稍后安装操作系统，先装一个空壳，稍后再装系统。
+选择Linux操作系统，Ubuntu64位
+重命名，选择一个合适的放置虚拟机的地方，我的F盘有较大空闲空间，选择放在这里
+接下来选择处理器数量和每个处理器内核数量，一般选择宿主机内核数的一半，保证其他功能的正常使用，我的电脑内核是10，此处设置处理器内核总数为4
+设置内存，默认的4G已经足足够用
+设置网络类型为NAT，方便我们向它发送安装包
+一路next过来，设置Ubuntu建议大小20GB，作为仿真实验用已经绰绰有余
+已经创建完成，再核对一下信息，点击完成创建虚拟机
+此时刚才的映像已经下载完毕，我们点击编辑虚拟机设置为其装系统，选择刚才下载的ISO文件
+点击确定，然后点击开启虚拟机开始装系统，点击这里可以选择适应屏幕
+接下来就是按照引导安装系统
+选择Install Ubuntu
+选择键盘布局English(US)
+不需要更多软件，选择Minimal installation
+我们是新磁盘，直接Erase disk and install Ubuntu（在实际装机的时候可不要Erase的这么果断。。。）
+接下来一路Continue过去即可
+设置用户名和密码，注意这里设置完之后要记住用户名和密码，这很重要，以后要用
+等待片刻后已经安装完成，会提示移除映像文件，此处移除不移除都可以，想要节省空间的可以移除后将映像文件删除。
+三、安装ns3 安装一些基础组件
+sudo apt-get install -y net-tools vim </p>
+  </section>
+  <footer class="entry-footer">1 min&nbsp;·&nbsp;Theme PaperMod</footer>
+  <a class="entry-link" aria-label="post link to 网络仿真软件ns3的下载与安装（VMware&amp;ubuntu）" href="https://www.tcmckrlitb.top/posts/%E7%BD%91%E7%BB%9C%E4%BB%BF%E7%9C%9F%E8%BD%AF%E4%BB%B6ns3%E7%9A%84%E4%B8%8B%E8%BD%BD%E4%B8%8E%E5%AE%89%E8%A3%85vmwareubuntu/"></a>
+</article>
 <footer class="page-footer">
   <nav class="pagination">
     <a class="prev" href="https://www.tcmckrlitb.top/posts/">« Prev Page</a>
