@@ -116,6 +116,47 @@ Windows 首先确保你为 PC 的管理员（大部分情况下都是），然�
     </item>
     
     <item>
+      <title>网络仿真软件ns2的下载与安装（VMware&amp;ubuntu）</title>
+      <link>https://www.tcmckrlitb.top/posts/%E7%BD%91%E7%BB%9C%E4%BB%BF%E7%9C%9F%E8%BD%AF%E4%BB%B6ns2%E7%9A%84%E4%B8%8B%E8%BD%BD%E4%B8%8E%E5%AE%89%E8%A3%85vmwareubuntu/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.tcmckrlitb.top/posts/%E7%BD%91%E7%BB%9C%E4%BB%BF%E7%9C%9F%E8%BD%AF%E4%BB%B6ns2%E7%9A%84%E4%B8%8B%E8%BD%BD%E4%B8%8E%E5%AE%89%E8%A3%85vmwareubuntu/</guid>
+      <description>网络仿真软件ns2的下载与安装（VMware&amp;amp;ubuntu） 一、VMware安装 VMware虚拟机安装多种多样，可参考下方链接：
+https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzA4MjU4MTg2Ng==&amp;amp;action=getalbum&amp;amp;album_id=3421466920749137927&amp;amp;scene=21#wechat_redirect
+大家根据自身电脑配置情况酌情选择版本，这里不再赘述
+二、Ubuntu安装 1.映像下载 这里选择Ubuntu16.04，选用阿里镜像源，由于大小较大，选用磁力链接下载的方式
+阿里云镜像源链接：https://mirrors.aliyun.com/ubuntu-releases/16.04/
+选用64位系统，由于仿真需要图形化显示，选用desktop的版本
+可以点击红色箭头直接下载，也可以点击黄色箭头下载磁链通过p2p下载软件下载，这里使用bitcomet下载，由于做种的人很多，用户也很多，可以看到下载的速度很快
+2.虚拟机配置 下载的时候同时先配置虚拟机，
+下载的同时我们准备VMware的设置，点击新建虚拟机
+选择自定义，硬件兼容默认。
+选择稍后安装操作系统，先装一个空壳，稍后再装系统。
+选择Linux操作系统，Ubuntu64位
+重命名，选择一个合适的放置虚拟机的地方，我的F盘有较大空闲空间，选择放在这里
+接下来选择处理器数量和每个处理器内核数量，一般选择宿主机内核数的一半，保证其他功能的正常使用，我的电脑内核是10，此处设置处理器内核总数为4
+设置内存，默认的4G已经足足够用
+设置网络类型为NAT，方便我们向它发送安装包
+一路next过来，设置Ubuntu建议大小20GB，作为仿真实验用已经绰绰有余
+已经创建完成，再核对一下信息，点击完成创建虚拟机
+3.配置系统 此时刚才的映像已经下载完毕，我们点击编辑虚拟机设置为其装系统，选择刚才下载的ISO文件。
+然后开启虚拟机，可以点击上方保持横纵比拉伸来放大屏幕
+接下来通过引导程序安装系统
+点击Install Ubuntu
+勾选Install third-party software for ...
+由于是建立了新盘，选择Erase disk and install Ubuntu
+选择东八区，点击地址为上海
+选择键盘布局为English(US)
+设置用户名和密码，需要注意密码很重要，之后还要用
+点击Install启动安装，等待之后重启即可
+进入系统后搜索启动terminal
+安装一些基础软件：
+sudo apt-get install -y vim ssh 4.系统换源 为提高相关软件下载速度，需要换源，这里我们使用清华的源（ubuntu16版本号是xenial，注意分辨）
+链接如下：https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/
+# 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释 deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial main restricted universe multiverse # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial main restricted universe multiverse deb https://mirrors.</description>
+    </item>
+    
+    <item>
       <title>网络仿真软件ns3的下载与安装（VMware&amp;ubuntu）</title>
       <link>https://www.tcmckrlitb.top/posts/%E7%BD%91%E7%BB%9C%E4%BB%BF%E7%9C%9F%E8%BD%AF%E4%BB%B6ns3%E7%9A%84%E4%B8%8B%E8%BD%BD%E4%B8%8E%E5%AE%89%E8%A3%85vmwareubuntu/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -149,8 +190,10 @@ https://mirrors.aliyun.com/ubuntu-releases/22.04/
 接下来一路Continue过去即可
 设置用户名和密码，注意这里设置完之后要记住用户名和密码，这很重要，以后要用
 等待片刻后已经安装完成，会提示移除映像文件，此处移除不移除都可以，想要节省空间的可以移除后将映像文件删除。
-三、安装ns3 安装一些基础组件
-sudo apt-get install -y net-tools vim </description>
+三、安装ns3 先换源
+sudo apt-get install vim cd /etc/apt sudo cp sources.list sources.list.backup //备份以前的源 sudo vim sources.list 注释掉以前的语句，将新的源粘贴进去，这里使用清华的镜像
+https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/
+# 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释 deb https://mirrors.</description>
     </item>
     
   </channel>
