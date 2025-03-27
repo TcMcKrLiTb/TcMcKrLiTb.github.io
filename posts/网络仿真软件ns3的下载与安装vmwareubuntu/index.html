@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        :root {
+            --accent-color: #FF4D4D;
+            --font-size: 17.5px;
+        }
+    </style>
+
+    
+    
+    
+    
+    
+    
+
+    
+    <title>网络仿真软件ns3的下载与安装（VMware&amp;ubuntu）</title>
+    <meta name="description" content="网络仿真软件ns3的下载与安装（VMware&amp;ubuntu） 一、VMware安装 VMware虚拟机安装多种多样，可参考下方链接： …">
+    <meta name="keywords" content=''>
+
+    <meta property="og:url" content="http://localhost:1313/posts/%E7%BD%91%E7%BB%9C%E4%BB%BF%E7%9C%9F%E8%BD%AF%E4%BB%B6ns3%E7%9A%84%E4%B8%8B%E8%BD%BD%E4%B8%8E%E5%AE%89%E8%A3%85vmwareubuntu/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="网络仿真软件ns3的下载与安装（VMware&amp;ubuntu）">
+    <meta property="og:description" content="网络仿真软件ns3的下载与安装（VMware&amp;ubuntu） 一、VMware安装 VMware虚拟机安装多种多样，可参考下方链接： …">
+    <meta property="og:image" content="http://localhost:1313/images/avatar.webp">
+    <meta property="og:image:secure_url" content="http://localhost:1313/images/avatar.webp">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="网络仿真软件ns3的下载与安装（VMware&amp;ubuntu）">
+    <meta name="twitter:description" content="网络仿真软件ns3的下载与安装（VMware&amp;ubuntu） 一、VMware安装 VMware虚拟机安装多种多样，可参考下方链接： …">
+    <meta property="twitter:domain" content="http://localhost:1313/posts/%E7%BD%91%E7%BB%9C%E4%BB%BF%E7%9C%9F%E8%BD%AF%E4%BB%B6ns3%E7%9A%84%E4%B8%8B%E8%BD%BD%E4%B8%8E%E5%AE%89%E8%A3%85vmwareubuntu/">
+    <meta property="twitter:url" content="http://localhost:1313/posts/%E7%BD%91%E7%BB%9C%E4%BB%BF%E7%9C%9F%E8%BD%AF%E4%BB%B6ns3%E7%9A%84%E4%B8%8B%E8%BD%BD%E4%B8%8E%E5%AE%89%E8%A3%85vmwareubuntu/">
+    <meta name="twitter:image" content="http://localhost:1313/images/avatar.webp">
+
+    
+    <link rel="canonical" href="http://localhost:1313/posts/%E7%BD%91%E7%BB%9C%E4%BB%BF%E7%9C%9F%E8%BD%AF%E4%BB%B6ns3%E7%9A%84%E4%B8%8B%E8%BD%BD%E4%B8%8E%E5%AE%89%E8%A3%85vmwareubuntu/">
+
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.min.css" media="print">
+
+    
+    <link rel="stylesheet" type="text/css" href="/css/main.min.css">
+
+    
+    <link id="dark-theme" rel="stylesheet" href="/css/dark.min.css">
+
+    
+    <script src="/js/bundle.min.60fe9a4dcb5a42836ec53c446e239a9862be5c1f67da457c275b9bf9681d796b.js" integrity="sha256-YP6aTctaQoNuxTxEbiOamGK&#43;XB9n2kV8J1ub&#43;WgdeWs="></script>
+
+    
+    
+</head>
+<body>
+        <script>
+            
+            setThemeByUserPref();
+        </script><header class="header">
+    <nav class="header-nav">
+
+        
+        <div class="avatar">
+            <a href="http://localhost:1313/">
+                <img src='/images/avatar.webp' alt="avatar">
+            </a>
+        </div>
+        
+
+        <div class="nav-title">
+            <a class="nav-brand" href="http://localhost:1313/">My New Hugo Site</a>
+        </div>
+
+        <div class="nav-links">
+            
+            <div class="nav-link">
+                <a href="http://localhost:1313/posts/" aria-label="" > Posts </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="http://localhost:1313/tags/" aria-label="" > Tags </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://github.com" aria-label="github" target="_blank"><img class='svg-inject' src='/icons/github.svg' />  </a>
+            </div>
+            
+
+            <span class="nav-icons-divider"></span>
+            <div class="nav-link dark-theme-toggle">
+                <span class="sr-only dark-theme-toggle-screen-reader-target">theme</span>
+                <a aria-hidden="true" role="switch">
+                    <span class="theme-toggle-icon" data-feather="moon"></span>
+                </a>
+            </div>
+
+            <div class="nav-link" id="hamburger-menu-toggle">
+                <span class="sr-only hamburger-menu-toggle-screen-reader-target">menu</span>
+                <a aria-checked="false" aria-labelledby="hamburger-menu-toggle" id="hamburger-menu-toggle-target" role="switch">
+                    <span data-feather="menu"></span>
+                </a>
+            </div>
+
+            
+            <ul class="nav-hamburger-list visibility-hidden">
+                
+                <li class="nav-item">
+                    <a href="http://localhost:1313/posts/" > Posts </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="http://localhost:1313/tags/" > Tags </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://github.com" target="_blank"><img class='svg-inject' src='/icons/github.svg' />  </a>
+                </li>
+                
+                <li class="nav-item dark-theme-toggle">
+                    <span class="sr-only dark-theme-toggle-screen-reader-target">theme</span>
+                    <a role="switch">
+                        <span class="theme-toggle-icon" data-feather="moon"></span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+</header>
+<main id="content">
+    <div class="post container">
+    <div class="post-header-section">
+        <h1>网络仿真软件ns3的下载与安装（VMware&amp;ubuntu）</h1>
+
+        
+
+        
+	
+	
+	
+	
+        
+
+	
+
+	
+
+	
+          <small role="doc-subtitle"></small>
+	
+
+	
+          <p class="post-date">
+              
+
+              7 November, 2024
+
+              
+          </p>
+	
+
+        <ul class="post-tags">
+          
+        </ul>
+    </div>
+
+    <div class="post-content">
+        <h1 id="网络仿真软件ns3的下载与安装vmwareubuntu">网络仿真软件ns3的下载与安装（VMware&amp;ubuntu）</h1>
+<h3 id="一vmware安装">一、VMware安装</h3>
+<p>VMware虚拟机安装多种多样，可参考下方链接：</p>
+<p><a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzA4MjU4MTg2Ng==&amp;action=getalbum&amp;album_id=3421466920749137927&amp;scene=21#wechat_redirect">https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzA4MjU4MTg2Ng==&amp;action=getalbum&amp;album_id=3421466920749137927&amp;scene=21#wechat_redirect</a></p>
+<p>大家根据自身电脑配置情况酌情选择版本，这里不再赘述</p>
+<h3 id="二ubuntu安装">二、Ubuntu安装</h3>
+<p>此文写自2024-11-7，截止目前ns-3官网最高版本是3.43，根据官方安装手册，安装所需依赖版本如下表：</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20241107192025133.png" alt="image-20241107192025133"></p>
+<p>查找资料可得Ubuntu版本和默认gcc/g++版本对应表如下：</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: center">Ubuntu版本</th>
+          <th style="text-align: center">对应的默认gcc/g++版本</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">Ubuntu14及更老</td>
+          <td style="text-align: center">gcc/g++4</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">Ubuntu16</td>
+          <td style="text-align: center">gcc/g++5.4</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">Ubuntu18</td>
+          <td style="text-align: center">gcc/g++7.5</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">Ubuntu20</td>
+          <td style="text-align: center">gcc/g++9.3</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">Ubuntu22</td>
+          <td style="text-align: center">gcc/g++11.2</td>
+      </tr>
+  </tbody>
+</table>
+<p>所以这里我们选择Ubuntu22.04，选用阿里云的开源镜像，链接如下：</p>
+<p><a href="https://mirrors.aliyun.com/ubuntu-releases/22.04/">https://mirrors.aliyun.com/ubuntu-releases/22.04/</a></p>
+<p>由于仿真需要图形化界面，选择<code>ubuntu-22.04.5-desktop-amd64</code>直接下载速度较慢，这里使用P2P磁链的下载模式，可以看到下载速度非常快</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/Snipaste_2024-11-07_19-38-52.png" alt="Snipaste_2024-11-07_19-38-52"></p>
+<p>下载的同时我们准备VMware的设置，点击新建虚拟机</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/Snipaste_2024-11-07_19-40-56.png" alt="Snipaste_2024-11-07_19-40-56"></p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/Snipaste_2024-11-07_19-43-00.png" alt="Snipaste_2024-11-07_19-43-00"></p>
+<p>选择自定义，硬件兼容默认。</p>
+<p>选择稍后安装操作系统，先装一个空壳，稍后再装系统。</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/Snipaste_2024-11-07_19-43-10.png" alt="Snipaste_2024-11-07_19-43-10"></p>
+<p>选择Linux操作系统，Ubuntu64位</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/Snipaste_2024-11-07_19-44-17.png" alt="Snipaste_2024-11-07_19-44-17"></p>
+<p>重命名，选择一个合适的放置虚拟机的地方，我的F盘有较大空闲空间，选择放在这里</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/Snipaste_2024-11-07_19-45-10.png" alt="Snipaste_2024-11-07_19-45-10"></p>
+<p>接下来选择处理器数量和每个处理器内核数量，一般选择宿主机内核数的一半，保证其他功能的正常使用，我的电脑内核是<strong>10</strong>，此处设置处理器内核总数为<strong>4</strong></p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20241107200019785.png" alt="image-20241107200019785"></p>
+<p>设置内存，默认的<strong>4G</strong>已经足足够用</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20241107200136056.png" alt="image-20241107200136056"></p>
+<p>设置网络类型为NAT，方便我们向它发送安装包</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20241107200237596.png" alt="image-20241107200237596"></p>
+<p>一路<code>next</code>过来，设置Ubuntu建议大小20GB，作为仿真实验用已经绰绰有余</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20241107200406862.png" alt="image-20241107200406862"></p>
+<p>已经创建完成，再核对一下信息，点击完成创建虚拟机</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20241107200447212.png" alt="image-20241107200447212"></p>
+<p>此时刚才的映像已经下载完毕，我们点击编辑虚拟机设置为其装系统，选择刚才下载的ISO文件</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20241107200540632.png" alt="image-20241107200540632"></p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20241107200616258.png" alt="image-20241107200616258"></p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20241107200655361.png" alt="image-20241107200655361"></p>
+<p>点击确定，然后点击开启虚拟机开始装系统，点击这里可以选择适应屏幕</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20241107200805902.png" alt="image-20241107200805902"></p>
+<p>接下来就是按照引导安装系统</p>
+<p>选择Install Ubuntu</p>
+<p>选择键盘布局English(US)</p>
+<p>不需要更多软件，选择Minimal installation</p>
+<p>我们是新磁盘，直接Erase disk and install Ubuntu（在实际装机的时候可不要Erase的这么果断。。。）</p>
+<p>接下来一路Continue过去即可</p>
+<p>设置用户名和密码，注意这里设置完之后要记住用户名和密码，这很重要，以后要用</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20241107201526857.png" alt="image-20241107201027886"></p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20241107202725298.png" alt="image-20241107202725298"></p>
+<p>等待片刻后已经安装完成，会提示移除映像文件，此处移除不移除都可以，想要节省空间的可以移除后将映像文件删除。</p>
+<h3 id="三安装ns3">三、安装ns3</h3>
+<p>先换源</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo apt-get install vim
+</span></span><span style="display:flex;"><span>cd /etc/apt
+</span></span><span style="display:flex;"><span>sudo cp sources.list sources.list.backup 	//备份以前的源
+</span></span><span style="display:flex;"><span>sudo vim sources.list
+</span></span></code></pre></div><p>注释掉以前的语句，将新的源粘贴进去，这里使用清华的镜像</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20241108001633483.png" alt="image-20241108001633483"></p>
+<p><a href="https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/">https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/</a></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释</span>
+</span></span><span style="display:flex;"><span>deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy main restricted universe multiverse
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy main restricted universe multiverse</span>
+</span></span><span style="display:flex;"><span>deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-updates main restricted universe multiverse
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-updates main restricted universe multiverse</span>
+</span></span><span style="display:flex;"><span>deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-backports main restricted universe multiverse
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-backports main restricted universe multiverse</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 以下安全更新软件源包含了官方源与镜像站配置，如有需要可自行修改注释切换</span>
+</span></span><span style="display:flex;"><span>deb http://security.ubuntu.com/ubuntu/ jammy-security main restricted universe multiverse
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># deb-src http://security.ubuntu.com/ubuntu/ jammy-security main restricted universe multiverse</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 预发布软件源，不建议启用</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-proposed main restricted universe multiverse</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ jammy-proposed main restricted universe multiverse</span>
+</span></span></code></pre></div><p>更新软件源并安装一些基础组件</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo apt-get update 
+</span></span><span style="display:flex;"><span>sudo apt-get upgrade
+</span></span><span style="display:flex;"><span>sudo apt-get install -y net-tools ssh
+</span></span></code></pre></div><p>安装所需环境</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo apt-get install -y build-essential cmake			//gcc-make
+</span></span><span style="display:flex;"><span>sudo apt-get install -y ccache gdb valgrind
+</span></span><span style="display:flex;"><span>sudo apt-get install -y qtcreator
+</span></span><span style="display:flex;"><span>sudo apt-get install -y python3 python3-pip
+</span></span><span style="display:flex;"><span>sudo apt-get install -y libxmu-dev libxmu-headers	//nam库相关文件
+</span></span></code></pre></div><p>安装python所需依赖</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>python3 -m pip install --user cppyy<span style="color:#f92672">==</span>3.1.2
+</span></span><span style="display:flex;"><span>sudo apt-get install gir1.2-goocanvas-2.0 python3-gi python3-gi-cairo python3-pygraphviz gir1.2-gtk-3.0 ipython3
+</span></span></code></pre></div><p>使用<code>ifconfig</code>查看服务器的IP地址</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20241107234932781.png" alt="image-20241107234932781"></p>
+<p>由于是NAT模式，本机应该可以直接<code>ping</code>通虚拟机</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>ping 192.168.81.131
+</span></span></code></pre></div><p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20241108000256637.png" alt="image-20241108000256637"></p>
+<p>使用<code>sftp</code>将下载好的<strong>ns3</strong>压缩包发送到服务器上（将代码里的<code>xxx</code>替换为虚拟机用户名，使用设置的密码登录）</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sftp xxx@192.168.81.131
+</span></span><span style="display:flex;"><span>put ns-allinone-3.43.tar.bz2 /home/xxx
+</span></span></code></pre></div><p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20241108000857755.png" alt="image-20241108000857755"></p>
+<p>上传成功，转回服务器，解压缩</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>tar -jxvf ns-allinone-3.43.tar.bz2
+</span></span></code></pre></div><p>接下来进行安装</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cd ns-allinone-3.43/ns-3.43/
+</span></span><span style="display:flex;"><span>./ns3 configure --enable-examples --enable-tests
+</span></span><span style="display:flex;"><span>./ns3 build
+</span></span></code></pre></div><p>构建时间因CPU内核的数量、CPU和内存的速度以及构建模式而异，如果之前选择的内核数较高，build速度将更快</p>
+<p>安装完后会返回一个cmake命令</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20241108015135635.png" alt="image-20241108015135635"></p>
+<p>在结束之后，可以使用单元测试去检查build结果</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span> ./test.py
+</span></span></code></pre></div><p>全部检查通过</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20241108020915852.png" alt="image-20241108020915852"></p>
+
+        
+    </div>
+
+    <div class="prev-next">
+        
+    </div>
+
+    
+    
+    
+</div>
+
+
+
+    
+
+        </main><footer class="footer">
+    
+    
+
+    
+
+    
+
+        
+            
+        
+
+        
+
+        
+        
+
+        
+
+    
+
+    
+        <span>&copy; 2024 The Marauders</span>
+    
+
+    <span>
+        Made with &#10084;&#65039; using <a target="_blank" href="https://github.com/gokarna-theme/gokarna-hugo">Gokarna</a>
+    </span>
+</footer>
+</body>
+</html>

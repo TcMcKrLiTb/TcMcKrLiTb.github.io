@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        :root {
+            --accent-color: #FF4D4D;
+            --font-size: 17.5px;
+        }
+    </style>
+
+    
+    
+    
+    
+    
+    
+
+    
+    <title>网络仿真软件ns2的下载与安装（VMware&amp;ubuntu）</title>
+    <meta name="description" content="网络仿真软件ns2的下载与安装（VMware&amp;ubuntu） 一、VMware安装 VMware虚拟机安装多种多样，可参考下方链接： …">
+    <meta name="keywords" content=''>
+
+    <meta property="og:url" content="http://localhost:1313/posts/%E7%BD%91%E7%BB%9C%E4%BB%BF%E7%9C%9F%E8%BD%AF%E4%BB%B6ns2%E7%9A%84%E4%B8%8B%E8%BD%BD%E4%B8%8E%E5%AE%89%E8%A3%85vmwareubuntu/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="网络仿真软件ns2的下载与安装（VMware&amp;ubuntu）">
+    <meta property="og:description" content="网络仿真软件ns2的下载与安装（VMware&amp;ubuntu） 一、VMware安装 VMware虚拟机安装多种多样，可参考下方链接： …">
+    <meta property="og:image" content="http://localhost:1313/images/avatar.webp">
+    <meta property="og:image:secure_url" content="http://localhost:1313/images/avatar.webp">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="网络仿真软件ns2的下载与安装（VMware&amp;ubuntu）">
+    <meta name="twitter:description" content="网络仿真软件ns2的下载与安装（VMware&amp;ubuntu） 一、VMware安装 VMware虚拟机安装多种多样，可参考下方链接： …">
+    <meta property="twitter:domain" content="http://localhost:1313/posts/%E7%BD%91%E7%BB%9C%E4%BB%BF%E7%9C%9F%E8%BD%AF%E4%BB%B6ns2%E7%9A%84%E4%B8%8B%E8%BD%BD%E4%B8%8E%E5%AE%89%E8%A3%85vmwareubuntu/">
+    <meta property="twitter:url" content="http://localhost:1313/posts/%E7%BD%91%E7%BB%9C%E4%BB%BF%E7%9C%9F%E8%BD%AF%E4%BB%B6ns2%E7%9A%84%E4%B8%8B%E8%BD%BD%E4%B8%8E%E5%AE%89%E8%A3%85vmwareubuntu/">
+    <meta name="twitter:image" content="http://localhost:1313/images/avatar.webp">
+
+    
+    <link rel="canonical" href="http://localhost:1313/posts/%E7%BD%91%E7%BB%9C%E4%BB%BF%E7%9C%9F%E8%BD%AF%E4%BB%B6ns2%E7%9A%84%E4%B8%8B%E8%BD%BD%E4%B8%8E%E5%AE%89%E8%A3%85vmwareubuntu/">
+
+    
+    <link rel="stylesheet" type="text/css" href="/css/normalize.min.css" media="print">
+
+    
+    <link rel="stylesheet" type="text/css" href="/css/main.min.css">
+
+    
+    <link id="dark-theme" rel="stylesheet" href="/css/dark.min.css">
+
+    
+    <script src="/js/bundle.min.60fe9a4dcb5a42836ec53c446e239a9862be5c1f67da457c275b9bf9681d796b.js" integrity="sha256-YP6aTctaQoNuxTxEbiOamGK&#43;XB9n2kV8J1ub&#43;WgdeWs="></script>
+
+    
+    
+</head>
+<body>
+        <script>
+            
+            setThemeByUserPref();
+        </script><header class="header">
+    <nav class="header-nav">
+
+        
+        <div class="avatar">
+            <a href="http://localhost:1313/">
+                <img src='/images/avatar.webp' alt="avatar">
+            </a>
+        </div>
+        
+
+        <div class="nav-title">
+            <a class="nav-brand" href="http://localhost:1313/">My New Hugo Site</a>
+        </div>
+
+        <div class="nav-links">
+            
+            <div class="nav-link">
+                <a href="http://localhost:1313/posts/" aria-label="" > Posts </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="http://localhost:1313/tags/" aria-label="" > Tags </a>
+            </div>
+            
+            <div class="nav-link">
+                <a href="https://github.com" aria-label="github" target="_blank"><img class='svg-inject' src='/icons/github.svg' />  </a>
+            </div>
+            
+
+            <span class="nav-icons-divider"></span>
+            <div class="nav-link dark-theme-toggle">
+                <span class="sr-only dark-theme-toggle-screen-reader-target">theme</span>
+                <a aria-hidden="true" role="switch">
+                    <span class="theme-toggle-icon" data-feather="moon"></span>
+                </a>
+            </div>
+
+            <div class="nav-link" id="hamburger-menu-toggle">
+                <span class="sr-only hamburger-menu-toggle-screen-reader-target">menu</span>
+                <a aria-checked="false" aria-labelledby="hamburger-menu-toggle" id="hamburger-menu-toggle-target" role="switch">
+                    <span data-feather="menu"></span>
+                </a>
+            </div>
+
+            
+            <ul class="nav-hamburger-list visibility-hidden">
+                
+                <li class="nav-item">
+                    <a href="http://localhost:1313/posts/" > Posts </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="http://localhost:1313/tags/" > Tags </a>
+                </li>
+                
+                <li class="nav-item">
+                    <a href="https://github.com" target="_blank"><img class='svg-inject' src='/icons/github.svg' />  </a>
+                </li>
+                
+                <li class="nav-item dark-theme-toggle">
+                    <span class="sr-only dark-theme-toggle-screen-reader-target">theme</span>
+                    <a role="switch">
+                        <span class="theme-toggle-icon" data-feather="moon"></span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+</header>
+<main id="content">
+    <div class="post container">
+    <div class="post-header-section">
+        <h1>网络仿真软件ns2的下载与安装（VMware&amp;ubuntu）</h1>
+
+        
+
+        
+	
+	
+	
+	
+        
+
+	
+
+	
+
+	
+          <small role="doc-subtitle"></small>
+	
+
+	
+          <p class="post-date">
+              
+
+              9 November, 2024
+
+              
+          </p>
+	
+
+        <ul class="post-tags">
+          
+        </ul>
+    </div>
+
+    <div class="post-content">
+        <h1 id="网络仿真软件ns2的下载与安装vmwareubuntu">网络仿真软件ns2的下载与安装（VMware&amp;ubuntu）</h1>
+<h3 id="一vmware安装">一、VMware安装</h3>
+<p>VMware虚拟机安装多种多样，可参考下方链接：</p>
+<p><a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzA4MjU4MTg2Ng==&amp;action=getalbum&amp;album_id=3421466920749137927&amp;scene=21#wechat_redirect">https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzA4MjU4MTg2Ng==&amp;action=getalbum&amp;album_id=3421466920749137927&amp;scene=21#wechat_redirect</a></p>
+<p>大家根据自身电脑配置情况酌情选择版本，这里不再赘述</p>
+<h3 id="二ubuntu安装">二、Ubuntu安装</h3>
+<h4 id="1映像下载">1.映像下载</h4>
+<p>这里选择<strong>Ubuntu16.04</strong>，选用阿里镜像源，由于大小较大，选用磁力链接下载的方式</p>
+<p>阿里云镜像源链接：https://mirrors.aliyun.com/ubuntu-releases/16.04/</p>
+<p>选用64位系统，由于仿真需要图形化显示，选用desktop的版本</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20241109200352112.png" alt="image-20241109200352112"></p>
+<p>可以点击红色箭头直接下载，也可以点击黄色箭头下载磁链通过p2p下载软件下载，这里使用bitcomet下载，由于做种的人很多，用户也很多，可以看到下载的速度很快</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20241109201741414.png" alt="image-20241109201741414"></p>
+<h4 id="2虚拟机配置">2.虚拟机配置</h4>
+<p>下载的时候同时先配置虚拟机，</p>
+<p>下载的同时我们准备VMware的设置，点击新建虚拟机</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/Snipaste_2024-11-07_19-40-56.png" alt="Snipaste_2024-11-07_19-40-56"></p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/Snipaste_2024-11-07_19-43-00.png" alt="Snipaste_2024-11-07_19-43-00"></p>
+<p>选择自定义，硬件兼容默认。</p>
+<p>选择稍后安装操作系统，先装一个空壳，稍后再装系统。</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/Snipaste_2024-11-07_19-43-10.png" alt="Snipaste_2024-11-07_19-43-10"></p>
+<p>选择Linux操作系统，Ubuntu64位</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/Snipaste_2024-11-07_19-44-17.png" alt="Snipaste_2024-11-07_19-44-17"></p>
+<p>重命名，选择一个合适的放置虚拟机的地方，我的F盘有较大空闲空间，选择放在这里</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20241109202148962.png" alt="image-20241109202148962"></p>
+<p>接下来选择处理器数量和每个处理器内核数量，一般选择宿主机内核数的一半，保证其他功能的正常使用，我的电脑内核是<strong>10</strong>，此处设置处理器内核总数为<strong>4</strong></p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20241107200019785.png" alt="image-20241107200019785"></p>
+<p>设置内存，默认的<strong>4G</strong>已经足足够用</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20241107200136056.png" alt="image-20241107200136056"></p>
+<p>设置网络类型为NAT，方便我们向它发送安装包</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20241107200237596.png" alt="image-20241107200237596"></p>
+<p>一路<code>next</code>过来，设置Ubuntu建议大小20GB，作为仿真实验用已经绰绰有余</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20241107200406862.png" alt="image-20241107200406862"></p>
+<p>已经创建完成，再核对一下信息，点击完成创建虚拟机</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20241109202232139.png" alt="image-20241109202232139"></p>
+<h4 id="3配置系统">3.配置系统</h4>
+<p>此时刚才的映像已经下载完毕，我们点击编辑虚拟机设置为其装系统，选择刚才下载的ISO文件。</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20241109224052979.png?imageslim" alt="image-20241109224052979"></p>
+<p>然后开启虚拟机，可以点击上方保持横纵比拉伸来放大屏幕</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20241109224209378.png?imageslim" alt="image-20241109224209378"></p>
+<p>接下来通过引导程序安装系统</p>
+<ol>
+<li>
+<p>点击<code>Install Ubuntu</code></p>
+</li>
+<li>
+<p>勾选<code>Install third-party software for ...</code></p>
+</li>
+<li>
+<p>由于是建立了新盘，选择Erase disk and install Ubuntu</p>
+</li>
+<li>
+<p>选择东八区，点击地址为上海</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20241109235500264.png?imageslim" alt="image-20241109235500264"></p>
+</li>
+<li>
+<p>选择键盘布局为<code>English(US)</code></p>
+</li>
+<li>
+<p>设置用户名和密码，需要注意密码很重要，之后还要用</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20241109235715243.png?imageslim" alt="image-20241109235715243"></p>
+</li>
+<li>
+<p>点击<code>Install</code>启动安装，等待之后重启即可</p>
+</li>
+</ol>
+<p>进入系统后搜索启动<code>terminal</code></p>
+<p>安装一些基础软件：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo apt-get install -y vim ssh
+</span></span></code></pre></div><h4 id="4系统换源">4.系统换源</h4>
+<p>为提高相关软件下载速度，需要换源，这里我们使用清华的源（ubuntu16版本号是xenial，注意分辨）</p>
+<p>链接如下：https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释</span>
+</span></span><span style="display:flex;"><span>deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial main restricted universe multiverse
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial main restricted universe multiverse</span>
+</span></span><span style="display:flex;"><span>deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-updates main restricted universe multiverse
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-updates main restricted universe multiverse</span>
+</span></span><span style="display:flex;"><span>deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-backports main restricted universe multiverse
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-backports main restricted universe multiverse</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 以下安全更新软件源包含了官方源与镜像站配置，如有需要可自行修改注释切换</span>
+</span></span><span style="display:flex;"><span>deb http://security.ubuntu.com/ubuntu/ xenial-security main restricted universe multiverse
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># deb-src http://security.ubuntu.com/ubuntu/ xenial-security main restricted universe multiverse</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 预发布软件源，不建议启用</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-proposed main restricted universe multiverse</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-proposed main restricted universe multiverse</span>
+</span></span></code></pre></div><p>使用编辑器编辑源列表文件</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cd /etc/apt/
+</span></span><span style="display:flex;"><span>sudo cp sources.list sources.list.bakup	//备份原先文件
+</span></span><span style="display:flex;"><span>sudo vim sources.list
+</span></span></code></pre></div><p>按<code>i</code>键进入编辑模式，注释掉原先源，将上方源复制到文件最后。按<code>ESC</code>键退出编辑模式，输入<code>:wq + Enter</code>保存并退出<strong>vim</strong></p>
+<p>更新源</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo apt-get update
+</span></span><span style="display:flex;"><span>sudo apt-get upgrade
+</span></span></code></pre></div><h3 id="三安装ns2">三、安装ns2</h3>
+<h4 id="1安装依赖库">1.安装依赖库</h4>
+<p>在安装<strong>ns2</strong>之前我们需要准备以下几个依赖库：</p>
+<ul>
+<li>libx11-dev：提供X Window系统相关的开发库。</li>
+<li>tcl-dev：为Tcl语言提供编译环境。</li>
+<li>tk-dev：为Tk图形界面库提供开发支持。</li>
+<li>gcc 和 g++：用于编译C和C++代码。</li>
+<li>make：构建工具，用于编译NS2。</li>
+</ul>
+<p>（引用自https://blog.csdn.net/weixin_36296444/article/details/141827130）</p>
+<p>一键安装</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo apt-get install -y libx11-dev gcc make tcl8.4 tcl8.4-dev tk8.4 tk8.4-dev build-essential libxmu-dev libxmu-headers
+</span></span></code></pre></div><p>测试安装</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>g++ -v
+</span></span></code></pre></div><p>你也可以编译一段程序验证：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cd ~
+</span></span><span style="display:flex;"><span>sudo vim test.cpp
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Hello World&#34;</span> <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo g++ test.cpp -o test <span style="color:#f92672">&amp;&amp;</span> ./test
+</span></span></code></pre></div><p>程序输出<code>Hello World</code>，没有问题</p>
+<h4 id="2安装ns2">2.安装ns2</h4>
+<p>先下载ns2的<code>all in one</code>包（你也可以选择源码，但是安装可能会遇到一些问题），官网给出的链接是sourcedorge的下载链接</p>
+<p>官网链接：https://www.isi.edu/websites/nsnam/ns/</p>
+<p>下载链接：http://sourceforge.net/projects/nsnam/files/allinone/ns-allinone-2.35/ns-allinone-2.35.tar.gz/download</p>
+<p>如何把文件发送到虚拟机上呢，这里使用<strong>sftp</strong>将文件发上去，先查看虚拟机的IP地址：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>ifconfig
+</span></span></code></pre></div><p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20241110003623995.png?imageslim" alt="image-20241110003623995"></p>
+<p>其中<strong>ens33</strong>网卡就是我们之前配置的NAT网络对应的网卡</p>
+<p>返回主机系统，在刚才下载到压缩包的路径打开<strong>cmd</strong></p>
+<p>通过<code>sftp</code>使用刚才设置的用户和密码登录系统，并将文件发送上去（将xxx修改为自己设置的用户名）</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sftp xxx@192.168.81.130
+</span></span><span style="display:flex;"><span>put ns-allinone-2.35.tar.gz /home/xxx/
+</span></span></code></pre></div><p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20241110012029766.png?imageslim" alt="image-20241110012029766"></p>
+<p>返回虚拟机可以看到文件已经上传成功</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20241110004044625.png?imageslim" alt="image-20241110004044625"></p>
+<p>解压缩源码压缩包：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>tar -zxvf ns-allinone-2.35.tar.gz
+</span></span><span style="display:flex;"><span>cd ns-allinone-2.35
+</span></span></code></pre></div><p>开始安装</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>./install
+</span></span></code></pre></div><p>发现报错</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20241110012629683.png?imageslim" alt="image-20241110012629683"></p>
+<p>是因为我们使用的g++版本与当时不同，只能修改源码来解决</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo vim ns-2.35/linkstate/ls.h
+</span></span></code></pre></div><p>将<code>137</code>行的<code>erase</code>改为<code>this-&gt;erase</code>即可，再次执行<code>./install</code>等待安装完成即可</p>
+<p>显示安装完成：</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20241110013512544.png?imageslim" alt="image-20241110013512544"></p>
+<p>依据提示设置环境变量：</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20241110013602064.png?imageslim" alt="image-20241110013602064"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo vim ~/.bashrc
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>export PATH<span style="color:#f92672">=</span>$PATH:/home/xxx/ns-allinone-2.35/bin:/home/xxx/ns-allinone-2.35/tcl8.5.10/unix:/home/xxx/ns-allinone-2.35/tk8.5.10/unix
+</span></span><span style="display:flex;"><span>export LD_LIBRARY_PATH<span style="color:#f92672">=</span>$LD_LIBRARY_PATH:/home/xxx/ns-allinone-2.35/otcl-1.14:/home/xxx/ns-allinone-2.35/lib
+</span></span><span style="display:flex;"><span>export TCL_LIBRARY<span style="color:#f92672">=</span>$TCL_LIBRARY:/home/xxx/ns-allinone-2.35/tcl8.5.10/library
+</span></span></code></pre></div><p>（将xxx改为自己的名称）</p>
+<p>编译环境变量：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>source ~/.bashrc
+</span></span></code></pre></div><p>验证安装（这步时间较长，不建议，建议直接跳到下一步）</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cd ns-2.35 <span style="color:#f92672">&amp;&amp;</span> ./validate
+</span></span></code></pre></div><h4 id="3测试ns2">3.测试ns2</h4>
+<p>退出重启terminal，输入<code>ns</code>，出现一个<code>%</code>证明安装成功</p>
+<p>输入<code>exit</code>退出：</p>
+<pre tabindex="0"><code>cd ns-allinone-2.35/ns-2.35/tcl/ex
+ns example.tcl
+</code></pre><p>如果出现了数据，证明ns2运行正常。再输入</p>
+<pre tabindex="0"><code>ns simple.tcl
+</code></pre><p>倘若弹出动画演示框，则证明ns完全安装正确</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20241110022350629.png?imageslim" alt="image-20241110022350629"></p>
+<h3 id="四一些问题">四、一些问题</h3>
+<h4 id="1运行simple显示无nam">1.运行simple显示无nam</h4>
+<p>重新安装nam即可</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cd ~/ns-allinone-2.35/nam-1.15
+</span></span><span style="display:flex;"><span>./configure
+</span></span><span style="display:flex;"><span>make
+</span></span><span style="display:flex;"><span>sudo make install
+</span></span></code></pre></div><p>然后测试，出现nam console说明安装成功，回去重新测试即可</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20241110022648267.png?imageslim" alt="image-20241110022648267"></p>
+<h4 id="2复制粘贴技巧">2.复制粘贴技巧</h4>
+<p>如果没有安装tools，复制粘贴可能不太方便，可以使用ssh链接</p>
+<p>可以win+R然后输入powershell</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>ssh xxx@192.168.81.130
+</span></span></code></pre></div><p>登录即可，就获得了一个在本地运行的终端，右键即可粘贴</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20241110022933657.png?imageslim" alt="image-20241110022933657"></p>
+
+        
+    </div>
+
+    <div class="prev-next">
+        
+    </div>
+
+    
+    
+    
+</div>
+
+
+
+    
+
+        </main><footer class="footer">
+    
+    
+
+    
+
+    
+
+        
+            
+        
+
+        
+
+        
+        
+
+        
+
+    
+
+    
+        <span>&copy; 2024 The Marauders</span>
+    
+
+    <span>
+        Made with &#10084;&#65039; using <a target="_blank" href="https://github.com/gokarna-theme/gokarna-hugo">Gokarna</a>
+    </span>
+</footer>
+</body>
+</html>
