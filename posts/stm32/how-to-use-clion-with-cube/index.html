@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="zh-CN" lang="zh-CN" >
+
+<head>
+    
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+<script defer language="javascript" type="text/javascript" src="/js/bundle.min.d451ff92e80abc2a828eb9bb262e4db374bd4e954642f9245c54eec84bf690f3.js"></script>
+
+
+
+
+
+
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/css/custom.css">
+
+    
+    <link rel="icon" href=/favicon.ico>
+
+    <link rel="stylesheet" href="/katex/katex.min.css" integrity="..."
+        crossorigin="anonymous">
+    <script defer src="/katex/katex.min.js"></script>
+    <script defer src="/katex/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {
+    delimiters: [
+      {left: '$$', right: '$$', display: true},
+      {left: '$', right: '$', display: false}
+    ]
+  });"></script>
+
+    
+    
+
+
+
+
+
+  
+
+
+
+
+
+  
+  
+  
+
+
+<!-- Open Graph image and Twitter Card metadata -->
+
+<title itemprop="name">TcMcKrLiTb - 如何使用Clion配合cubeMX</title>
+<meta property="og:title" content=TcMcKrLiTb&#32;-&#32;如何使用Clion配合cubeMX />
+<meta name="twitter:title" content=TcMcKrLiTb&#32;-&#32;如何使用Clion配合cubeMX />
+<meta itemprop="name" content=TcMcKrLiTb&#32;-&#32;如何使用Clion配合cubeMX />
+<meta name="application-name" content=TcMcKrLiTb&#32;-&#32;如何使用Clion配合cubeMX />
+<meta property="og:site_name" content="TcMcKrLiTb Blog" />
+
+
+<meta name="description" content="" />
+<meta itemprop="description" content="" />
+<meta property="og:description" content="" />
+<meta name="twitter:description" content="" />
+
+
+<base href="https://www.tcmckrlitb.top/posts/stm32/how-to-use-clion-with-cube/" />
+<link rel="canonical" href="https://www.tcmckrlitb.top/posts/stm32/how-to-use-clion-with-cube/" itemprop="url" />
+<meta name="url" content="https://www.tcmckrlitb.top/posts/stm32/how-to-use-clion-with-cube/" />
+<meta name="twitter:url" content="https://www.tcmckrlitb.top/posts/stm32/how-to-use-clion-with-cube/" />
+<meta property="og:url" content="https://www.tcmckrlitb.top/posts/stm32/how-to-use-clion-with-cube/" />
+
+
+<meta property="og:updated_time" content="2025-12-01T16:33:19&#43;08:00" />
+
+
+<link rel="sitemap" type="application/xml" title="Sitemap" href='https://www.tcmckrlitb.top/sitemap.xml' />
+
+<meta name="robots" content="index,follow" />
+<meta name="googlebot" content="index,follow" />
+
+
+
+<meta property="fb:admins" content="" />
+
+
+<meta name="apple-mobile-web-app-title" content="TcMcKrLiTb Blog" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.152.2">
+
+
+    
+    
+
+<link type="text/css" rel="stylesheet" href="/css/bundle.min.8b7db29bae6137529cab2b8e925b151598810d69175488b0e8f2b0db5cf46d8a.css">
+
+
+    
+    <style>
+    body {
+        --sidebar-bg-color: #202020;
+        --sidebar-img-border-color: #515151;
+        --sidebar-p-color: #909090;
+        --sidebar-h1-color: #FFF;
+        --sidebar-a-color: #FFF;
+        --sidebar-socials-color: #FFF;
+        --text-color: #222;
+        --bkg-color: #FAF9F6;
+        --post-title-color: #303030;
+        --list-color: #5A5A5A;
+        --link-color: #268BD2;
+        --date-color: #515151;
+        --table-border-color: #E5E5E5;
+        --table-stripe-color: #F9F9F9;
+        --code-color: #000;
+        --code-background-color: #E5E5E5;
+        --code-block-color: #FFF;
+        --code-block-background-color: #272822;
+        --moon-sun-color: #FFF;
+        --moon-sun-background-color: #515151;
+    }
+    body.dark-theme {
+        --text-color: #EEE;
+        --bkg-color: #121212;
+        --post-title-color: #DBE2E9;
+        --list-color: #9D9D9D;
+        --link-color: #268BD2;
+        --date-color: #9A9A9A;
+        --table-border-color: #515151;
+        --table-stripe-color: #202020;
+        --code-color: #FFF;
+        --code-background-color: #515151;
+        --code-block-color: #FFF;
+        --code-block-background-color: #272822;
+    }
+    body {
+        background-color: var(--bkg-color);
+    }
+</style>
+
+</head>
+    <body class="dark-theme">
+        <div class="wrapper">
+            <aside class="sidebar">
+    <div class="container sidebar-sticky">
+        <div class="light-dark" align="right">
+    <button class="btn-light-dark" title="Toggle light/dark mode">
+        <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16">
+            <path fill="currentColor" d="M6 .278a.768.768 0 0 1 .08.858a7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277c.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316a.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71C0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+        </svg>
+        <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16">
+            <path fill="currentColor" d="M8 12a4 4 0 1 0 0-8a4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+        </svg>
+    </button>
+</div>
+
+        <div class="sidebar-about">
+    <h1 class="brand">
+        
+            <a href="https://www.tcmckrlitb.top/">
+                <img src="/images/brand_image.jpg" alt="brand image">
+            </a>
+        
+        
+            <a href="https://www.tcmckrlitb.top/">
+                <h1>TcMcKrLiTb</h1>
+            </a>
+        
+    </h1>
+    <p class="lead">
+    TcMcKrLiTb's Blog
+    </p>
+</div>
+
+        <nav>
+    <ul class="sidebar-nav">
+
+        
+        
+        
+        
+            
+
+            
+                
+                
+            
+            
+                
+                    <li class="heading">
+                        <a href="/about/">About</a>
+                    </li>
+                
+                
+            
+                
+                
+                        
+                
+            
+                
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+            
+        
+        
+            
+
+            
+                
+                
+            
+            
+                
+                
+            
+                
+                    <li class="heading">
+                        <a href="/series/">Series</a>
+                    </li>
+                
+                
+                        
+                
+            
+                
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+            
+        
+        
+            
+
+            
+                
+                
+            
+            
+                
+                
+            
+                
+                
+                        
+                
+            
+                
+                    <li class="heading">
+                        <a href="/tags/">Tags</a>
+                    </li>
+                
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+            
+        
+        
+            
+
+            
+                
+                
+                    <li class="heading">
+                        <a href="/posts/">Posts</a>
+                    </li>
+                    
+                        <li class="sub-heading">
+                            Recent
+                        </li>
+                        
+                            <li class="bullet">
+                                <a href="https://www.tcmckrlitb.top/posts/mix/a-trojan-spread-by-usbdisk/">记录一个有趣的木马病毒</a>
+                            </li>
+                        
+                            <li class="bullet">
+                                <a href="https://www.tcmckrlitb.top/posts/stm32/how-to-use-clion-with-cube/">如何使用Clion配合cubeMX</a>
+                            </li>
+                        
+                            <li class="bullet">
+                                <a href="https://www.tcmckrlitb.top/posts/stm32/make-a-stlinkv2-1/">自己做一个带负载检测的STLinkV2.1</a>
+                            </li>
+                        
+                            <li class="bullet">
+                                <a href="https://www.tcmckrlitb.top/posts/mix/how-to-use-git/">Git操作指南</a>
+                            </li>
+                        
+                            <li class="bullet">
+                                <a href="https://www.tcmckrlitb.top/posts/network/easy-socket-program/">基于SOCKET的简单网络程序的设计</a>
+                            </li>
+                        
+                    
+                
+            
+            
+                
+                
+            
+                
+                
+                        
+                
+            
+                
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+            
+        
+
+    </ul>
+</nav>
+
+        
+    <a target="_blank" class="social" title="GitHub" href="https://github.com/TcMcKrLiTb">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="-2 -2 24 24">
+            <path fill="currentColor" d="M18.88 1.099C18.147.366 17.265 0 16.233 0H3.746C2.714 0 1.832.366 1.099 1.099C.366 1.832 0 2.714 0 3.746v12.487c0 1.032.366 1.914 1.099 2.647c.733.733 1.615 1.099 2.647 1.099H6.66c.19 0 .333-.007.429-.02a.504.504 0 0 0 .286-.169c.095-.1.143-.245.143-.435l-.007-.885c-.004-.564-.006-1.01-.006-1.34l-.3.052c-.19.035-.43.05-.721.046a5.555 5.555 0 0 1-.904-.091a2.026 2.026 0 0 1-.872-.39a1.651 1.651 0 0 1-.572-.8l-.13-.3a3.25 3.25 0 0 0-.41-.663c-.186-.243-.375-.407-.566-.494l-.09-.065a.956.956 0 0 1-.17-.156a.723.723 0 0 1-.117-.182c-.026-.061-.004-.111.065-.15c.07-.04.195-.059.378-.059l.26.04c.173.034.388.138.643.311a2.1 2.1 0 0 1 .631.677c.2.355.44.626.722.813c.282.186.566.28.852.28c.286 0 .533-.022.742-.065a2.59 2.59 0 0 0 .585-.196c.078-.58.29-1.028.637-1.34a8.907 8.907 0 0 1-1.333-.234a5.314 5.314 0 0 1-1.223-.507a3.5 3.5 0 0 1-1.047-.872c-.277-.347-.505-.802-.683-1.365c-.177-.564-.266-1.215-.266-1.952c0-1.049.342-1.942 1.027-2.68c-.32-.788-.29-1.673.091-2.652c.252-.079.625-.02 1.119.175c.494.195.856.362 1.086.5c.23.14.414.257.553.352a9.233 9.233 0 0 1 2.497-.338c.859 0 1.691.113 2.498.338l.494-.312a6.997 6.997 0 0 1 1.197-.572c.46-.174.81-.221 1.054-.143c.39.98.424 1.864.103 2.653c.685.737 1.028 1.63 1.028 2.68c0 .737-.089 1.39-.267 1.957c-.177.568-.407 1.023-.689 1.366a3.65 3.65 0 0 1-1.053.865c-.42.234-.828.403-1.223.507a8.9 8.9 0 0 1-1.333.235c.45.39.676 1.005.676 1.846v3.11c0 .147.021.266.065.357a.36.36 0 0 0 .208.189c.096.034.18.056.254.064c.074.01.18.013.318.013h2.914c1.032 0 1.914-.366 2.647-1.099c.732-.732 1.099-1.615 1.099-2.647V3.746c0-1.032-.367-1.914-1.1-2.647z"/>
+        </svg>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a target="_blank" class="social" title="Email" href="tcmckrlitb@gmail.com">
+       <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1.2em" viewBox="0 0 485.211 485.211">
+            <path fill="currentColor" d="M301.393,241.631L464.866,424.56H20.332l163.474-182.928l58.801,51.443L301.393,241.631z M462.174,60.651H23.027 l219.579,192.142L462.174,60.651z M324.225,221.67l160.986,180.151V80.792L324.225,221.67z M0,80.792v321.029L160.972,221.64 L0,80.792z"/>
+       </svg>
+    </a>
+
+
+
+
+    <a target="_blank" class="bilibili" title="BiliBili" href="https://space.bilibili.com/82578071">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.4em" viewBox="0 0 1024 1024">
+            <path fill="currentColor" d="M777.514667 131.669333a53.333333 53.333333 0 0 1 0 75.434667L728.746667 255.829333h49.92A160 160 0 0 1 938.666667 415.872v320a160 160 0 0 1-160 160H245.333333A160 160 0 0 1 85.333333 735.872v-320a160 160 0 0 1 160-160h49.749334L246.4 207.146667a53.333333 53.333333 0 1 1 75.392-75.434667l113.152 113.152c3.370667 3.370667 6.186667 7.04 8.448 10.965333h137.088c2.261333-3.925333 5.12-7.68 8.490667-11.008l113.109333-113.152a53.333333 53.333333 0 0 1 75.434667 0z m1.152 231.253334H245.333333a53.333333 53.333333 0 0 0-53.205333 49.365333l-0.128 4.010667v320c0 28.117333 21.76 51.157333 49.365333 53.162666l3.968 0.170667h533.333334a53.333333 53.333333 0 0 0 53.205333-49.365333l0.128-3.968v-320c0-29.44-23.893333-53.333333-53.333333-53.333334z m-426.666667 106.666666c29.44 0 53.333333 23.893333 53.333333 53.333334v53.333333a53.333333 53.333333 0 1 1-106.666666 0v-53.333333c0-29.44 23.893333-53.333333 53.333333-53.333334z m320 0c29.44 0 53.333333 23.893333 53.333333 53.333334v53.333333a53.333333 53.333333 0 1 1-106.666666 0v-53.333333c0-29.44 23.893333-53.333333 53.333333-53.333334z"/>
+        </svg>
+    </a>
+
+
+        <p class="footnote">
+powered by <a target="_blank" href="https://gohugo.io">Hugo</a> | themed with <a target="_blank" href="https://github.com/lukeorth/poison">poison</a>
+    <br>
+    &copy; 2025 TcMcKrLiTb Blog. All rights reserved.
+</p>
+
+  </div>
+</aside>
+
+            <main class="content container">
+                <div class="post">
+  <div class="info">
+  <h1 class="post-title">
+    <a href="https://www.tcmckrlitb.top/posts/stm32/how-to-use-clion-with-cube/">如何使用Clion配合cubeMX</a>
+  </h1>
+
+  <div class="headline">
+    <div>
+      
+      
+      <time datetime=" 2025-12-01T16:33:19&#43;0800" class="post-date">
+        December 1, 2025
+      </time>
+      
+      <span> - </span>
+      <span class="reading-time">
+        
+          
+        
+
+        <span>3 mins read</span>
+      </span>
+    </div>
+
+    
+    <ul class="tags">
+      
+      <li class="tag-stm32">
+        <a href="https://www.tcmckrlitb.top/tags/stm32">stm32</a>
+      </li>
+      
+      <li class="tag-CLion">
+        <a href="https://www.tcmckrlitb.top/tags/clion">CLion</a>
+      </li>
+      
+    </ul>
+    
+  </div>
+
+  
+  
+
+  
+</div>
+
+  
+
+<div class="admonition admonition-warning">
+  <div class="admonition-title">WARNING</div>
+  <div class="admonition-content">
+    这个笔记基于Clion 2025.2.4以及CubeMX 6.15.0 请谨慎参考，不过考虑到st现在主推cmake这套方案，应该是长期支持的
+  </div>
+</div>
+
+<h2 id="环境准备">环境准备</h2>
+<p>首先你需要一个最新的cubeMX，连接如下：</p>
+<p><a href="https://www.st.com/en/development-tools/stm32cubemx.html" target="_blank">https://www.st.com/en/development-tools/stm32cubemx.html</a></p>
+<p>接着你需要一个Clion，目前听说非商用的软件已经免费，大家可以去官网下载。</p>
+<p>也可以搞破解版，例如：</p>
+<p><a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzk4ODQ3MzgzNw==&amp;action=getalbum&amp;album_id=3996555290526154761&amp;scene=21#wechat_redirect" target="_blank">https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzk4ODQ3MzgzNw==&action=getalbum&album_id=3996555290526154761&scene=21#wechat_redirect</a></p>
+<p>这里面是整个jetBrian的总合，是可以单独安装的，只安装Clion即可</p>
+<p>然后是比较重要的，你需要一个stm32的工具链STM32CubeCLT_1.19.0</p>
+<p><a href="https://www.st.com/en/development-tools/stm32cubeclt.html" target="_blank">https://www.st.com/en/development-tools/stm32cubeclt.html</a></p>
+<p>这里边包含了一套针对嵌入式的完整的开发工具链，包括cmake，生成工具ninja，以及编译器链接器g++、gcc等等。</p>
+<p>你需要把<code>STM32CubeCLT_1.19.0\GNU-tools-for-STM32\bin</code>路径添加到环境变量</p>
+<p>准备好工具之后，就可以开始开发。</p>
+<h2 id="新建项目cube">新建项目（cube）</h2>
+<p>首先打开cubeMX，根据手中的芯片新建工程，这里以f103为例</p>
+<p>配置外部高速晶振，配置调试口</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20251201202649534.png?imageslim" alt="image-20251201202649534"></p>
+<p>配置时钟树</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20251201202728990.png?imageslim" alt="image-20251201202728990"></p>
+<p>然后在生成工程界面选择新的cmake-gcc：</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20251201202856446.png?imageslim" alt="image-20251201202856446"></p>
+<p>然后点击generate code</p>
+<h2 id="配置工程clion">配置工程（clion）</h2>
+<p>在clion中选择新建工程，随后选择到cubeMX界面</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20251201203133282.png?imageslim" alt="image-20251201203133282"></p>
+<p>然后在项目路径中选择到刚才生成的cube工程的文件夹，随后右下角的<code>继续</code>便可以点击：</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20251201203245778.png?imageslim" alt="image-20251201203245778"></p>
+<p>点击继续，此时便会弹出项目配置向导，因为我们还没配置工具链所以现在先不管，直接继续。</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20251201203412909.png?imageslim" alt="image-20251201203412909"></p>
+<p>现在是无法编译下载的，因为cmake工程报错，不要慌，打开设置，找到<strong>Build, Execution, Deployment</strong>-&gt;<strong>Toolchains</strong>，</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20251201203511442.png?imageslim" alt="image-20251201203511442"></p>
+<p>新建一个System的项目，这里名字可以起一个STM32之类的接下来cmake选CLT中带的cmake，build tool选择CLT中的ninja，c compiler选择gcc，c++ compiler选择g++，类似下面这样：</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20251201203615162.png?imageslim" alt="image-20251201203615162"></p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20251201204152510.png?imageslim" alt="image-20251201204152510"></p>
+<p>GDB既可以选择clion自带的也可以选CLT中的，这里我选择的是自带的。</p>
+<p>随后切换到CMake界面</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20251201204437398.png?imageslim" alt="image-20251201204437398"></p>
+<p>将tool chain选择为刚才新建的STM32，Generator选择use default ninja，然后CMake option中添加下面这段：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>-D CMAKE_TOOLCHAIN_FILE<span style="color:#f92672">=</span>./cmake/gcc-arm-none-eabi.cmake
+</span></span></code></pre></div><p>随后点击OK，就可以发现cmake项目配置成功了。cmake显示complete，右上角也出现了编译下载调试三件套</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20251201204900897.png?imageslim" alt="image-20251201204900897"></p>
+<h2 id="如果想要添加文件到项目">如果想要添加文件到项目</h2>
+<h3 id="你可以手动创建">你可以手动创建</h3>
+<p>右键你要创建的位置然后new c/c++ source file，可以直接选择将文件添加到项目中</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20251201205121804.png?imageslim" alt="image-20251201205121804"></p>
+<p>请注意这里要添加到主项目中，即第一个选项，项目根目录里的CMakeLists.txt。</p>
+<h3 id="可以添加已有的文件">可以添加已有的文件</h3>
+<p>也可以将已有的文件拖到文件夹中，右键手动添加到项目中：</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20251201205309983.png?imageslim" alt="image-20251201205309983"></p>
+
+
+<div class="admonition admonition-important">
+  <div class="admonition-title">IMPORTANT</div>
+  <div class="admonition-content">
+    这个笔记基于Clion 2025.2.4以及CubeMX 6.15.0 请谨慎参考，不过考虑到st现在主推cmake这套方案，应该是长期支持的
+  </div>
+</div>
+
+<h3 id="如果想添加新的include路径">如果想添加新的include路径</h3>
+<p>需要在主项目的CMakeLists中的对应位置添加：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cmake" data-lang="cmake"><span style="display:flex;"><span><span style="color:#75715e"># Add include paths
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>target_include_directories(<span style="color:#f92672">${</span>CMAKE_PROJECT_NAME<span style="color:#f92672">}</span> <span style="color:#e6db74">PRIVATE</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">${</span>CMAKE_CURRENT_SOURCE_DIR<span style="color:#f92672">}</span><span style="color:#e6db74">/../../Core/Inc</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">${</span>CMAKE_CURRENT_SOURCE_DIR<span style="color:#f92672">}</span><span style="color:#e6db74">/../../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">${</span>CMAKE_CURRENT_SOURCE_DIR<span style="color:#f92672">}</span><span style="color:#e6db74">/../../Drivers/STM32F1xx_HAL_Driver/Inc</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">${</span>CMAKE_CURRENT_SOURCE_DIR<span style="color:#f92672">}</span><span style="color:#e6db74">/../../Drivers/CMSIS/Device/ST/STM32F1xx/Include</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">${</span>CMAKE_CURRENT_SOURCE_DIR<span style="color:#f92672">}</span><span style="color:#e6db74">/../../Drivers/CMSIS/Include</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Add user defined include paths
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>)<span style="color:#960050;background-color:#1e0010">
+</span></span></span></code></pre></div><h2 id="进行下载">进行下载</h2>
+<p>如果连接的stlink，你可以直接点击右上角的箭头下载，同时你也可以使用stm32cubeprogrammer，选择你在cmake界面中设置的编译路径中生成的.elf文件</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20251201210126851.png?imageslim" alt="image-20251201210126851"></p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20251201210209833.png?imageslim" alt="image-20251201210209833"></p>
+<p>如果你的下载软件不支持.elf文件，如<code>STLink Utility</code>你可以选择将其转化为.bin文件：</p>
+<p>在终端中输入：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span> arm-none-eabi-objcopy.exe -O binary -S .<span style="color:#ae81ff">\c</span>make-build-debug-stm32<span style="color:#ae81ff">\c</span>lionDemo.elf .<span style="color:#ae81ff">\c</span>make-build-debug-stm32<span style="color:#ae81ff">\c</span>lionDemo.bin    
+</span></span></code></pre></div><p>这是一个多功能的生成工具，支持的文件类型有：</p>
+<blockquote>
+<p>arm-none-eabi-objcopy.exe: supported targets: elf32-littlearm elf32-littlearm-fdpic elf32-bigarm elf32-bigarm-fdpic elf32-little elf32-big srec symbolsrec verilog tekhex binary ihex plugin</p>
+</blockquote>
+<p>运行完之后就可以看到生成了bin文件，就可以使用其他工具下载了，同时你也可以使用openOCD下载，这里不再展示，因为没有尝试（嫌每个项目都要重新配置配置文件太麻烦）。</p>
+
+  
+  <hr>
+<div class="footer">
+    
+	    
+            <a class="previous-post" href="https://www.tcmckrlitb.top/posts/stm32/make-a-stlinkv2-1/?ref=footer"><span style="font-weight:bold;">« Previous</span><br>自己做一个带负载检测的STLinkV2.1</a>
+        
+	    
+            <div class="next-post">
+                <a href="https://www.tcmckrlitb.top/posts/mix/a-trojan-spread-by-usbdisk/?ref=footer"><span style="font-weight:bold;">Next »</span><br>记录一个有趣的木马病毒</a>
+            </div>
+        
+    
+</div>
+
+  
+</div>
+            </main>
+            
+  
+    <div class="article-toc ">
+    <div class="toc-wrapper">
+      <h4 id="contents"></h4>
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#环境准备">环境准备</a></li>
+    <li><a href="#新建项目cube">新建项目（cube）</a></li>
+    <li><a href="#配置工程clion">配置工程（clion）</a></li>
+    <li><a href="#如果想要添加文件到项目">如果想要添加文件到项目</a>
+      <ul>
+        <li><a href="#你可以手动创建">你可以手动创建</a></li>
+        <li><a href="#可以添加已有的文件">可以添加已有的文件</a></li>
+        <li><a href="#如果想添加新的include路径">如果想添加新的include路径</a></li>
+      </ul>
+    </li>
+    <li><a href="#进行下载">进行下载</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+  
+
+        </div>
+    </body>
+</html>

@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="zh-CN" lang="zh-CN" >
+
+<head>
+    
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+<script defer language="javascript" type="text/javascript" src="/js/bundle.min.d451ff92e80abc2a828eb9bb262e4db374bd4e954642f9245c54eec84bf690f3.js"></script>
+
+
+
+
+
+
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/css/custom.css">
+
+    
+    <link rel="icon" href=/favicon.ico>
+
+    <link rel="stylesheet" href="/katex/katex.min.css" integrity="..."
+        crossorigin="anonymous">
+    <script defer src="/katex/katex.min.js"></script>
+    <script defer src="/katex/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {
+    delimiters: [
+      {left: '$$', right: '$$', display: true},
+      {left: '$', right: '$', display: false}
+    ]
+  });"></script>
+
+    
+    
+
+
+
+
+
+  
+
+
+
+
+
+  
+  
+  
+
+
+<!-- Open Graph image and Twitter Card metadata -->
+
+<title itemprop="name">TcMcKrLiTb - 网络仿真软件ns2的下载与安装（VMware&amp;ubuntu）</title>
+<meta property="og:title" content=TcMcKrLiTb&#32;-&#32;网络仿真软件ns2的下载与安装（VMware&amp;ubuntu） />
+<meta name="twitter:title" content=TcMcKrLiTb&#32;-&#32;网络仿真软件ns2的下载与安装（VMware&amp;ubuntu） />
+<meta itemprop="name" content=TcMcKrLiTb&#32;-&#32;网络仿真软件ns2的下载与安装（VMware&amp;ubuntu） />
+<meta name="application-name" content=TcMcKrLiTb&#32;-&#32;网络仿真软件ns2的下载与安装（VMware&amp;ubuntu） />
+<meta property="og:site_name" content="TcMcKrLiTb Blog" />
+
+
+<meta name="description" content="" />
+<meta itemprop="description" content="" />
+<meta property="og:description" content="" />
+<meta name="twitter:description" content="" />
+
+
+<base href="https://www.tcmckrlitb.top/posts/network/install-ns2-on-ubuntu/" />
+<link rel="canonical" href="https://www.tcmckrlitb.top/posts/network/install-ns2-on-ubuntu/" itemprop="url" />
+<meta name="url" content="https://www.tcmckrlitb.top/posts/network/install-ns2-on-ubuntu/" />
+<meta name="twitter:url" content="https://www.tcmckrlitb.top/posts/network/install-ns2-on-ubuntu/" />
+<meta property="og:url" content="https://www.tcmckrlitb.top/posts/network/install-ns2-on-ubuntu/" />
+
+
+<meta property="og:updated_time" content="2024-11-09T19:47:34&#43;08:00" />
+
+
+<link rel="sitemap" type="application/xml" title="Sitemap" href='https://www.tcmckrlitb.top/sitemap.xml' />
+
+<meta name="robots" content="index,follow" />
+<meta name="googlebot" content="index,follow" />
+
+
+
+<meta property="fb:admins" content="" />
+
+
+<meta name="apple-mobile-web-app-title" content="TcMcKrLiTb Blog" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.152.2">
+
+
+    
+    
+
+<link type="text/css" rel="stylesheet" href="/css/bundle.min.8b7db29bae6137529cab2b8e925b151598810d69175488b0e8f2b0db5cf46d8a.css">
+
+
+    
+    <style>
+    body {
+        --sidebar-bg-color: #202020;
+        --sidebar-img-border-color: #515151;
+        --sidebar-p-color: #909090;
+        --sidebar-h1-color: #FFF;
+        --sidebar-a-color: #FFF;
+        --sidebar-socials-color: #FFF;
+        --text-color: #222;
+        --bkg-color: #FAF9F6;
+        --post-title-color: #303030;
+        --list-color: #5A5A5A;
+        --link-color: #268BD2;
+        --date-color: #515151;
+        --table-border-color: #E5E5E5;
+        --table-stripe-color: #F9F9F9;
+        --code-color: #000;
+        --code-background-color: #E5E5E5;
+        --code-block-color: #FFF;
+        --code-block-background-color: #272822;
+        --moon-sun-color: #FFF;
+        --moon-sun-background-color: #515151;
+    }
+    body.dark-theme {
+        --text-color: #EEE;
+        --bkg-color: #121212;
+        --post-title-color: #DBE2E9;
+        --list-color: #9D9D9D;
+        --link-color: #268BD2;
+        --date-color: #9A9A9A;
+        --table-border-color: #515151;
+        --table-stripe-color: #202020;
+        --code-color: #FFF;
+        --code-background-color: #515151;
+        --code-block-color: #FFF;
+        --code-block-background-color: #272822;
+    }
+    body {
+        background-color: var(--bkg-color);
+    }
+</style>
+
+</head>
+    <body class="dark-theme">
+        <div class="wrapper">
+            <aside class="sidebar">
+    <div class="container sidebar-sticky">
+        <div class="light-dark" align="right">
+    <button class="btn-light-dark" title="Toggle light/dark mode">
+        <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16">
+            <path fill="currentColor" d="M6 .278a.768.768 0 0 1 .08.858a7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277c.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316a.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71C0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+        </svg>
+        <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16">
+            <path fill="currentColor" d="M8 12a4 4 0 1 0 0-8a4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+        </svg>
+    </button>
+</div>
+
+        <div class="sidebar-about">
+    <h1 class="brand">
+        
+            <a href="https://www.tcmckrlitb.top/">
+                <img src="/images/brand_image.jpg" alt="brand image">
+            </a>
+        
+        
+            <a href="https://www.tcmckrlitb.top/">
+                <h1>TcMcKrLiTb</h1>
+            </a>
+        
+    </h1>
+    <p class="lead">
+    TcMcKrLiTb's Blog
+    </p>
+</div>
+
+        <nav>
+    <ul class="sidebar-nav">
+
+        
+        
+        
+        
+            
+
+            
+                
+                
+            
+            
+                
+                    <li class="heading">
+                        <a href="/about/">About</a>
+                    </li>
+                
+                
+            
+                
+                
+                        
+                
+            
+                
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+            
+        
+        
+            
+
+            
+                
+                
+            
+            
+                
+                
+            
+                
+                    <li class="heading">
+                        <a href="/series/">Series</a>
+                    </li>
+                
+                
+                        
+                
+            
+                
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+            
+        
+        
+            
+
+            
+                
+                
+            
+            
+                
+                
+            
+                
+                
+                        
+                
+            
+                
+                    <li class="heading">
+                        <a href="/tags/">Tags</a>
+                    </li>
+                
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+            
+        
+        
+            
+
+            
+                
+                
+                    <li class="heading">
+                        <a href="/posts/">Posts</a>
+                    </li>
+                    
+                        <li class="sub-heading">
+                            Recent
+                        </li>
+                        
+                            <li class="bullet">
+                                <a href="https://www.tcmckrlitb.top/posts/mix/a-trojan-spread-by-usbdisk/">记录一个有趣的木马病毒</a>
+                            </li>
+                        
+                            <li class="bullet">
+                                <a href="https://www.tcmckrlitb.top/posts/stm32/how-to-use-clion-with-cube/">如何使用Clion配合cubeMX</a>
+                            </li>
+                        
+                            <li class="bullet">
+                                <a href="https://www.tcmckrlitb.top/posts/stm32/make-a-stlinkv2-1/">自己做一个带负载检测的STLinkV2.1</a>
+                            </li>
+                        
+                            <li class="bullet">
+                                <a href="https://www.tcmckrlitb.top/posts/mix/how-to-use-git/">Git操作指南</a>
+                            </li>
+                        
+                            <li class="bullet">
+                                <a href="https://www.tcmckrlitb.top/posts/network/easy-socket-program/">基于SOCKET的简单网络程序的设计</a>
+                            </li>
+                        
+                    
+                
+            
+            
+                
+                
+            
+                
+                
+                        
+                
+            
+                
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+            
+        
+
+    </ul>
+</nav>
+
+        
+    <a target="_blank" class="social" title="GitHub" href="https://github.com/TcMcKrLiTb">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="-2 -2 24 24">
+            <path fill="currentColor" d="M18.88 1.099C18.147.366 17.265 0 16.233 0H3.746C2.714 0 1.832.366 1.099 1.099C.366 1.832 0 2.714 0 3.746v12.487c0 1.032.366 1.914 1.099 2.647c.733.733 1.615 1.099 2.647 1.099H6.66c.19 0 .333-.007.429-.02a.504.504 0 0 0 .286-.169c.095-.1.143-.245.143-.435l-.007-.885c-.004-.564-.006-1.01-.006-1.34l-.3.052c-.19.035-.43.05-.721.046a5.555 5.555 0 0 1-.904-.091a2.026 2.026 0 0 1-.872-.39a1.651 1.651 0 0 1-.572-.8l-.13-.3a3.25 3.25 0 0 0-.41-.663c-.186-.243-.375-.407-.566-.494l-.09-.065a.956.956 0 0 1-.17-.156a.723.723 0 0 1-.117-.182c-.026-.061-.004-.111.065-.15c.07-.04.195-.059.378-.059l.26.04c.173.034.388.138.643.311a2.1 2.1 0 0 1 .631.677c.2.355.44.626.722.813c.282.186.566.28.852.28c.286 0 .533-.022.742-.065a2.59 2.59 0 0 0 .585-.196c.078-.58.29-1.028.637-1.34a8.907 8.907 0 0 1-1.333-.234a5.314 5.314 0 0 1-1.223-.507a3.5 3.5 0 0 1-1.047-.872c-.277-.347-.505-.802-.683-1.365c-.177-.564-.266-1.215-.266-1.952c0-1.049.342-1.942 1.027-2.68c-.32-.788-.29-1.673.091-2.652c.252-.079.625-.02 1.119.175c.494.195.856.362 1.086.5c.23.14.414.257.553.352a9.233 9.233 0 0 1 2.497-.338c.859 0 1.691.113 2.498.338l.494-.312a6.997 6.997 0 0 1 1.197-.572c.46-.174.81-.221 1.054-.143c.39.98.424 1.864.103 2.653c.685.737 1.028 1.63 1.028 2.68c0 .737-.089 1.39-.267 1.957c-.177.568-.407 1.023-.689 1.366a3.65 3.65 0 0 1-1.053.865c-.42.234-.828.403-1.223.507a8.9 8.9 0 0 1-1.333.235c.45.39.676 1.005.676 1.846v3.11c0 .147.021.266.065.357a.36.36 0 0 0 .208.189c.096.034.18.056.254.064c.074.01.18.013.318.013h2.914c1.032 0 1.914-.366 2.647-1.099c.732-.732 1.099-1.615 1.099-2.647V3.746c0-1.032-.367-1.914-1.1-2.647z"/>
+        </svg>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a target="_blank" class="social" title="Email" href="tcmckrlitb@gmail.com">
+       <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1.2em" viewBox="0 0 485.211 485.211">
+            <path fill="currentColor" d="M301.393,241.631L464.866,424.56H20.332l163.474-182.928l58.801,51.443L301.393,241.631z M462.174,60.651H23.027 l219.579,192.142L462.174,60.651z M324.225,221.67l160.986,180.151V80.792L324.225,221.67z M0,80.792v321.029L160.972,221.64 L0,80.792z"/>
+       </svg>
+    </a>
+
+
+
+
+    <a target="_blank" class="bilibili" title="BiliBili" href="https://space.bilibili.com/82578071">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.4em" viewBox="0 0 1024 1024">
+            <path fill="currentColor" d="M777.514667 131.669333a53.333333 53.333333 0 0 1 0 75.434667L728.746667 255.829333h49.92A160 160 0 0 1 938.666667 415.872v320a160 160 0 0 1-160 160H245.333333A160 160 0 0 1 85.333333 735.872v-320a160 160 0 0 1 160-160h49.749334L246.4 207.146667a53.333333 53.333333 0 1 1 75.392-75.434667l113.152 113.152c3.370667 3.370667 6.186667 7.04 8.448 10.965333h137.088c2.261333-3.925333 5.12-7.68 8.490667-11.008l113.109333-113.152a53.333333 53.333333 0 0 1 75.434667 0z m1.152 231.253334H245.333333a53.333333 53.333333 0 0 0-53.205333 49.365333l-0.128 4.010667v320c0 28.117333 21.76 51.157333 49.365333 53.162666l3.968 0.170667h533.333334a53.333333 53.333333 0 0 0 53.205333-49.365333l0.128-3.968v-320c0-29.44-23.893333-53.333333-53.333333-53.333334z m-426.666667 106.666666c29.44 0 53.333333 23.893333 53.333333 53.333334v53.333333a53.333333 53.333333 0 1 1-106.666666 0v-53.333333c0-29.44 23.893333-53.333333 53.333333-53.333334z m320 0c29.44 0 53.333333 23.893333 53.333333 53.333334v53.333333a53.333333 53.333333 0 1 1-106.666666 0v-53.333333c0-29.44 23.893333-53.333333 53.333333-53.333334z"/>
+        </svg>
+    </a>
+
+
+        <p class="footnote">
+powered by <a target="_blank" href="https://gohugo.io">Hugo</a> | themed with <a target="_blank" href="https://github.com/lukeorth/poison">poison</a>
+    <br>
+    &copy; 2025 TcMcKrLiTb Blog. All rights reserved.
+</p>
+
+  </div>
+</aside>
+
+            <main class="content container">
+                <div class="post">
+  <div class="info">
+  <h1 class="post-title">
+    <a href="https://www.tcmckrlitb.top/posts/network/install-ns2-on-ubuntu/">网络仿真软件ns2的下载与安装（VMware&amp;ubuntu）</a>
+  </h1>
+
+  <div class="headline">
+    <div>
+      
+      
+      <time datetime=" 2024-11-09T19:47:34&#43;0800" class="post-date">
+        November 9, 2024
+      </time>
+      
+      <span> - </span>
+      <span class="reading-time">
+        
+          
+        
+
+        <span>5 mins read</span>
+      </span>
+    </div>
+
+    
+    <ul class="tags">
+      
+      <li class="tag-network">
+        <a href="https://www.tcmckrlitb.top/tags/network">network</a>
+      </li>
+      
+    </ul>
+    
+  </div>
+
+  
+  
+
+  
+</div>
+
+  <h3 id="一vmware安装">一、VMware安装</h3>
+<p>VMware虚拟机安装多种多样，可参考下方链接：</p>
+<p><a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzA4MjU4MTg2Ng==&amp;action=getalbum&amp;album_id=3421466920749137927&amp;scene=21#wechat_redirect" target="_blank">https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzA4MjU4MTg2Ng==&action=getalbum&album_id=3421466920749137927&scene=21#wechat_redirect</a></p>
+<p>大家根据自身电脑配置情况酌情选择版本，这里不再赘述</p>
+<h3 id="二ubuntu安装">二、Ubuntu安装</h3>
+<h4 id="1映像下载">1.映像下载</h4>
+<p>这里选择<strong>Ubuntu16.04</strong>，选用阿里镜像源，由于大小较大，选用磁力链接下载的方式</p>
+<p>阿里云镜像源链接：https://mirrors.aliyun.com/ubuntu-releases/16.04/</p>
+<p>选用64位系统，由于仿真需要图形化显示，选用desktop的版本</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20241109200352112.png" alt="image-20241109200352112"></p>
+<p>可以点击红色箭头直接下载，也可以点击黄色箭头下载磁链通过p2p下载软件下载，这里使用bitcomet下载，由于做种的人很多，用户也很多，可以看到下载的速度很快</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20241109201741414.png" alt="image-20241109201741414"></p>
+<h4 id="2虚拟机配置">2.虚拟机配置</h4>
+<p>下载的时候同时先配置虚拟机，</p>
+<p>下载的同时我们准备VMware的设置，点击新建虚拟机</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/Snipaste_2024-11-07_19-40-56.png" alt="Snipaste_2024-11-07_19-40-56"></p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/Snipaste_2024-11-07_19-43-00.png" alt="Snipaste_2024-11-07_19-43-00"></p>
+<p>选择自定义，硬件兼容默认。</p>
+<p>选择稍后安装操作系统，先装一个空壳，稍后再装系统。</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/Snipaste_2024-11-07_19-43-10.png" alt="Snipaste_2024-11-07_19-43-10"></p>
+<p>选择Linux操作系统，Ubuntu64位</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/Snipaste_2024-11-07_19-44-17.png" alt="Snipaste_2024-11-07_19-44-17"></p>
+<p>重命名，选择一个合适的放置虚拟机的地方，我的F盘有较大空闲空间，选择放在这里</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20241109202148962.png" alt="image-20241109202148962"></p>
+<p>接下来选择处理器数量和每个处理器内核数量，一般选择宿主机内核数的一半，保证其他功能的正常使用，我的电脑内核是<strong>10</strong>，此处设置处理器内核总数为<strong>4</strong></p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20241107200019785.png" alt="image-20241107200019785"></p>
+<p>设置内存，默认的<strong>4G</strong>已经足足够用</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20241107200136056.png" alt="image-20241107200136056"></p>
+<p>设置网络类型为NAT，方便我们向它发送安装包</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20241107200237596.png" alt="image-20241107200237596"></p>
+<p>一路<code>next</code>过来，设置Ubuntu建议大小20GB，作为仿真实验用已经绰绰有余</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20241107200406862.png" alt="image-20241107200406862"></p>
+<p>已经创建完成，再核对一下信息，点击完成创建虚拟机</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20241109202232139.png" alt="image-20241109202232139"></p>
+<h4 id="3配置系统">3.配置系统</h4>
+<p>此时刚才的映像已经下载完毕，我们点击编辑虚拟机设置为其装系统，选择刚才下载的ISO文件。</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20241109224052979.png?imageslim" alt="image-20241109224052979"></p>
+<p>然后开启虚拟机，可以点击上方保持横纵比拉伸来放大屏幕</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20241109224209378.png?imageslim" alt="image-20241109224209378"></p>
+<p>接下来通过引导程序安装系统</p>
+<ol>
+<li>
+<p>点击<code>Install Ubuntu</code></p>
+</li>
+<li>
+<p>勾选<code>Install third-party software for ...</code></p>
+</li>
+<li>
+<p>由于是建立了新盘，选择Erase disk and install Ubuntu</p>
+</li>
+<li>
+<p>选择东八区，点击地址为上海</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20241109235500264.png?imageslim" alt="image-20241109235500264"></p>
+</li>
+<li>
+<p>选择键盘布局为<code>English(US)</code></p>
+</li>
+<li>
+<p>设置用户名和密码，需要注意密码很重要，之后还要用</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20241109235715243.png?imageslim" alt="image-20241109235715243"></p>
+</li>
+<li>
+<p>点击<code>Install</code>启动安装，等待之后重启即可</p>
+</li>
+</ol>
+<p>进入系统后搜索启动<code>terminal</code></p>
+<p>安装一些基础软件：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo apt-get install -y vim ssh
+</span></span></code></pre></div><h4 id="4系统换源">4.系统换源</h4>
+<p>为提高相关软件下载速度，需要换源，这里我们使用清华的源（ubuntu16版本号是xenial，注意分辨）</p>
+<p>链接如下：https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释</span>
+</span></span><span style="display:flex;"><span>deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial main restricted universe multiverse
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial main restricted universe multiverse</span>
+</span></span><span style="display:flex;"><span>deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-updates main restricted universe multiverse
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-updates main restricted universe multiverse</span>
+</span></span><span style="display:flex;"><span>deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-backports main restricted universe multiverse
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-backports main restricted universe multiverse</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 以下安全更新软件源包含了官方源与镜像站配置，如有需要可自行修改注释切换</span>
+</span></span><span style="display:flex;"><span>deb http://security.ubuntu.com/ubuntu/ xenial-security main restricted universe multiverse
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># deb-src http://security.ubuntu.com/ubuntu/ xenial-security main restricted universe multiverse</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 预发布软件源，不建议启用</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-proposed main restricted universe multiverse</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ xenial-proposed main restricted universe multiverse</span>
+</span></span></code></pre></div><p>使用编辑器编辑源列表文件</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cd /etc/apt/
+</span></span><span style="display:flex;"><span>sudo cp sources.list sources.list.bakup	//备份原先文件
+</span></span><span style="display:flex;"><span>sudo vim sources.list
+</span></span></code></pre></div><p>按<code>i</code>键进入编辑模式，注释掉原先源，将上方源复制到文件最后。按<code>ESC</code>键退出编辑模式，输入<code>:wq + Enter</code>保存并退出<strong>vim</strong></p>
+<p>更新源</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo apt-get update
+</span></span><span style="display:flex;"><span>sudo apt-get upgrade
+</span></span></code></pre></div><h3 id="三安装ns2">三、安装ns2</h3>
+<h4 id="1安装依赖库">1.安装依赖库</h4>
+<p>在安装<strong>ns2</strong>之前我们需要准备以下几个依赖库：</p>
+<ul>
+<li>libx11-dev：提供X Window系统相关的开发库。</li>
+<li>tcl-dev：为Tcl语言提供编译环境。</li>
+<li>tk-dev：为Tk图形界面库提供开发支持。</li>
+<li>gcc 和 g++：用于编译C和C++代码。</li>
+<li>make：构建工具，用于编译NS2。</li>
+</ul>
+<p>（引用自https://blog.csdn.net/weixin_36296444/article/details/141827130）</p>
+<p>一键安装</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo apt-get install -y libx11-dev gcc make tcl8.4 tcl8.4-dev tk8.4 tk8.4-dev build-essential libxmu-dev libxmu-headers
+</span></span></code></pre></div><p>测试安装</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>g++ -v
+</span></span></code></pre></div><p>你也可以编译一段程序验证：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cd ~
+</span></span><span style="display:flex;"><span>sudo vim test.cpp
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdio&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Hello World&#34;</span> <span style="color:#f92672">&lt;&lt;</span> std<span style="color:#f92672">::</span>endl;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo g++ test.cpp -o test <span style="color:#f92672">&amp;&amp;</span> ./test
+</span></span></code></pre></div><p>程序输出<code>Hello World</code>，没有问题</p>
+<h4 id="2安装ns2">2.安装ns2</h4>
+<p>先下载ns2的<code>all in one</code>包（你也可以选择源码，但是安装可能会遇到一些问题），官网给出的链接是sourcedorge的下载链接</p>
+<p>官网链接：https://www.isi.edu/websites/nsnam/ns/</p>
+<p>下载链接：http://sourceforge.net/projects/nsnam/files/allinone/ns-allinone-2.35/ns-allinone-2.35.tar.gz/download</p>
+<p>如何把文件发送到虚拟机上呢，这里使用<strong>sftp</strong>将文件发上去，先查看虚拟机的IP地址：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>ifconfig
+</span></span></code></pre></div><p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20241110003623995.png?imageslim" alt="image-20241110003623995"></p>
+<p>其中<strong>ens33</strong>网卡就是我们之前配置的NAT网络对应的网卡</p>
+<p>返回主机系统，在刚才下载到压缩包的路径打开<strong>cmd</strong></p>
+<p>通过<code>sftp</code>使用刚才设置的用户和密码登录系统，并将文件发送上去（将xxx修改为自己设置的用户名）</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sftp xxx@192.168.81.130
+</span></span><span style="display:flex;"><span>put ns-allinone-2.35.tar.gz /home/xxx/
+</span></span></code></pre></div><p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20241110012029766.png?imageslim" alt="image-20241110012029766"></p>
+<p>返回虚拟机可以看到文件已经上传成功</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20241110004044625.png?imageslim" alt="image-20241110004044625"></p>
+<p>解压缩源码压缩包：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>tar -zxvf ns-allinone-2.35.tar.gz
+</span></span><span style="display:flex;"><span>cd ns-allinone-2.35
+</span></span></code></pre></div><p>开始安装</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>./install
+</span></span></code></pre></div><p>发现报错</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20241110012629683.png?imageslim" alt="image-20241110012629683"></p>
+<p>是因为我们使用的g++版本与当时不同，只能修改源码来解决</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo vim ns-2.35/linkstate/ls.h
+</span></span></code></pre></div><p>将<code>137</code>行的<code>erase</code>改为<code>this-&gt;erase</code>即可，再次执行<code>./install</code>等待安装完成即可</p>
+<p>显示安装完成：</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20241110013512544.png?imageslim" alt="image-20241110013512544"></p>
+<p>依据提示设置环境变量：</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20241110013602064.png?imageslim" alt="image-20241110013602064"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo vim ~/.bashrc
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>export PATH<span style="color:#f92672">=</span>$PATH:/home/xxx/ns-allinone-2.35/bin:/home/xxx/ns-allinone-2.35/tcl8.5.10/unix:/home/xxx/ns-allinone-2.35/tk8.5.10/unix
+</span></span><span style="display:flex;"><span>export LD_LIBRARY_PATH<span style="color:#f92672">=</span>$LD_LIBRARY_PATH:/home/xxx/ns-allinone-2.35/otcl-1.14:/home/xxx/ns-allinone-2.35/lib
+</span></span><span style="display:flex;"><span>export TCL_LIBRARY<span style="color:#f92672">=</span>$TCL_LIBRARY:/home/xxx/ns-allinone-2.35/tcl8.5.10/library
+</span></span></code></pre></div><p>（将xxx改为自己的名称）</p>
+<p>编译环境变量：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>source ~/.bashrc
+</span></span></code></pre></div><p>验证安装（这步时间较长，不建议，建议直接跳到下一步）</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cd ns-2.35 <span style="color:#f92672">&amp;&amp;</span> ./validate
+</span></span></code></pre></div><h4 id="3测试ns2">3.测试ns2</h4>
+<p>退出重启terminal，输入<code>ns</code>，出现一个<code>%</code>证明安装成功</p>
+<p>输入<code>exit</code>退出：</p>
+<pre tabindex="0"><code>cd ns-allinone-2.35/ns-2.35/tcl/ex
+ns example.tcl
+</code></pre><p>如果出现了数据，证明ns2运行正常。再输入</p>
+<pre tabindex="0"><code>ns simple.tcl
+</code></pre><p>倘若弹出动画演示框，则证明ns完全安装正确</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20241110022350629.png?imageslim" alt="image-20241110022350629"></p>
+<h3 id="四一些问题">四、一些问题</h3>
+<h4 id="1运行simple显示无nam">1.运行simple显示无nam</h4>
+<p>重新安装nam即可</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cd ~/ns-allinone-2.35/nam-1.15
+</span></span><span style="display:flex;"><span>./configure
+</span></span><span style="display:flex;"><span>make
+</span></span><span style="display:flex;"><span>sudo make install
+</span></span></code></pre></div><p>然后测试，出现nam console说明安装成功，回去重新测试即可</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20241110022648267.png?imageslim" alt="image-20241110022648267"></p>
+<h4 id="2复制粘贴技巧">2.复制粘贴技巧</h4>
+<p>如果没有安装tools，复制粘贴可能不太方便，可以使用<code>ssh</code>链接</p>
+<p>可以win+R然后输入<code>powershell</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>ssh xxx@192.168.81.130
+</span></span></code></pre></div><p>登录即可，就获得了一个在本地运行的终端，右键即可粘贴</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20241110022933657.png?imageslim" alt="image-20241110022933657"></p>
+
+  
+  <hr>
+<div class="footer">
+    
+	    
+            <a class="previous-post" href="https://www.tcmckrlitb.top/posts/network/install-ns3-on-ubuntu/?ref=footer"><span style="font-weight:bold;">« Previous</span><br>网络仿真软件ns3的下载与安装（VMware&amp;ubuntu）</a>
+        
+	    
+            <div class="next-post">
+                <a href="https://www.tcmckrlitb.top/posts/linux/data-export-record/?ref=footer"><span style="font-weight:bold;">Next »</span><br>记一次数据导出过程</a>
+            </div>
+        
+    
+</div>
+
+  
+</div>
+            </main>
+            
+  
+    <div class="article-toc ">
+    <div class="toc-wrapper">
+      <h4 id="contents"></h4>
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#一vmware安装">一、VMware安装</a></li>
+        <li><a href="#二ubuntu安装">二、Ubuntu安装</a></li>
+        <li><a href="#三安装ns2">三、安装ns2</a></li>
+        <li><a href="#四一些问题">四、一些问题</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+  
+
+        </div>
+    </body>
+</html>

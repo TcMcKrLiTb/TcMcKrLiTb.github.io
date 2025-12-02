@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Network on TcMcKrLiTb Blog</title>
+    <link>https://www.tcmckrlitb.top/tags/network/</link>
+    <description>Recent content in Network on TcMcKrLiTb Blog</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 02 Apr 2025 14:37:52 +0800</lastBuildDate>
+    <atom:link href="https://www.tcmckrlitb.top/tags/network/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>基于SOCKET的简单网络程序的设计</title>
+      <link>https://www.tcmckrlitb.top/posts/network/easy-socket-program/</link>
+      <pubDate>Wed, 02 Apr 2025 14:37:52 +0800</pubDate>
+      <guid>https://www.tcmckrlitb.top/posts/network/easy-socket-program/</guid>
+      <description>&lt;h2 id=&#34;实验配置&#34;&gt;实验配置&lt;/h2&gt;&#xA;&lt;p&gt;实验使用两个虚拟机同时挂在主机NAT服务上互相通信来实现，使用系统：Ubuntu22.04desktop和Ubuntu16.04server。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>网络仿真软件ns2的下载与安装（VMware&amp;ubuntu）</title>
+      <link>https://www.tcmckrlitb.top/posts/network/install-ns2-on-ubuntu/</link>
+      <pubDate>Sat, 09 Nov 2024 19:47:34 +0800</pubDate>
+      <guid>https://www.tcmckrlitb.top/posts/network/install-ns2-on-ubuntu/</guid>
+      <description>&lt;h3 id=&#34;一vmware安装&#34;&gt;一、VMware安装&lt;/h3&gt;&#xA;&lt;p&gt;VMware虚拟机安装多种多样，可参考下方链接：&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzA4MjU4MTg2Ng==&amp;amp;action=getalbum&amp;amp;album_id=3421466920749137927&amp;amp;scene=21#wechat_redirect&#34; target=&#34;_blank&#34;&gt;https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzA4MjU4MTg2Ng==&amp;action=getalbum&amp;album_id=3421466920749137927&amp;scene=21#wechat_redirect&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;大家根据自身电脑配置情况酌情选择版本，这里不再赘述&lt;/p&gt;&#xA;&lt;h3 id=&#34;二ubuntu安装&#34;&gt;二、Ubuntu安装&lt;/h3&gt;&#xA;&lt;h4 id=&#34;1映像下载&#34;&gt;1.映像下载&lt;/h4&gt;&#xA;&lt;p&gt;这里选择&lt;strong&gt;Ubuntu16.04&lt;/strong&gt;，选用阿里镜像源，由于大小较大，选用磁力链接下载的方式&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>网络仿真软件ns3的下载与安装（VMware&amp;ubuntu）</title>
+      <link>https://www.tcmckrlitb.top/posts/network/install-ns3-on-ubuntu/</link>
+      <pubDate>Thu, 07 Nov 2024 19:14:34 +0800</pubDate>
+      <guid>https://www.tcmckrlitb.top/posts/network/install-ns3-on-ubuntu/</guid>
+      <description>&lt;h3 id=&#34;一vmware安装&#34;&gt;一、VMware安装&lt;/h3&gt;&#xA;&lt;p&gt;VMware虚拟机安装多种多样，可参考下方链接：&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzA4MjU4MTg2Ng==&amp;amp;action=getalbum&amp;amp;album_id=3421466920749137927&amp;amp;scene=21#wechat_redirect&#34; target=&#34;_blank&#34;&gt;https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzA4MjU4MTg2Ng==&amp;action=getalbum&amp;album_id=3421466920749137927&amp;scene=21#wechat_redirect&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;大家根据自身电脑配置情况酌情选择版本，这里不再赘述&lt;/p&gt;&#xA;&lt;h3 id=&#34;二ubuntu安装&#34;&gt;二、Ubuntu安装&lt;/h3&gt;&#xA;&lt;p&gt;此文写自2024-11-7，截止目前ns-3官网最高版本是3.43，根据官方安装手册，安装所需依赖版本如下表：&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

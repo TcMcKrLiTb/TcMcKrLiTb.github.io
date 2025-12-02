@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>How to Make STLink on TcMcKrLiTb Blog</title>
+    <link>https://www.tcmckrlitb.top/series/how-to-make-stlink/</link>
+    <description>Recent content in How to Make STLink on TcMcKrLiTb Blog</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sun, 30 Nov 2025 14:26:16 +0800</lastBuildDate>
+    <atom:link href="https://www.tcmckrlitb.top/series/how-to-make-stlink/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>自己做一个带负载检测的STLinkV2.1</title>
+      <link>https://www.tcmckrlitb.top/posts/stm32/make-a-stlinkv2-1/</link>
+      <pubDate>Sun, 30 Nov 2025 14:26:16 +0800</pubDate>
+      <guid>https://www.tcmckrlitb.top/posts/stm32/make-a-stlinkv2-1/</guid>
+      <description>&lt;p&gt;一切的起源是发现嵌入式课设使用的STM32F746-DISCO开发板自带的LINK很好用。首先它比一般能买到的stlinkv2的SWD速度更快，其次其支持SWO、虚拟串口、虚拟U盘下载，尤其是这个虚拟串口功能，虽然手边的DAP Link同样支持虚拟串口，但是发现 CLion 对其没有原生支持，还需要配置openOCD，这一步非常麻烦。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on TcMcKrLiTb Blog</title>
+    <link>https://www.tcmckrlitb.top/tags/linux/</link>
+    <description>Recent content in Linux on TcMcKrLiTb Blog</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 26 Mar 2025 23:35:00 +0800</lastBuildDate>
+    <atom:link href="https://www.tcmckrlitb.top/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>记一次数据导出过程</title>
+      <link>https://www.tcmckrlitb.top/posts/linux/data-export-record/</link>
+      <pubDate>Wed, 26 Mar 2025 23:35:00 +0800</pubDate>
+      <guid>https://www.tcmckrlitb.top/posts/linux/data-export-record/</guid>
+      <description>&lt;p&gt;做学工的时候遇到一个要导出另一个学校的数据库数据，遇到并解决了两个问题，在这里记录一下：&lt;/p&gt;&#xA;&lt;h2 id=&#34;mysql配置了安全文件保护&#34;&gt;MySQL配置了安全文件保护&lt;/h2&gt;&#xA;&lt;p&gt;先在堡垒机登陆上目标系统，进入MySQL&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20250326170640093.png?imageslim&#34; alt=&#34;image-20250326170640093&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20250326170844035.png&#34; alt=&#34;image-20250326170844035&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;直接使用导出语句会报错：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>崭新CentOS7虚拟机换源</title>
+      <link>https://www.tcmckrlitb.top/posts/linux/centos-change-source/</link>
+      <pubDate>Wed, 01 Sep 2021 17:15:28 +0800</pubDate>
+      <guid>https://www.tcmckrlitb.top/posts/linux/centos-change-source/</guid>
+      <description>&lt;p&gt;近日整了一台CentOS虚拟机这里记录配置方法&lt;/p&gt;&#xA;&lt;p&gt;Linux版本：CentOS7&lt;/p&gt;&#xA;&lt;p&gt;软件：VMware Workstation Pro&lt;/p&gt;&#xA;&lt;h2 id=&#34;配置网络&#34;&gt;配置网络&lt;/h2&gt;&#xA;&lt;p&gt;首先将虚拟机配置为桥接模式&lt;/p&gt;&#xA;&lt;p&gt;首先&lt;code&gt;ping&lt;/code&gt;一下&lt;code&gt;127.0.0.1&lt;/code&gt;看看网卡是否是好的&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

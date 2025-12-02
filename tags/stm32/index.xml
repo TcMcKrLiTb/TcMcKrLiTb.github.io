@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Stm32 on TcMcKrLiTb Blog</title>
+    <link>https://www.tcmckrlitb.top/tags/stm32/</link>
+    <description>Recent content in Stm32 on TcMcKrLiTb Blog</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 01 Dec 2025 16:33:19 +0800</lastBuildDate>
+    <atom:link href="https://www.tcmckrlitb.top/tags/stm32/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>如何使用Clion配合cubeMX</title>
+      <link>https://www.tcmckrlitb.top/posts/stm32/how-to-use-clion-with-cube/</link>
+      <pubDate>Mon, 01 Dec 2025 16:33:19 +0800</pubDate>
+      <guid>https://www.tcmckrlitb.top/posts/stm32/how-to-use-clion-with-cube/</guid>
+      <description>&lt;div class=&#34;admonition admonition-warning&#34;&gt;&#xD;&#xA;  &lt;div class=&#34;admonition-title&#34;&gt;WARNING&lt;/div&gt;&#xD;&#xA;  &lt;div class=&#34;admonition-content&#34;&gt;&#xD;&#xA;    这个笔记基于Clion 2025.2.4以及CubeMX 6.15.0 请谨慎参考，不过考虑到st现在主推cmake这套方案，应该是长期支持的&#xD;&#xA;  &lt;/div&gt;&#xD;&#xA;&lt;/div&gt;&#xD;&#xA;&#xA;&lt;h2 id=&#34;环境准备&#34;&gt;环境准备&lt;/h2&gt;&#xA;&lt;p&gt;首先你需要一个最新的cubeMX，连接如下：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>自己做一个带负载检测的STLinkV2.1</title>
+      <link>https://www.tcmckrlitb.top/posts/stm32/make-a-stlinkv2-1/</link>
+      <pubDate>Sun, 30 Nov 2025 14:26:16 +0800</pubDate>
+      <guid>https://www.tcmckrlitb.top/posts/stm32/make-a-stlinkv2-1/</guid>
+      <description>&lt;p&gt;一切的起源是发现嵌入式课设使用的STM32F746-DISCO开发板自带的LINK很好用。首先它比一般能买到的stlinkv2的SWD速度更快，其次其支持SWO、虚拟串口、虚拟U盘下载，尤其是这个虚拟串口功能，虽然手边的DAP Link同样支持虚拟串口，但是发现 CLion 对其没有原生支持，还需要配置openOCD，这一步非常麻烦。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

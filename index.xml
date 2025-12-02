@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>TcMcKrLiTb Blog</title>
+    <link>https://www.tcmckrlitb.top/</link>
+    <description>Recent content on TcMcKrLiTb Blog</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 02 Dec 2025 19:46:50 +0800</lastBuildDate>
+    <atom:link href="https://www.tcmckrlitb.top/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>记录一个有趣的木马病毒</title>
+      <link>https://www.tcmckrlitb.top/posts/mix/a-trojan-spread-by-usbdisk/</link>
+      <pubDate>Tue, 02 Dec 2025 19:46:50 +0800</pubDate>
+      <guid>https://www.tcmckrlitb.top/posts/mix/a-trojan-spread-by-usbdisk/</guid>
+      <description>&lt;p&gt;在实验教室做完实验之后插过那边电脑的U盘回来发现盘里的所有文件夹都变成了应用程序，像这样：&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/f65e78c897ac59169ba1a7ff1ebe91ad.png?imageslim&#34; alt=&#34;f65e78c897ac59169ba1a7ff1ebe91ad&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;在不知情的情况下双击打开了某个应用程序，发现可以进入对应的目录，认为可能勒索软件只是把文件夹改名后缀加了&lt;code&gt;.exe&lt;/code&gt;。仔细一看，发现电脑上的显示文件后缀名的设置被关掉了，心里咯噔一下，问题可能不是一点。果然修改文件名之后发现文件并没有变成目录。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>如何使用Clion配合cubeMX</title>
+      <link>https://www.tcmckrlitb.top/posts/stm32/how-to-use-clion-with-cube/</link>
+      <pubDate>Mon, 01 Dec 2025 16:33:19 +0800</pubDate>
+      <guid>https://www.tcmckrlitb.top/posts/stm32/how-to-use-clion-with-cube/</guid>
+      <description>&lt;div class=&#34;admonition admonition-warning&#34;&gt;&#xD;&#xA;  &lt;div class=&#34;admonition-title&#34;&gt;WARNING&lt;/div&gt;&#xD;&#xA;  &lt;div class=&#34;admonition-content&#34;&gt;&#xD;&#xA;    这个笔记基于Clion 2025.2.4以及CubeMX 6.15.0 请谨慎参考，不过考虑到st现在主推cmake这套方案，应该是长期支持的&#xD;&#xA;  &lt;/div&gt;&#xD;&#xA;&lt;/div&gt;&#xD;&#xA;&#xA;&lt;h2 id=&#34;环境准备&#34;&gt;环境准备&lt;/h2&gt;&#xA;&lt;p&gt;首先你需要一个最新的cubeMX，连接如下：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>自己做一个带负载检测的STLinkV2.1</title>
+      <link>https://www.tcmckrlitb.top/posts/stm32/make-a-stlinkv2-1/</link>
+      <pubDate>Sun, 30 Nov 2025 14:26:16 +0800</pubDate>
+      <guid>https://www.tcmckrlitb.top/posts/stm32/make-a-stlinkv2-1/</guid>
+      <description>&lt;p&gt;一切的起源是发现嵌入式课设使用的STM32F746-DISCO开发板自带的LINK很好用。首先它比一般能买到的stlinkv2的SWD速度更快，其次其支持SWO、虚拟串口、虚拟U盘下载，尤其是这个虚拟串口功能，虽然手边的DAP Link同样支持虚拟串口，但是发现 CLion 对其没有原生支持，还需要配置openOCD，这一步非常麻烦。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>关于</title>
+      <link>https://www.tcmckrlitb.top/about/</link>
+      <pubDate>Sat, 29 Nov 2025 17:47:02 +0800</pubDate>
+      <guid>https://www.tcmckrlitb.top/about/</guid>
+      <description>&lt;p&gt;关于&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Git操作指南</title>
+      <link>https://www.tcmckrlitb.top/posts/mix/how-to-use-git/</link>
+      <pubDate>Sat, 28 Jun 2025 20:32:54 +0800</pubDate>
+      <guid>https://www.tcmckrlitb.top/posts/mix/how-to-use-git/</guid>
+      <description>&lt;h2 id=&#34;一创建新项目&#34;&gt;一、创建新项目&lt;/h2&gt;&#xA;&lt;p&gt;&lt;code&gt;git init&lt;/code&gt;创建新项目&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;vim README.md&lt;/code&gt;添加README文件&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;git add README.md&lt;/code&gt;将新文件添加&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;git commit -m &#39;init project&#39;&lt;/code&gt;创建第一个提交&lt;/p&gt;&#xA;&lt;p&gt;去GitHub上创建新仓库，选择&lt;code&gt;public&lt;/code&gt;并不选择添加README&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>基于SOCKET的简单网络程序的设计</title>
+      <link>https://www.tcmckrlitb.top/posts/network/easy-socket-program/</link>
+      <pubDate>Wed, 02 Apr 2025 14:37:52 +0800</pubDate>
+      <guid>https://www.tcmckrlitb.top/posts/network/easy-socket-program/</guid>
+      <description>&lt;h2 id=&#34;实验配置&#34;&gt;实验配置&lt;/h2&gt;&#xA;&lt;p&gt;实验使用两个虚拟机同时挂在主机NAT服务上互相通信来实现，使用系统：Ubuntu22.04desktop和Ubuntu16.04server。&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>记一次数据导出过程</title>
+      <link>https://www.tcmckrlitb.top/posts/linux/data-export-record/</link>
+      <pubDate>Wed, 26 Mar 2025 23:35:00 +0800</pubDate>
+      <guid>https://www.tcmckrlitb.top/posts/linux/data-export-record/</guid>
+      <description>&lt;p&gt;做学工的时候遇到一个要导出另一个学校的数据库数据，遇到并解决了两个问题，在这里记录一下：&lt;/p&gt;&#xA;&lt;h2 id=&#34;mysql配置了安全文件保护&#34;&gt;MySQL配置了安全文件保护&lt;/h2&gt;&#xA;&lt;p&gt;先在堡垒机登陆上目标系统，进入MySQL&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20250326170640093.png?imageslim&#34; alt=&#34;image-20250326170640093&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20250326170844035.png&#34; alt=&#34;image-20250326170844035&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;直接使用导出语句会报错：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>网络仿真软件ns2的下载与安装（VMware&amp;ubuntu）</title>
+      <link>https://www.tcmckrlitb.top/posts/network/install-ns2-on-ubuntu/</link>
+      <pubDate>Sat, 09 Nov 2024 19:47:34 +0800</pubDate>
+      <guid>https://www.tcmckrlitb.top/posts/network/install-ns2-on-ubuntu/</guid>
+      <description>&lt;h3 id=&#34;一vmware安装&#34;&gt;一、VMware安装&lt;/h3&gt;&#xA;&lt;p&gt;VMware虚拟机安装多种多样，可参考下方链接：&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzA4MjU4MTg2Ng==&amp;amp;action=getalbum&amp;amp;album_id=3421466920749137927&amp;amp;scene=21#wechat_redirect&#34; target=&#34;_blank&#34;&gt;https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzA4MjU4MTg2Ng==&amp;action=getalbum&amp;album_id=3421466920749137927&amp;scene=21#wechat_redirect&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;大家根据自身电脑配置情况酌情选择版本，这里不再赘述&lt;/p&gt;&#xA;&lt;h3 id=&#34;二ubuntu安装&#34;&gt;二、Ubuntu安装&lt;/h3&gt;&#xA;&lt;h4 id=&#34;1映像下载&#34;&gt;1.映像下载&lt;/h4&gt;&#xA;&lt;p&gt;这里选择&lt;strong&gt;Ubuntu16.04&lt;/strong&gt;，选用阿里镜像源，由于大小较大，选用磁力链接下载的方式&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>网络仿真软件ns3的下载与安装（VMware&amp;ubuntu）</title>
+      <link>https://www.tcmckrlitb.top/posts/network/install-ns3-on-ubuntu/</link>
+      <pubDate>Thu, 07 Nov 2024 19:14:34 +0800</pubDate>
+      <guid>https://www.tcmckrlitb.top/posts/network/install-ns3-on-ubuntu/</guid>
+      <description>&lt;h3 id=&#34;一vmware安装&#34;&gt;一、VMware安装&lt;/h3&gt;&#xA;&lt;p&gt;VMware虚拟机安装多种多样，可参考下方链接：&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzA4MjU4MTg2Ng==&amp;amp;action=getalbum&amp;amp;album_id=3421466920749137927&amp;amp;scene=21#wechat_redirect&#34; target=&#34;_blank&#34;&gt;https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzA4MjU4MTg2Ng==&amp;action=getalbum&amp;album_id=3421466920749137927&amp;scene=21#wechat_redirect&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;大家根据自身电脑配置情况酌情选择版本，这里不再赘述&lt;/p&gt;&#xA;&lt;h3 id=&#34;二ubuntu安装&#34;&gt;二、Ubuntu安装&lt;/h3&gt;&#xA;&lt;p&gt;此文写自2024-11-7，截止目前ns-3官网最高版本是3.43，根据官方安装手册，安装所需依赖版本如下表：&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>崭新CentOS7虚拟机换源</title>
+      <link>https://www.tcmckrlitb.top/posts/linux/centos-change-source/</link>
+      <pubDate>Wed, 01 Sep 2021 17:15:28 +0800</pubDate>
+      <guid>https://www.tcmckrlitb.top/posts/linux/centos-change-source/</guid>
+      <description>&lt;p&gt;近日整了一台CentOS虚拟机这里记录配置方法&lt;/p&gt;&#xA;&lt;p&gt;Linux版本：CentOS7&lt;/p&gt;&#xA;&lt;p&gt;软件：VMware Workstation Pro&lt;/p&gt;&#xA;&lt;h2 id=&#34;配置网络&#34;&gt;配置网络&lt;/h2&gt;&#xA;&lt;p&gt;首先将虚拟机配置为桥接模式&lt;/p&gt;&#xA;&lt;p&gt;首先&lt;code&gt;ping&lt;/code&gt;一下&lt;code&gt;127.0.0.1&lt;/code&gt;看看网卡是否是好的&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>关于double转int时结果不一致问题</title>
+      <link>https://www.tcmckrlitb.top/posts/c&#43;&#43;/double-int-cast-problem/</link>
+      <pubDate>Mon, 23 Aug 2021 12:37:23 +0800</pubDate>
+      <guid>https://www.tcmckrlitb.top/posts/c&#43;&#43;/double-int-cast-problem/</guid>
+      <description>&lt;h2 id=&#34;问题背景&#34;&gt;问题背景：&lt;/h2&gt;&#xA;&lt;p&gt;先来看一个案例：&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;bits/stdc++.h&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;using&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;namespace&lt;/span&gt; std;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt;){&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;&lt;span style=&#34;color:#66d9ef&#34;&gt;double&lt;/span&gt; a; &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; b;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;a &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;64.35&lt;/span&gt;;a&lt;span style=&#34;color:#f92672&#34;&gt;*=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;100&lt;/span&gt;;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;b &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; a; b &lt;span style=&#34;color:#f92672&#34;&gt;%=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt;;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;cout &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt; b;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;很显然，通过常理推断，这里的答案应该输出&lt;code&gt;5&lt;/code&gt;，但是他却输出了&lt;code&gt;4&lt;/code&gt;&lt;/p&gt;&#xA;&lt;p&gt;我首先猜测是强制转换的问题，将第八行改成了&lt;code&gt;b = (int)a&lt;/code&gt;测试运行之后竟然还是不对&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>如何将.xml文件转换成.toml</title>
+      <link>https://www.tcmckrlitb.top/posts/blog/cast-xml-to-toml/</link>
+      <pubDate>Thu, 19 Aug 2021 11:22:23 +0800</pubDate>
+      <guid>https://www.tcmckrlitb.top/posts/blog/cast-xml-to-toml/</guid>
+      <description>&lt;h2 id=&#34;引子&#34;&gt;引子&lt;/h2&gt;&#xA;&lt;p&gt;由于&lt;code&gt;hugo&lt;/code&gt;官方默认的&lt;code&gt;config&lt;/code&gt;文件为&lt;code&gt;.toml&lt;/code&gt;格式，而我此处使用的皮肤官方页面全部采用&lt;code&gt;.xml&lt;/code&gt;编写，根据作者来看他认为这样更简明。。。链接如下：&lt;a href=&#34;https://github.com/adityatelange/hugo-PaperMod/wiki/Features&#34; target=&#34;_blank&#34;&gt;Features · adityatelange/hugo-paper&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>部署Github网页端的小步骤</title>
+      <link>https://www.tcmckrlitb.top/posts/mix/push-project-to-github/</link>
+      <pubDate>Thu, 19 Aug 2021 11:22:23 +0800</pubDate>
+      <guid>https://www.tcmckrlitb.top/posts/mix/push-project-to-github/</guid>
+      <description>&lt;h2 id=&#34;部署步骤&#34;&gt;部署步骤&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;首先，清空远程库（也可以不清空，但一定要&lt;strong&gt;备份&lt;/strong&gt;！接下来的操作将会覆盖掉你的远程库）&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;在命令提示符下进入&lt;code&gt;site&lt;/code&gt;的位置，输入命令&lt;code&gt;hugo&lt;/code&gt;生成&lt;code&gt;\public&lt;/code&gt;目录&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mix on TcMcKrLiTb Blog</title>
+    <link>https://www.tcmckrlitb.top/tags/mix/</link>
+    <description>Recent content in Mix on TcMcKrLiTb Blog</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 02 Dec 2025 19:46:50 +0800</lastBuildDate>
+    <atom:link href="https://www.tcmckrlitb.top/tags/mix/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>记录一个有趣的木马病毒</title>
+      <link>https://www.tcmckrlitb.top/posts/mix/a-trojan-spread-by-usbdisk/</link>
+      <pubDate>Tue, 02 Dec 2025 19:46:50 +0800</pubDate>
+      <guid>https://www.tcmckrlitb.top/posts/mix/a-trojan-spread-by-usbdisk/</guid>
+      <description>&lt;p&gt;在实验教室做完实验之后插过那边电脑的U盘回来发现盘里的所有文件夹都变成了应用程序，像这样：&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/f65e78c897ac59169ba1a7ff1ebe91ad.png?imageslim&#34; alt=&#34;f65e78c897ac59169ba1a7ff1ebe91ad&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;在不知情的情况下双击打开了某个应用程序，发现可以进入对应的目录，认为可能勒索软件只是把文件夹改名后缀加了&lt;code&gt;.exe&lt;/code&gt;。仔细一看，发现电脑上的显示文件后缀名的设置被关掉了，心里咯噔一下，问题可能不是一点。果然修改文件名之后发现文件并没有变成目录。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
