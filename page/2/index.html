@@ -87,7 +87,7 @@
 <meta property="og:url" content="https://www.tcmckrlitb.top/" />
 
 
-<meta property="og:updated_time" content="2025-12-02T19:46:50&#43;08:00" />
+<meta property="og:updated_time" content="2025-12-08T22:52:50&#43;08:00" />
 
 
 <link rel="sitemap" type="application/xml" title="Sitemap" href='https://www.tcmckrlitb.top/sitemap.xml' />
@@ -331,6 +331,10 @@
                         </li>
                         
                             <li class="bullet">
+                                <a href="https://www.tcmckrlitb.top/posts/stm32/shader-run-on-f411/">在stm32f411上运行着色器</a>
+                            </li>
+                        
+                            <li class="bullet">
                                 <a href="https://www.tcmckrlitb.top/posts/mix/a-trojan-spread-by-usbdisk/">记录一个有趣的木马病毒</a>
                             </li>
                         
@@ -344,10 +348,6 @@
                         
                             <li class="bullet">
                                 <a href="https://www.tcmckrlitb.top/posts/mix/how-to-use-git/">Git操作指南</a>
-                            </li>
-                        
-                            <li class="bullet">
-                                <a href="https://www.tcmckrlitb.top/posts/network/easy-socket-program/">基于SOCKET的简单网络程序的设计</a>
                             </li>
                         
                     
@@ -437,6 +437,70 @@ powered by <a target="_blank" href="https://gohugo.io">Hugo</a> | themed with <a
                 <div class="posts">
     
     
+    <article class="post">
+        <div class="info">
+  <h1 class="post-title">
+    <a href="https://www.tcmckrlitb.top/posts/c&#43;&#43;/double-int-cast-problem/">关于double转int时结果不一致问题</a>
+  </h1>
+
+  <div class="headline">
+    <div>
+      
+      
+      <time datetime=" 2021-08-23T12:37:23&#43;0800" class="post-date">
+        August 23, 2021
+      </time>
+      
+      <span> - </span>
+      <span class="reading-time">
+        
+          
+        
+
+        <span>3 mins read</span>
+      </span>
+    </div>
+
+    
+    <ul class="tags">
+      
+      <li class="tag-c&#43;&#43;">
+        <a href="https://www.tcmckrlitb.top/tags/c&#43;&#43;">c&#43;&#43;</a>
+      </li>
+      
+    </ul>
+    
+  </div>
+
+  
+  
+
+  
+</div>
+
+        
+        <h2 id="问题背景">问题背景：</h2>
+<p>先来看一个案例：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;bits/stdc++.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>){
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">double</span> a; <span style="color:#66d9ef">int</span> b;
+</span></span><span style="display:flex;"><span>	a <span style="color:#f92672">=</span> <span style="color:#ae81ff">64.35</span>;a<span style="color:#f92672">*=</span> <span style="color:#ae81ff">100</span>;
+</span></span><span style="display:flex;"><span>	b <span style="color:#f92672">=</span> a; b <span style="color:#f92672">%=</span> <span style="color:#ae81ff">10</span>;
+</span></span><span style="display:flex;"><span>	cout <span style="color:#f92672">&lt;&lt;</span> b;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>很显然，通过常理推断，这里的答案应该输出<code>5</code>，但是他却输出了<code>4</code></p>
+<p>我首先猜测是强制转换的问题，将第八行改成了<code>b = (int)a</code>测试运行之后竟然还是不对</p>
+        
+        <div class="read-more-link">
+            <a href="/posts/c&#43;&#43;/double-int-cast-problem/">Read More…</a>
+        </div>
+        
+        
+    </article>
     <article class="post">
         <div class="info">
   <h1 class="post-title">

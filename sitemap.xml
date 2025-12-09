@@ -2,25 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://www.tcmckrlitb.top/tags/mix/</loc>
-    <lastmod>2025-12-02T19:46:50+08:00</lastmod>
-  </url><url>
     <loc>https://www.tcmckrlitb.top/posts/</loc>
-    <lastmod>2025-12-02T19:46:50+08:00</lastmod>
+    <lastmod>2025-12-08T22:52:50+08:00</lastmod>
+  </url><url>
+    <loc>https://www.tcmckrlitb.top/tags/stm32/</loc>
+    <lastmod>2025-12-08T22:52:50+08:00</lastmod>
   </url><url>
     <loc>https://www.tcmckrlitb.top/tags/</loc>
-    <lastmod>2025-12-02T19:46:50+08:00</lastmod>
+    <lastmod>2025-12-08T22:52:50+08:00</lastmod>
   </url><url>
     <loc>https://www.tcmckrlitb.top/</loc>
+    <lastmod>2025-12-08T22:52:50+08:00</lastmod>
+  </url><url>
+    <loc>https://www.tcmckrlitb.top/posts/stm32/shader-run-on-f411/</loc>
+    <lastmod>2025-12-08T22:52:50+08:00</lastmod>
+  </url><url>
+    <loc>https://www.tcmckrlitb.top/tags/mix/</loc>
     <lastmod>2025-12-02T19:46:50+08:00</lastmod>
   </url><url>
     <loc>https://www.tcmckrlitb.top/posts/mix/a-trojan-spread-by-usbdisk/</loc>
     <lastmod>2025-12-02T19:46:50+08:00</lastmod>
   </url><url>
     <loc>https://www.tcmckrlitb.top/tags/clion/</loc>
-    <lastmod>2025-12-01T16:33:19+08:00</lastmod>
-  </url><url>
-    <loc>https://www.tcmckrlitb.top/tags/stm32/</loc>
     <lastmod>2025-12-01T16:33:19+08:00</lastmod>
   </url><url>
     <loc>https://www.tcmckrlitb.top/posts/stm32/how-to-use-clion-with-cube/</loc>

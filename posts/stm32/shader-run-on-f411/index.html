@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="zh-CN" lang="zh-CN" >
+
+<head>
+    
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+<script defer language="javascript" type="text/javascript" src="/js/bundle.min.d451ff92e80abc2a828eb9bb262e4db374bd4e954642f9245c54eec84bf690f3.js"></script>
+
+
+
+
+
+
+    
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/css/custom.css">
+
+    
+    <link rel="icon" href=/favicon.ico>
+
+    <link rel="stylesheet" href="/katex/katex.min.css" integrity="..."
+        crossorigin="anonymous">
+    <script defer src="/katex/katex.min.js"></script>
+    <script defer src="/katex/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {
+    delimiters: [
+      {left: '$$', right: '$$', display: true},
+      {left: '$', right: '$', display: false}
+    ]
+  });"></script>
+
+    
+    
+
+
+
+
+
+  
+
+
+
+
+
+  
+  
+  
+
+
+<!-- Open Graph image and Twitter Card metadata -->
+
+<title itemprop="name">TcMcKrLiTb - 在stm32f411上运行着色器</title>
+<meta property="og:title" content=TcMcKrLiTb&#32;-&#32;在stm32f411上运行着色器 />
+<meta name="twitter:title" content=TcMcKrLiTb&#32;-&#32;在stm32f411上运行着色器 />
+<meta itemprop="name" content=TcMcKrLiTb&#32;-&#32;在stm32f411上运行着色器 />
+<meta name="application-name" content=TcMcKrLiTb&#32;-&#32;在stm32f411上运行着色器 />
+<meta property="og:site_name" content="TcMcKrLiTb Blog" />
+
+
+<meta name="description" content="" />
+<meta itemprop="description" content="" />
+<meta property="og:description" content="" />
+<meta name="twitter:description" content="" />
+
+
+<base href="https://www.tcmckrlitb.top/posts/stm32/shader-run-on-f411/" />
+<link rel="canonical" href="https://www.tcmckrlitb.top/posts/stm32/shader-run-on-f411/" itemprop="url" />
+<meta name="url" content="https://www.tcmckrlitb.top/posts/stm32/shader-run-on-f411/" />
+<meta name="twitter:url" content="https://www.tcmckrlitb.top/posts/stm32/shader-run-on-f411/" />
+<meta property="og:url" content="https://www.tcmckrlitb.top/posts/stm32/shader-run-on-f411/" />
+
+
+<meta property="og:updated_time" content="2025-12-08T22:52:50&#43;08:00" />
+
+
+<link rel="sitemap" type="application/xml" title="Sitemap" href='https://www.tcmckrlitb.top/sitemap.xml' />
+
+<meta name="robots" content="index,follow" />
+<meta name="googlebot" content="index,follow" />
+
+
+
+<meta property="fb:admins" content="" />
+
+
+<meta name="apple-mobile-web-app-title" content="TcMcKrLiTb Blog" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.152.2">
+
+
+    
+    
+
+<link type="text/css" rel="stylesheet" href="/css/bundle.min.5a3123e7a624d07373748957d9f364905744f7f1cf7b078d68904fc07a61b6bb.css">
+
+
+    
+    <style>
+    body {
+        --sidebar-bg-color: #202020;
+        --sidebar-img-border-color: #515151;
+        --sidebar-p-color: #909090;
+        --sidebar-h1-color: #FFF;
+        --sidebar-a-color: #FFF;
+        --sidebar-socials-color: #FFF;
+        --text-color: #222;
+        --bkg-color: #FAF9F6;
+        --post-title-color: #303030;
+        --list-color: #5A5A5A;
+        --link-color: #268BD2;
+        --date-color: #515151;
+        --table-border-color: #E5E5E5;
+        --table-stripe-color: #F9F9F9;
+        --code-color: #000;
+        --code-background-color: #E5E5E5;
+        --code-block-color: #FFF;
+        --code-block-background-color: #272822;
+        --moon-sun-color: #FFF;
+        --moon-sun-background-color: #515151;
+    }
+    body.dark-theme {
+        --text-color: #EEE;
+        --bkg-color: #121212;
+        --post-title-color: #DBE2E9;
+        --list-color: #9D9D9D;
+        --link-color: #268BD2;
+        --date-color: #9A9A9A;
+        --table-border-color: #515151;
+        --table-stripe-color: #202020;
+        --code-color: #FFF;
+        --code-background-color: #515151;
+        --code-block-color: #FFF;
+        --code-block-background-color: #272822;
+    }
+    body {
+        background-color: var(--bkg-color);
+    }
+</style>
+
+</head>
+    <body class="dark-theme">
+        <div class="wrapper">
+            <aside class="sidebar">
+    <div class="container sidebar-sticky">
+        <div class="light-dark" align="right">
+    <button class="btn-light-dark" title="Toggle light/dark mode">
+        <svg class="moon" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16">
+            <path fill="currentColor" d="M6 .278a.768.768 0 0 1 .08.858a7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277c.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316a.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71C0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+        </svg>
+        <svg class="sun" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 16 16">
+            <path fill="currentColor" d="M8 12a4 4 0 1 0 0-8a4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+        </svg>
+    </button>
+</div>
+
+        <div class="sidebar-about">
+    <h1 class="brand">
+        
+            <a href="https://www.tcmckrlitb.top/">
+                <img src="/images/brand_image.jpg" alt="brand image">
+            </a>
+        
+        
+            <a href="https://www.tcmckrlitb.top/">
+                <h1>TcMcKrLiTb</h1>
+            </a>
+        
+    </h1>
+    <p class="lead">
+    TcMcKrLiTb's Blog
+    </p>
+</div>
+
+        <nav>
+    <ul class="sidebar-nav">
+
+        
+        
+        
+        
+            
+
+            
+                
+                
+            
+            
+                
+                    <li class="heading">
+                        <a href="/about/">About</a>
+                    </li>
+                
+                
+            
+                
+                
+                        
+                
+            
+                
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+            
+        
+        
+            
+
+            
+                
+                
+            
+            
+                
+                
+            
+                
+                    <li class="heading">
+                        <a href="/series/">Series</a>
+                    </li>
+                
+                
+                        
+                
+            
+                
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+            
+        
+        
+            
+
+            
+                
+                
+            
+            
+                
+                
+            
+                
+                
+                        
+                
+            
+                
+                    <li class="heading">
+                        <a href="/tags/">Tags</a>
+                    </li>
+                
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+            
+        
+        
+            
+
+            
+                
+                
+                    <li class="heading">
+                        <a href="/posts/">Posts</a>
+                    </li>
+                    
+                        <li class="sub-heading">
+                            Recent
+                        </li>
+                        
+                            <li class="bullet">
+                                <a href="https://www.tcmckrlitb.top/posts/stm32/shader-run-on-f411/">在stm32f411上运行着色器</a>
+                            </li>
+                        
+                            <li class="bullet">
+                                <a href="https://www.tcmckrlitb.top/posts/mix/a-trojan-spread-by-usbdisk/">记录一个有趣的木马病毒</a>
+                            </li>
+                        
+                            <li class="bullet">
+                                <a href="https://www.tcmckrlitb.top/posts/stm32/how-to-use-clion-with-cube/">如何使用Clion配合cubeMX</a>
+                            </li>
+                        
+                            <li class="bullet">
+                                <a href="https://www.tcmckrlitb.top/posts/stm32/make-a-stlinkv2-1/">自己做一个带负载检测的STLinkV2.1</a>
+                            </li>
+                        
+                            <li class="bullet">
+                                <a href="https://www.tcmckrlitb.top/posts/mix/how-to-use-git/">Git操作指南</a>
+                            </li>
+                        
+                    
+                
+            
+            
+                
+                
+            
+                
+                
+                        
+                
+            
+                
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+                        
+                
+            
+        
+
+    </ul>
+</nav>
+
+        
+    <a target="_blank" class="social" title="GitHub" href="https://github.com/TcMcKrLiTb">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" viewBox="-2 -2 24 24">
+            <path fill="currentColor" d="M18.88 1.099C18.147.366 17.265 0 16.233 0H3.746C2.714 0 1.832.366 1.099 1.099C.366 1.832 0 2.714 0 3.746v12.487c0 1.032.366 1.914 1.099 2.647c.733.733 1.615 1.099 2.647 1.099H6.66c.19 0 .333-.007.429-.02a.504.504 0 0 0 .286-.169c.095-.1.143-.245.143-.435l-.007-.885c-.004-.564-.006-1.01-.006-1.34l-.3.052c-.19.035-.43.05-.721.046a5.555 5.555 0 0 1-.904-.091a2.026 2.026 0 0 1-.872-.39a1.651 1.651 0 0 1-.572-.8l-.13-.3a3.25 3.25 0 0 0-.41-.663c-.186-.243-.375-.407-.566-.494l-.09-.065a.956.956 0 0 1-.17-.156a.723.723 0 0 1-.117-.182c-.026-.061-.004-.111.065-.15c.07-.04.195-.059.378-.059l.26.04c.173.034.388.138.643.311a2.1 2.1 0 0 1 .631.677c.2.355.44.626.722.813c.282.186.566.28.852.28c.286 0 .533-.022.742-.065a2.59 2.59 0 0 0 .585-.196c.078-.58.29-1.028.637-1.34a8.907 8.907 0 0 1-1.333-.234a5.314 5.314 0 0 1-1.223-.507a3.5 3.5 0 0 1-1.047-.872c-.277-.347-.505-.802-.683-1.365c-.177-.564-.266-1.215-.266-1.952c0-1.049.342-1.942 1.027-2.68c-.32-.788-.29-1.673.091-2.652c.252-.079.625-.02 1.119.175c.494.195.856.362 1.086.5c.23.14.414.257.553.352a9.233 9.233 0 0 1 2.497-.338c.859 0 1.691.113 2.498.338l.494-.312a6.997 6.997 0 0 1 1.197-.572c.46-.174.81-.221 1.054-.143c.39.98.424 1.864.103 2.653c.685.737 1.028 1.63 1.028 2.68c0 .737-.089 1.39-.267 1.957c-.177.568-.407 1.023-.689 1.366a3.65 3.65 0 0 1-1.053.865c-.42.234-.828.403-1.223.507a8.9 8.9 0 0 1-1.333.235c.45.39.676 1.005.676 1.846v3.11c0 .147.021.266.065.357a.36.36 0 0 0 .208.189c.096.034.18.056.254.064c.074.01.18.013.318.013h2.914c1.032 0 1.914-.366 2.647-1.099c.732-.732 1.099-1.615 1.099-2.647V3.746c0-1.032-.367-1.914-1.1-2.647z"/>
+        </svg>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a target="_blank" class="social" title="Email" href="tcmckrlitb@gmail.com">
+       <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1.2em" viewBox="0 0 485.211 485.211">
+            <path fill="currentColor" d="M301.393,241.631L464.866,424.56H20.332l163.474-182.928l58.801,51.443L301.393,241.631z M462.174,60.651H23.027 l219.579,192.142L462.174,60.651z M324.225,221.67l160.986,180.151V80.792L324.225,221.67z M0,80.792v321.029L160.972,221.64 L0,80.792z"/>
+       </svg>
+    </a>
+
+
+
+
+    <a target="_blank" class="bilibili" title="BiliBili" href="https://space.bilibili.com/82578071">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.4em" viewBox="0 0 1024 1024">
+            <path fill="currentColor" d="M777.514667 131.669333a53.333333 53.333333 0 0 1 0 75.434667L728.746667 255.829333h49.92A160 160 0 0 1 938.666667 415.872v320a160 160 0 0 1-160 160H245.333333A160 160 0 0 1 85.333333 735.872v-320a160 160 0 0 1 160-160h49.749334L246.4 207.146667a53.333333 53.333333 0 1 1 75.392-75.434667l113.152 113.152c3.370667 3.370667 6.186667 7.04 8.448 10.965333h137.088c2.261333-3.925333 5.12-7.68 8.490667-11.008l113.109333-113.152a53.333333 53.333333 0 0 1 75.434667 0z m1.152 231.253334H245.333333a53.333333 53.333333 0 0 0-53.205333 49.365333l-0.128 4.010667v320c0 28.117333 21.76 51.157333 49.365333 53.162666l3.968 0.170667h533.333334a53.333333 53.333333 0 0 0 53.205333-49.365333l0.128-3.968v-320c0-29.44-23.893333-53.333333-53.333333-53.333334z m-426.666667 106.666666c29.44 0 53.333333 23.893333 53.333333 53.333334v53.333333a53.333333 53.333333 0 1 1-106.666666 0v-53.333333c0-29.44 23.893333-53.333333 53.333333-53.333334z m320 0c29.44 0 53.333333 23.893333 53.333333 53.333334v53.333333a53.333333 53.333333 0 1 1-106.666666 0v-53.333333c0-29.44 23.893333-53.333333 53.333333-53.333334z"/>
+        </svg>
+    </a>
+
+
+        <p class="footnote">
+powered by <a target="_blank" href="https://gohugo.io">Hugo</a> | themed with <a target="_blank" href="https://github.com/lukeorth/poison">poison</a>
+    <br>
+    &copy; 2025 TcMcKrLiTb Blog. All rights reserved.
+</p>
+
+  </div>
+</aside>
+
+            <main class="content container">
+                <div class="post">
+  <div class="info">
+  <h1 class="post-title">
+    <a href="https://www.tcmckrlitb.top/posts/stm32/shader-run-on-f411/">在stm32f411上运行着色器</a>
+  </h1>
+
+  <div class="headline">
+    <div>
+      
+      
+      <time datetime=" 2025-12-08T22:52:50&#43;0800" class="post-date">
+        December 8, 2025
+      </time>
+      
+      <span> - </span>
+      <span class="reading-time">
+        
+          
+        
+
+        <span>7 mins read</span>
+      </span>
+    </div>
+
+    
+    <ul class="tags">
+      
+      <li class="tag-stm32">
+        <a href="https://www.tcmckrlitb.top/tags/stm32">stm32</a>
+      </li>
+      
+    </ul>
+    
+  </div>
+
+  
+  
+
+  
+</div>
+
+  <p>前两天偶然刷到了很喜欢的<a href="https://x.com/tsoding" target="_blank">Тsфdiиg</a>的一个视频，标题是图形库并不重要：</p>
+<p><a href="https://x.com/tsoding/status/1989446257882829223" target="_blank">Graphics API is irrelevant</a></p>
+<p>视频中，他使用c++代码直接生成ppm格式图像，并使用ffmpeg去拼接这些图像，最终生成一段视频，这个过程中并没有依赖任何的图形库，实现了一个着色器视频，非常有趣。刚好有一块1.8寸的128x160的tft彩屏到我的手上，如果将生成ppm帧的这一步变为写入到tft屏幕的ram中，那么就可以不需要使用gui或者任何多余的库来实现一些效果。</p>
+<p>128x160且使用RGB565的屏幕一帧需要
+$$
+128pixels\times 160pixels\times16bit=40960Bytes
+$$
+手上的一块<code>STM32F411CEU6</code>内部RAM是128kB刚好够用。</p>
+<p>移植ST7735S的库：<a href="https://github.com/maudeve-it/ST7735S-STM32" target="_blank">ST7735S-STM32</a></p>
+<p>然后照着视频先搓一个动态网格的代码：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#66d9ef">uint16_t</span> LCD_Buffer[<span style="color:#ae81ff">128</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">160</span>];
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Displ_Init</span>(Displ_Orientat_0);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">uint8_t</span> x;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">while</span> (<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    x<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">uint8_t</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; j <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">160</span>; j<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">uint8_t</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">128</span>; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (((i <span style="color:#f92672">+</span> x) <span style="color:#f92672">%</span> <span style="color:#ae81ff">10</span>) <span style="color:#f92672">+</span> ((j <span style="color:#f92672">+</span> x) <span style="color:#f92672">%</span> <span style="color:#ae81ff">10</span>)) {
+</span></span><span style="display:flex;"><span>          LCD_Buffer[j <span style="color:#f92672">*</span> <span style="color:#ae81ff">128</span> <span style="color:#f92672">+</span> i] <span style="color:#f92672">=</span> (RED <span style="color:#f92672">&gt;&gt;</span> <span style="color:#ae81ff">8</span>) <span style="color:#f92672">|</span> ((RED <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">0xff</span>) <span style="color:#f92672">&lt;&lt;</span> <span style="color:#ae81ff">8</span>);
+</span></span><span style="display:flex;"><span>        } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>          LCD_Buffer[j <span style="color:#f92672">*</span> <span style="color:#ae81ff">128</span> <span style="color:#f92672">+</span> i] <span style="color:#f92672">=</span> (BLUE <span style="color:#f92672">&gt;&gt;</span> <span style="color:#ae81ff">8</span>) <span style="color:#f92672">|</span> (BLUE <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">0xff</span>) <span style="color:#f92672">&lt;&lt;</span> <span style="color:#ae81ff">8</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">Displ_DrawImage</span>(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">128</span>, <span style="color:#ae81ff">160</span>, (<span style="color:#66d9ef">uint8_t</span> <span style="color:#f92672">*</span>) LCD_Buffer);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20251208233411027.png?imageslim" alt="image-20251208233411027"></p>
+<p>可以看到网格已经绘制出来了，并且一直在向右上角移动。</p>
+<p>现在尝试将着色器渲染移植进来，视频中选用的代码是Xor的这段GLSL的等离子球着色器：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-glsl" data-lang="glsl"><span style="display:flex;"><span><span style="color:#66d9ef">vec2</span> p<span style="color:#f92672">=</span>(FC.xy<span style="color:#f92672">*</span><span style="color:#ae81ff">2.</span><span style="color:#f92672">-</span>r)<span style="color:#f92672">/</span>r.y,l,i,v<span style="color:#f92672">=</span>p<span style="color:#f92672">*</span>(l<span style="color:#f92672">+=</span><span style="color:#ae81ff">4.</span><span style="color:#f92672">-</span><span style="color:#ae81ff">4.</span><span style="color:#f92672">*</span>abs(<span style="color:#ae81ff">.7</span><span style="color:#f92672">-</span>dot(p,p)));<span style="color:#66d9ef">for</span>(;i.y<span style="color:#f92672">++&lt;</span><span style="color:#ae81ff">8.</span>;o<span style="color:#f92672">+=</span>(sin(v.xyyx)<span style="color:#f92672">+</span><span style="color:#ae81ff">1.</span>)<span style="color:#f92672">*</span>abs(v.x<span style="color:#f92672">-</span>v.y))v<span style="color:#f92672">+=</span>cos(v.yx<span style="color:#f92672">*</span>i.y<span style="color:#f92672">+</span>i<span style="color:#f92672">+</span>t)<span style="color:#f92672">/</span>i.y<span style="color:#f92672">+</span><span style="color:#ae81ff">.7</span>;o<span style="color:#f92672">=</span>tanh(<span style="color:#ae81ff">5.</span><span style="color:#f92672">*</span>exp(l.x<span style="color:#f92672">-</span><span style="color:#ae81ff">4.</span><span style="color:#f92672">-</span>p.y<span style="color:#f92672">*</span><span style="color:#66d9ef">vec4</span>(<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">0</span>))<span style="color:#f92672">/</span>o);
+</span></span></code></pre></div><p>这段代码经过高尔夫化之后仅仅只有179字符。Тsфdiиg视频中通过使用c++来快速地将其移植好了，但是我们没法很方便地搞c++，所以我打算直接移植成c代码。</p>
+<p>首先需要两个结构体来模拟GLSL中的二维向量和四维向量：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C" data-lang="C"><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">float32_t</span> x;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">float32_t</span> y;
+</span></span><span style="display:flex;"><span>}vec2;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">float32_t</span> x;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">float32_t</span> y;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">float32_t</span> z;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">float32_t</span> w;
+</span></span><span style="display:flex;"><span>}vec4;
+</span></span></code></pre></div><p>先翻译第一句：<code>vec2 p=(FC.xy*2.-r)/r.y,l,i,v=p*(l+=4.-4.*abs(.7-dot(p,p)));</code></p>
+<p>首先<code>FC.xy</code>是代表的当前的像素坐标，是一个二维向量变量，这里的向量乘除浮点数、加减浮点数，都需要向量化。这里的<code>r</code>代表的同样也是一个二维向量变量，其存的是当前画布的长宽。然后我们需要实现<code>dot</code>函数，它其实就是求解向量的标量积，了解到这些先决条件之后，这一段就可以翻译成下面的代码：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C" data-lang="C"><span style="display:flex;"><span>vec2 FC, r <span style="color:#f92672">=</span> {<span style="color:#ae81ff">128.f</span>, <span style="color:#ae81ff">160.f</span>};
+</span></span><span style="display:flex;"><span>FC.x <span style="color:#f92672">=</span> (<span style="color:#66d9ef">float32_t</span>) i;
+</span></span><span style="display:flex;"><span>FC.y <span style="color:#f92672">=</span> (<span style="color:#66d9ef">float32_t</span>) j;
+</span></span><span style="display:flex;"><span>vec2 p, l, k <span style="color:#f92672">=</span> {<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>}, v, tempV;
+</span></span><span style="display:flex;"><span>p.x <span style="color:#f92672">=</span> FC.x <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">/</span> r.y <span style="color:#f92672">-</span> r.x <span style="color:#f92672">*</span> <span style="color:#f92672">/</span> r.y;
+</span></span><span style="display:flex;"><span>p.y <span style="color:#f92672">=</span> FC.y <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">/</span> r.y <span style="color:#f92672">-</span> r.y <span style="color:#f92672">*</span> <span style="color:#f92672">/</span> r.y;
+</span></span><span style="display:flex;"><span>l.x <span style="color:#f92672">=</span> l.y <span style="color:#f92672">=</span> <span style="color:#ae81ff">4.f</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">4.f</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">fabsf</span>(<span style="color:#ae81ff">0.7f</span> <span style="color:#f92672">-</span> (p.x <span style="color:#f92672">*</span> p.x <span style="color:#f92672">+</span> p.y <span style="color:#f92672">*</span> p.y));
+</span></span><span style="display:flex;"><span>v.x <span style="color:#f92672">=</span> p.x <span style="color:#f92672">*</span> l.x;
+</span></span><span style="display:flex;"><span>v.y <span style="color:#f92672">=</span> p.y <span style="color:#f92672">*</span> l.y;
+</span></span></code></pre></div><p>接着我们翻译第二句：<code>for(;i.y++&lt;8.;o+=(sin(v.xyyx)+1.)*abs(v.x-v.y))v+=cos(v.yx*i.y+i+t)/i.y+.7;</code></p>
+<p>这里的<code>i</code>应该被初始化为<code>{0, 0}</code>，所以这个循环应该迭代8次，使用一个迭代器<code>iter</code>去迭代这个循环，然后先逐句拆分这段代码，先高一些临时变量出来，就可以得到：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C" data-lang="C"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> iter <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; iter <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">8</span>; <span style="color:#f92672">++</span>iter){
+</span></span><span style="display:flex;"><span>  k.y <span style="color:#f92672">=</span> (<span style="color:#66d9ef">float</span>)iter;
+</span></span><span style="display:flex;"><span>  a.x <span style="color:#f92672">=</span> v.y <span style="color:#f92672">*</span> k.y;
+</span></span><span style="display:flex;"><span>  a.y <span style="color:#f92672">=</span> v.x <span style="color:#f92672">*</span> k.y;
+</span></span><span style="display:flex;"><span>  b.x <span style="color:#f92672">=</span> a.x <span style="color:#f92672">+</span> k.x <span style="color:#f92672">+</span> t;
+</span></span><span style="display:flex;"><span>  b.y <span style="color:#f92672">=</span> a.y <span style="color:#f92672">+</span> k.y <span style="color:#f92672">+</span> t;
+</span></span><span style="display:flex;"><span>  c.x <span style="color:#f92672">=</span> <span style="color:#a6e22e">cos</span>(b.x);
+</span></span><span style="display:flex;"><span>  c.y <span style="color:#f92672">=</span> <span style="color:#a6e22e">cos</span>(b.y);
+</span></span><span style="display:flex;"><span>  d.x <span style="color:#f92672">=</span> c.x <span style="color:#f92672">/</span> k.y <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.7f</span>;
+</span></span><span style="display:flex;"><span>  d.y <span style="color:#f92672">=</span> c.y <span style="color:#f92672">/</span> k.y <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.7f</span>;
+</span></span><span style="display:flex;"><span>  v.x <span style="color:#f92672">+=</span> d.x;
+</span></span><span style="display:flex;"><span>  v.y <span style="color:#f92672">+=</span> d.y;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>然后从下到上一步步将代码耦合，去掉多余的变量：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C" data-lang="C"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">去掉</span>d<span style="color:#960050;background-color:#1e0010">：</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> iter <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; iter <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">8</span>; <span style="color:#f92672">++</span>iter){
+</span></span><span style="display:flex;"><span>  k.y <span style="color:#f92672">=</span> (<span style="color:#66d9ef">float</span>)iter;
+</span></span><span style="display:flex;"><span>  a.x <span style="color:#f92672">=</span> v.y <span style="color:#f92672">*</span> k.y;
+</span></span><span style="display:flex;"><span>  a.y <span style="color:#f92672">=</span> v.x <span style="color:#f92672">*</span> k.y;
+</span></span><span style="display:flex;"><span>  b.x <span style="color:#f92672">=</span> a.x <span style="color:#f92672">+</span> k.x <span style="color:#f92672">+</span> t;
+</span></span><span style="display:flex;"><span>  b.y <span style="color:#f92672">=</span> a.y <span style="color:#f92672">+</span> k.y <span style="color:#f92672">+</span> t;
+</span></span><span style="display:flex;"><span>  c.x <span style="color:#f92672">=</span> <span style="color:#a6e22e">cos</span>(b.x);
+</span></span><span style="display:flex;"><span>  c.y <span style="color:#f92672">=</span> <span style="color:#a6e22e">cos</span>(b.y);
+</span></span><span style="display:flex;"><span>  v.x <span style="color:#f92672">+=</span> c.x <span style="color:#f92672">/</span> k.y <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.7f</span>;
+</span></span><span style="display:flex;"><span>  v.y <span style="color:#f92672">+=</span> c.y <span style="color:#f92672">/</span> k.y <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.7f</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">去掉</span>c<span style="color:#960050;background-color:#1e0010">：</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> iter <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; iter <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">8</span>; <span style="color:#f92672">++</span>iter){
+</span></span><span style="display:flex;"><span>  k.y <span style="color:#f92672">=</span> (<span style="color:#66d9ef">float</span>)iter;
+</span></span><span style="display:flex;"><span>  a.x <span style="color:#f92672">=</span> v.y <span style="color:#f92672">*</span> k.y;
+</span></span><span style="display:flex;"><span>  a.y <span style="color:#f92672">=</span> v.x <span style="color:#f92672">*</span> k.y;
+</span></span><span style="display:flex;"><span>  b.x <span style="color:#f92672">=</span> a.x <span style="color:#f92672">+</span> k.x <span style="color:#f92672">+</span> t;
+</span></span><span style="display:flex;"><span>  b.y <span style="color:#f92672">=</span> a.y <span style="color:#f92672">+</span> k.y <span style="color:#f92672">+</span> t;
+</span></span><span style="display:flex;"><span>  v.x <span style="color:#f92672">+=</span> <span style="color:#a6e22e">cos</span>(b.x) <span style="color:#f92672">/</span> k.y <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.7f</span>;
+</span></span><span style="display:flex;"><span>  v.y <span style="color:#f92672">+=</span> <span style="color:#a6e22e">cos</span>(b.y) <span style="color:#f92672">/</span> k.y <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.7f</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">去掉</span>b<span style="color:#960050;background-color:#1e0010">：</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> iter <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; iter <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">8</span>; <span style="color:#f92672">++</span>iter){
+</span></span><span style="display:flex;"><span>  k.y <span style="color:#f92672">=</span> (<span style="color:#66d9ef">float</span>)iter;
+</span></span><span style="display:flex;"><span>  a.x <span style="color:#f92672">=</span> v.y <span style="color:#f92672">*</span> k.y;
+</span></span><span style="display:flex;"><span>  a.y <span style="color:#f92672">=</span> v.x <span style="color:#f92672">*</span> k.y;
+</span></span><span style="display:flex;"><span>  v.x <span style="color:#f92672">+=</span> <span style="color:#a6e22e">cos</span>(a.x <span style="color:#f92672">+</span> k.x <span style="color:#f92672">+</span> t) <span style="color:#f92672">/</span> k.y <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.7f</span>;
+</span></span><span style="display:flex;"><span>  v.y <span style="color:#f92672">+=</span> <span style="color:#a6e22e">cos</span>(a.y <span style="color:#f92672">+</span> k.y <span style="color:#f92672">+</span> t) <span style="color:#f92672">/</span> k.y <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.7f</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">最后去掉</span>a<span style="color:#960050;background-color:#1e0010">：</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> iter <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; iter <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">8</span>; <span style="color:#f92672">++</span>iter){
+</span></span><span style="display:flex;"><span>  k.y <span style="color:#f92672">=</span> (<span style="color:#66d9ef">float</span>)iter;
+</span></span><span style="display:flex;"><span>  v.x <span style="color:#f92672">+=</span> <span style="color:#a6e22e">cosf</span>(v.y <span style="color:#f92672">*</span> k.y <span style="color:#f92672">+</span> k.x <span style="color:#f92672">+</span> t) <span style="color:#f92672">/</span> k.y <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.7f</span>;
+</span></span><span style="display:flex;"><span>  v.y <span style="color:#f92672">+=</span> <span style="color:#a6e22e">cosf</span>(v.x <span style="color:#f92672">*</span> k.y <span style="color:#f92672">+</span> k.y <span style="color:#f92672">+</span> t) <span style="color:#f92672">/</span> k.y <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.7f</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>然后将循环体里的部分如法炮制，去构造我们的四维向量<code>o</code>：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C" data-lang="C"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">直接翻译出来的代码：</span>
+</span></span><span style="display:flex;"><span>a.x <span style="color:#f92672">=</span> <span style="color:#a6e22e">sin</span>(v.x);
+</span></span><span style="display:flex;"><span>a.y <span style="color:#f92672">=</span> <span style="color:#a6e22e">sin</span>(v.y);
+</span></span><span style="display:flex;"><span>a.z <span style="color:#f92672">=</span> <span style="color:#a6e22e">sin</span>(v.y);
+</span></span><span style="display:flex;"><span>a.w <span style="color:#f92672">=</span> <span style="color:#a6e22e">sin</span>(v.x);
+</span></span><span style="display:flex;"><span>b.x <span style="color:#f92672">=</span> a.x <span style="color:#f92672">+</span> <span style="color:#ae81ff">1.f</span>;
+</span></span><span style="display:flex;"><span>b.y <span style="color:#f92672">=</span> a.y <span style="color:#f92672">+</span> <span style="color:#ae81ff">1.f</span>;
+</span></span><span style="display:flex;"><span>b.z <span style="color:#f92672">=</span> a.z <span style="color:#f92672">+</span> <span style="color:#ae81ff">1.f</span>;
+</span></span><span style="display:flex;"><span>b.w <span style="color:#f92672">=</span> a.w <span style="color:#f92672">+</span> <span style="color:#ae81ff">1.f</span>;
+</span></span><span style="display:flex;"><span>c.x <span style="color:#f92672">=</span> b.x <span style="color:#f92672">*</span> <span style="color:#a6e22e">fabsf</span>(v.x <span style="color:#f92672">-</span> v.y);
+</span></span><span style="display:flex;"><span>c.y <span style="color:#f92672">=</span> b.y <span style="color:#f92672">*</span> <span style="color:#a6e22e">fabsf</span>(v.x <span style="color:#f92672">-</span> v.y);
+</span></span><span style="display:flex;"><span>c.z <span style="color:#f92672">=</span> b.z <span style="color:#f92672">*</span> <span style="color:#a6e22e">fabsf</span>(v.x <span style="color:#f92672">-</span> v.y);
+</span></span><span style="display:flex;"><span>c.w <span style="color:#f92672">=</span> b.w <span style="color:#f92672">*</span> <span style="color:#a6e22e">fabsf</span>(v.x <span style="color:#f92672">-</span> v.y);
+</span></span><span style="display:flex;"><span>o.x <span style="color:#f92672">+=</span> c.x;
+</span></span><span style="display:flex;"><span>o.y <span style="color:#f92672">+=</span> c.y;
+</span></span><span style="display:flex;"><span>o.z <span style="color:#f92672">+=</span> c.z;
+</span></span><span style="display:flex;"><span>o.w <span style="color:#f92672">+=</span> c.w;
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">去掉</span>c<span style="color:#960050;background-color:#1e0010">：</span>
+</span></span><span style="display:flex;"><span>a.x <span style="color:#f92672">=</span> <span style="color:#a6e22e">sin</span>(v.x);
+</span></span><span style="display:flex;"><span>a.y <span style="color:#f92672">=</span> <span style="color:#a6e22e">sin</span>(v.y);
+</span></span><span style="display:flex;"><span>a.z <span style="color:#f92672">=</span> <span style="color:#a6e22e">sin</span>(v.y);
+</span></span><span style="display:flex;"><span>a.w <span style="color:#f92672">=</span> <span style="color:#a6e22e">sin</span>(v.x);
+</span></span><span style="display:flex;"><span>b.x <span style="color:#f92672">=</span> a.x <span style="color:#f92672">+</span> <span style="color:#ae81ff">1.f</span>;
+</span></span><span style="display:flex;"><span>b.y <span style="color:#f92672">=</span> a.y <span style="color:#f92672">+</span> <span style="color:#ae81ff">1.f</span>;
+</span></span><span style="display:flex;"><span>b.z <span style="color:#f92672">=</span> a.z <span style="color:#f92672">+</span> <span style="color:#ae81ff">1.f</span>;
+</span></span><span style="display:flex;"><span>b.w <span style="color:#f92672">=</span> a.w <span style="color:#f92672">+</span> <span style="color:#ae81ff">1.f</span>;
+</span></span><span style="display:flex;"><span>o.x <span style="color:#f92672">+=</span> b.x <span style="color:#f92672">*</span> <span style="color:#a6e22e">fabsf</span>(v.x <span style="color:#f92672">-</span> v.y);
+</span></span><span style="display:flex;"><span>o.y <span style="color:#f92672">+=</span> b.y <span style="color:#f92672">*</span> <span style="color:#a6e22e">fabsf</span>(v.x <span style="color:#f92672">-</span> v.y);
+</span></span><span style="display:flex;"><span>o.z <span style="color:#f92672">+=</span> b.z <span style="color:#f92672">*</span> <span style="color:#a6e22e">fabsf</span>(v.x <span style="color:#f92672">-</span> v.y);
+</span></span><span style="display:flex;"><span>o.w <span style="color:#f92672">+=</span> b.w <span style="color:#f92672">*</span> <span style="color:#a6e22e">fabsf</span>(v.x <span style="color:#f92672">-</span> v.y);
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">去掉</span>b<span style="color:#960050;background-color:#1e0010">：</span>
+</span></span><span style="display:flex;"><span>a.x <span style="color:#f92672">=</span> <span style="color:#a6e22e">sin</span>(v.x);
+</span></span><span style="display:flex;"><span>a.y <span style="color:#f92672">=</span> <span style="color:#a6e22e">sin</span>(v.y);
+</span></span><span style="display:flex;"><span>a.z <span style="color:#f92672">=</span> <span style="color:#a6e22e">sin</span>(v.y);
+</span></span><span style="display:flex;"><span>a.w <span style="color:#f92672">=</span> <span style="color:#a6e22e">sin</span>(v.x);
+</span></span><span style="display:flex;"><span>o.x <span style="color:#f92672">+=</span> (a.x <span style="color:#f92672">+</span> <span style="color:#ae81ff">1.f</span>) <span style="color:#f92672">*</span> <span style="color:#a6e22e">fabsf</span>(v.x <span style="color:#f92672">-</span> v.y);
+</span></span><span style="display:flex;"><span>o.y <span style="color:#f92672">+=</span> (a.y <span style="color:#f92672">+</span> <span style="color:#ae81ff">1.f</span>) <span style="color:#f92672">*</span> <span style="color:#a6e22e">fabsf</span>(v.x <span style="color:#f92672">-</span> v.y);
+</span></span><span style="display:flex;"><span>o.z <span style="color:#f92672">+=</span> (a.z <span style="color:#f92672">+</span> <span style="color:#ae81ff">1.f</span>) <span style="color:#f92672">*</span> <span style="color:#a6e22e">fabsf</span>(v.x <span style="color:#f92672">-</span> v.y);
+</span></span><span style="display:flex;"><span>o.w <span style="color:#f92672">+=</span> (a.w <span style="color:#f92672">+</span> <span style="color:#ae81ff">1.f</span>) <span style="color:#f92672">*</span> <span style="color:#a6e22e">fabsf</span>(v.x <span style="color:#f92672">-</span> v.y);
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">最后去掉</span>a<span style="color:#960050;background-color:#1e0010">：</span>
+</span></span><span style="display:flex;"><span>o.x <span style="color:#f92672">+=</span> (<span style="color:#a6e22e">sin</span>(v.x) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1.f</span>) <span style="color:#f92672">*</span> <span style="color:#a6e22e">fabsf</span>(v.x <span style="color:#f92672">-</span> v.y);
+</span></span><span style="display:flex;"><span>o.y <span style="color:#f92672">+=</span> (<span style="color:#a6e22e">sin</span>(v.y) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1.f</span>) <span style="color:#f92672">*</span> <span style="color:#a6e22e">fabsf</span>(v.x <span style="color:#f92672">-</span> v.y);
+</span></span><span style="display:flex;"><span>o.z <span style="color:#f92672">+=</span> (<span style="color:#a6e22e">sin</span>(v.y) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1.f</span>) <span style="color:#f92672">*</span> <span style="color:#a6e22e">fabsf</span>(v.x <span style="color:#f92672">-</span> v.y);
+</span></span><span style="display:flex;"><span>o.w <span style="color:#f92672">+=</span> (<span style="color:#a6e22e">sin</span>(v.x) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1.f</span>) <span style="color:#f92672">*</span> <span style="color:#a6e22e">fabsf</span>(v.x <span style="color:#f92672">-</span> v.y);
+</span></span></code></pre></div><p>这样第二句代码我们也翻译完毕，现在我们翻译最后一句话：</p>
+<p><code>o=tanh(5.*exp(l.x-4.-p.y*vec4(-1,1,2,0))/o);</code></p>
+<p>同样使用临时变量法：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C" data-lang="C"><span style="display:flex;"><span>a.x <span style="color:#f92672">=</span> l.x <span style="color:#f92672">-</span> <span style="color:#ae81ff">4.0f</span> <span style="color:#f92672">-</span> p.y <span style="color:#f92672">*</span> (<span style="color:#f92672">-</span><span style="color:#ae81ff">1.0f</span>);
+</span></span><span style="display:flex;"><span>a.y <span style="color:#f92672">=</span> l.x <span style="color:#f92672">-</span> <span style="color:#ae81ff">4.0f</span> <span style="color:#f92672">-</span> p.y <span style="color:#f92672">*</span> (<span style="color:#ae81ff">1.0f</span>);
+</span></span><span style="display:flex;"><span>a.z <span style="color:#f92672">=</span> l.x <span style="color:#f92672">-</span> <span style="color:#ae81ff">4.0f</span> <span style="color:#f92672">-</span> p.y <span style="color:#f92672">*</span> (<span style="color:#ae81ff">2.0f</span>);
+</span></span><span style="display:flex;"><span>a.w <span style="color:#f92672">=</span> l.x <span style="color:#f92672">-</span> <span style="color:#ae81ff">4.0f</span> <span style="color:#f92672">-</span> p.y <span style="color:#f92672">*</span> (<span style="color:#ae81ff">0.0f</span>);
+</span></span><span style="display:flex;"><span>o.x <span style="color:#f92672">=</span> <span style="color:#a6e22e">tanh</span>(<span style="color:#ae81ff">5.</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">exp</span>(a.x) <span style="color:#f92672">/</span> o.x);
+</span></span><span style="display:flex;"><span>o.y <span style="color:#f92672">=</span> <span style="color:#a6e22e">tanh</span>(<span style="color:#ae81ff">5.</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">exp</span>(a.y) <span style="color:#f92672">/</span> o.y);
+</span></span><span style="display:flex;"><span>o.z <span style="color:#f92672">=</span> <span style="color:#a6e22e">tanh</span>(<span style="color:#ae81ff">5.</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">exp</span>(a.z) <span style="color:#f92672">/</span> o.z);
+</span></span><span style="display:flex;"><span>o.w <span style="color:#f92672">=</span> <span style="color:#a6e22e">tanh</span>(<span style="color:#ae81ff">5.</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">exp</span>(a.w) <span style="color:#f92672">/</span> o.w);
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">去掉</span>a<span style="color:#960050;background-color:#1e0010">：</span>
+</span></span><span style="display:flex;"><span>o.x <span style="color:#f92672">=</span> <span style="color:#a6e22e">tanhf</span>(<span style="color:#ae81ff">5.f</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">expf</span>(l.x <span style="color:#f92672">-</span> <span style="color:#ae81ff">4.0f</span> <span style="color:#f92672">-</span> p.y <span style="color:#f92672">*</span> (<span style="color:#f92672">-</span><span style="color:#ae81ff">1.0f</span>)) <span style="color:#f92672">/</span> o.x);
+</span></span><span style="display:flex;"><span>o.y <span style="color:#f92672">=</span> <span style="color:#a6e22e">tanhf</span>(<span style="color:#ae81ff">5.f</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">expf</span>(l.x <span style="color:#f92672">-</span> <span style="color:#ae81ff">4.0f</span> <span style="color:#f92672">-</span> p.y <span style="color:#f92672">*</span> (<span style="color:#ae81ff">1.0f</span>)) <span style="color:#f92672">/</span> o.y);
+</span></span><span style="display:flex;"><span>o.z <span style="color:#f92672">=</span> <span style="color:#a6e22e">tanhf</span>(<span style="color:#ae81ff">5.f</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">expf</span>(l.x <span style="color:#f92672">-</span> <span style="color:#ae81ff">4.0f</span> <span style="color:#f92672">-</span> p.y <span style="color:#f92672">*</span> (<span style="color:#ae81ff">2.0f</span>)) <span style="color:#f92672">/</span> o.z);
+</span></span><span style="display:flex;"><span>o.w <span style="color:#f92672">=</span> <span style="color:#a6e22e">tanhf</span>(<span style="color:#ae81ff">5.f</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">expf</span>(l.x <span style="color:#f92672">-</span> <span style="color:#ae81ff">4.0f</span> <span style="color:#f92672">-</span> p.y <span style="color:#f92672">*</span> (<span style="color:#ae81ff">0.0f</span>)) <span style="color:#f92672">/</span> o.w);
+</span></span></code></pre></div><p>到现在我们已经将全部的着色器代码都翻译完毕了，现在需要提取出当前像素然后存在我们的buffer中，o这个四维变量在GLSL中代表当前像素的RGBW的值，我们只需要前三项，因为值是归一化的，所以我们需要将其分别乘以31，63，31来获得565的RGB值，最后将其拼成一个16位的像素，代码如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C" data-lang="C"><span style="display:flex;"><span><span style="color:#66d9ef">uint16_t</span> r5 <span style="color:#f92672">=</span> (<span style="color:#66d9ef">uint16_t</span>) (o.x <span style="color:#f92672">*</span> <span style="color:#ae81ff">31.0</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.5</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">uint16_t</span> g6 <span style="color:#f92672">=</span> (<span style="color:#66d9ef">uint16_t</span>) (o.y <span style="color:#f92672">*</span> <span style="color:#ae81ff">63.0</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.5</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">uint16_t</span> b5 <span style="color:#f92672">=</span> (<span style="color:#66d9ef">uint16_t</span>) (o.z <span style="color:#f92672">*</span> <span style="color:#ae81ff">31.0</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.5</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (r5 <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">31</span>) r5 <span style="color:#f92672">=</span> <span style="color:#ae81ff">31</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (g6 <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">63</span>) g6 <span style="color:#f92672">=</span> <span style="color:#ae81ff">63</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (b5 <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">31</span>) b5 <span style="color:#f92672">=</span> <span style="color:#ae81ff">31</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">uint16_t</span> pix <span style="color:#f92672">=</span> (<span style="color:#66d9ef">uint16_t</span>)((r5 <span style="color:#f92672">&lt;&lt;</span> <span style="color:#ae81ff">11</span>) <span style="color:#f92672">|</span> (g6 <span style="color:#f92672">&lt;&lt;</span> <span style="color:#ae81ff">5</span>) <span style="color:#f92672">|</span> b5);
+</span></span></code></pre></div><p>编译，烧录，效果出来了但是怎么不太对，这个球只有一半：</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20251209000218942.png?imageslim" alt="image-20251209000218942"></p>
+<p>仔细检查发现是dot函数编写错误，本应是<code>(p.x * p.x + p.y * p.y)</code>错写为了<code>(p.x * p.x + p.y + p.y)</code>修正之后，完美的着色器效果就出来了：</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20251209000400355.png?imageslim" alt="image-20251209000400355"></p>
+<p>当前的代码如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C" data-lang="C"><span style="display:flex;"><span><span style="color:#75715e">/* USER CODE BEGIN WHILE */</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">while</span> (<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>x<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>r.x <span style="color:#f92672">=</span> <span style="color:#ae81ff">128.0f</span>;
+</span></span><span style="display:flex;"><span>r.y <span style="color:#f92672">=</span> <span style="color:#ae81ff">160.0f</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">float</span> t <span style="color:#f92672">=</span> (<span style="color:#66d9ef">float</span>) x <span style="color:#f92672">/</span> <span style="color:#ae81ff">10</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">160</span>; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">for</span> (j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; j <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">128</span>; j<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>    FC.x <span style="color:#f92672">=</span> (<span style="color:#66d9ef">float</span>)i;
+</span></span><span style="display:flex;"><span>    FC.y <span style="color:#f92672">=</span> (<span style="color:#66d9ef">float</span>)j;
+</span></span><span style="display:flex;"><span>    vec2 p, l, k <span style="color:#f92672">=</span> {<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>}, v;
+</span></span><span style="display:flex;"><span>    o.x <span style="color:#f92672">=</span> o.y <span style="color:#f92672">=</span> o.w <span style="color:#f92672">=</span> o.z <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    p.x <span style="color:#f92672">=</span> (FC.x <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">-</span> r.x) <span style="color:#f92672">/</span> r.y;
+</span></span><span style="display:flex;"><span>    p.y <span style="color:#f92672">=</span> (FC.y <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">-</span> r.y) <span style="color:#f92672">/</span> r.y;
+</span></span><span style="display:flex;"><span>    l.x <span style="color:#f92672">=</span> l.y <span style="color:#f92672">=</span> <span style="color:#ae81ff">4.f</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">4.f</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">fabsf</span>(<span style="color:#ae81ff">0.7f</span> <span style="color:#f92672">-</span> (p.x <span style="color:#f92672">*</span> p.x <span style="color:#f92672">+</span> p.y <span style="color:#f92672">+</span> p.y));
+</span></span><span style="display:flex;"><span>    v.x <span style="color:#f92672">=</span> p.x <span style="color:#f92672">*</span> l.x;
+</span></span><span style="display:flex;"><span>    v.y <span style="color:#f92672">=</span> p.y <span style="color:#f92672">*</span> l.y;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> iter <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; iter <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">8</span>; <span style="color:#f92672">++</span>iter){
+</span></span><span style="display:flex;"><span>      k.y <span style="color:#f92672">=</span> (<span style="color:#66d9ef">float</span>)iter;
+</span></span><span style="display:flex;"><span>      v.x <span style="color:#f92672">+=</span> <span style="color:#a6e22e">cosf</span>(v.y <span style="color:#f92672">*</span> k.y <span style="color:#f92672">+</span> k.x <span style="color:#f92672">+</span> t) <span style="color:#f92672">/</span> k.y <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.7f</span>;
+</span></span><span style="display:flex;"><span>      v.y <span style="color:#f92672">+=</span> <span style="color:#a6e22e">cosf</span>(v.x <span style="color:#f92672">*</span> k.y <span style="color:#f92672">+</span> k.y <span style="color:#f92672">+</span> t) <span style="color:#f92672">/</span> k.y <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.7f</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      o.x <span style="color:#f92672">+=</span> (<span style="color:#a6e22e">sinf</span>(v.x) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1.f</span>) <span style="color:#f92672">*</span> <span style="color:#a6e22e">fabsf</span>(v.x <span style="color:#f92672">-</span> v.y);
+</span></span><span style="display:flex;"><span>      o.y <span style="color:#f92672">+=</span> (<span style="color:#a6e22e">sinf</span>(v.y) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1.f</span>) <span style="color:#f92672">*</span> <span style="color:#a6e22e">fabsf</span>(v.x <span style="color:#f92672">-</span> v.y);
+</span></span><span style="display:flex;"><span>      o.z <span style="color:#f92672">+=</span> (<span style="color:#a6e22e">sinf</span>(v.y) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1.f</span>) <span style="color:#f92672">*</span> <span style="color:#a6e22e">fabsf</span>(v.x <span style="color:#f92672">-</span> v.y);
+</span></span><span style="display:flex;"><span>      o.w <span style="color:#f92672">+=</span> (<span style="color:#a6e22e">sinf</span>(v.x) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1.f</span>) <span style="color:#f92672">*</span> <span style="color:#a6e22e">fabsf</span>(v.x <span style="color:#f92672">-</span> v.y);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    o.x <span style="color:#f92672">=</span> <span style="color:#a6e22e">tanhf</span>(<span style="color:#ae81ff">5.f</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">expf</span>(l.x <span style="color:#f92672">-</span> <span style="color:#ae81ff">4.0f</span> <span style="color:#f92672">-</span> p.y <span style="color:#f92672">*</span> (<span style="color:#f92672">-</span><span style="color:#ae81ff">1.0f</span>)) <span style="color:#f92672">/</span> o.x);
+</span></span><span style="display:flex;"><span>    o.y <span style="color:#f92672">=</span> <span style="color:#a6e22e">tanhf</span>(<span style="color:#ae81ff">5.f</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">expf</span>(l.x <span style="color:#f92672">-</span> <span style="color:#ae81ff">4.0f</span> <span style="color:#f92672">-</span> p.y <span style="color:#f92672">*</span> (<span style="color:#ae81ff">1.0f</span>)) <span style="color:#f92672">/</span> o.y);
+</span></span><span style="display:flex;"><span>    o.z <span style="color:#f92672">=</span> <span style="color:#a6e22e">tanhf</span>(<span style="color:#ae81ff">5.f</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">expf</span>(l.x <span style="color:#f92672">-</span> <span style="color:#ae81ff">4.0f</span> <span style="color:#f92672">-</span> p.y <span style="color:#f92672">*</span> (<span style="color:#ae81ff">2.0f</span>)) <span style="color:#f92672">/</span> o.z);
+</span></span><span style="display:flex;"><span>    o.w <span style="color:#f92672">=</span> <span style="color:#a6e22e">tanhf</span>(<span style="color:#ae81ff">5.f</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">expf</span>(l.x <span style="color:#f92672">-</span> <span style="color:#ae81ff">4.0f</span> <span style="color:#f92672">-</span> p.y <span style="color:#f92672">*</span> (<span style="color:#ae81ff">0.0f</span>)) <span style="color:#f92672">/</span> o.w);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">uint16_t</span> r5 <span style="color:#f92672">=</span> (<span style="color:#66d9ef">uint16_t</span>) (o.x <span style="color:#f92672">*</span> <span style="color:#ae81ff">31.0</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.5</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">uint16_t</span> g6 <span style="color:#f92672">=</span> (<span style="color:#66d9ef">uint16_t</span>) (o.y <span style="color:#f92672">*</span> <span style="color:#ae81ff">63.0</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.5</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">uint16_t</span> b5 <span style="color:#f92672">=</span> (<span style="color:#66d9ef">uint16_t</span>) (o.z <span style="color:#f92672">*</span> <span style="color:#ae81ff">31.0</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.5</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (r5 <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">31</span>) r5 <span style="color:#f92672">=</span> <span style="color:#ae81ff">31</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (g6 <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">63</span>) g6 <span style="color:#f92672">=</span> <span style="color:#ae81ff">63</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (b5 <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">31</span>) b5 <span style="color:#f92672">=</span> <span style="color:#ae81ff">31</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">uint16_t</span> color <span style="color:#f92672">=</span> (<span style="color:#66d9ef">uint16_t</span>)((r5 <span style="color:#f92672">&lt;&lt;</span> <span style="color:#ae81ff">11</span>) <span style="color:#f92672">|</span> (g6 <span style="color:#f92672">&lt;&lt;</span> <span style="color:#ae81ff">5</span>) <span style="color:#f92672">|</span> b5);
+</span></span><span style="display:flex;"><span>    LCD_Buffer[i <span style="color:#f92672">*</span> <span style="color:#ae81ff">128</span> <span style="color:#f92672">+</span> j] <span style="color:#f92672">=</span> (color <span style="color:#f92672">&gt;&gt;</span> <span style="color:#ae81ff">8</span>) <span style="color:#f92672">|</span> ((color <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">0xff</span>) <span style="color:#f92672">&lt;&lt;</span> <span style="color:#ae81ff">8</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Displ_DrawImage</span>(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">128</span>, <span style="color:#ae81ff">160</span>, (<span style="color:#66d9ef">uint8_t</span><span style="color:#f92672">*</span>)LCD_Buffer);
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/* USER CODE END WHILE */</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/* USER CODE BEGIN 3 */</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>但是现在代码的速度太慢了，我们使用arm_dsp库对其进行加速。</p>
+<p>首先我们要减少除运算的次数，仔细观察我们多次重复除了<code>r.y</code>所以我们提前计算好<code>2/r.y</code>和<code>1/r.y</code>，之后再用就不需要再进行这个除法。</p>
+<p>然后我们使用<code>arm_cos_f32</code>和<code>arm_sin_f32</code>来替代原来的cos和sin，并且只计算一次结果，复用计算后的结果，代码如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C" data-lang="C"><span style="display:flex;"><span>r.x <span style="color:#f92672">=</span> <span style="color:#ae81ff">128.0f</span>;
+</span></span><span style="display:flex;"><span>r.y <span style="color:#f92672">=</span> <span style="color:#ae81ff">160.0f</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">float32_t</span> inv_ry <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.0f</span> <span style="color:#f92672">/</span> r.y;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">float32_t</span> two_over_r <span style="color:#f92672">=</span> <span style="color:#ae81ff">2.0f</span> <span style="color:#f92672">/</span> r.y;<span style="color:#75715e">// 提前计算好值
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">float32_t</span> t <span style="color:#f92672">=</span> (<span style="color:#66d9ef">float32_t</span>)x <span style="color:#f92672">/</span> <span style="color:#ae81ff">10.0f</span>;
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; j <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">160</span>; <span style="color:#f92672">++</span>j) {
+</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">for</span> (i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">128</span>; <span style="color:#f92672">++</span>i) {
+</span></span><span style="display:flex;"><span>        FC.x <span style="color:#f92672">=</span> (<span style="color:#66d9ef">float32_t</span>)i;
+</span></span><span style="display:flex;"><span>        FC.y <span style="color:#f92672">=</span> (<span style="color:#66d9ef">float32_t</span>)j;
+</span></span><span style="display:flex;"><span>        vec2 p, l, k <span style="color:#f92672">=</span> {<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>}, v, tempV;
+</span></span><span style="display:flex;"><span>        o.x <span style="color:#f92672">=</span> o.y <span style="color:#f92672">=</span> o.w <span style="color:#f92672">=</span> o.z <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>        p.x <span style="color:#f92672">=</span> FC.x <span style="color:#f92672">*</span> two_over_r <span style="color:#f92672">-</span> r.x <span style="color:#f92672">*</span> inv_ry;
+</span></span><span style="display:flex;"><span>        p.y <span style="color:#f92672">=</span> FC.y <span style="color:#f92672">*</span> two_over_r <span style="color:#f92672">-</span> r.y <span style="color:#f92672">*</span> inv_ry;
+</span></span><span style="display:flex;"><span>        l.x <span style="color:#f92672">=</span> l.y <span style="color:#f92672">=</span> <span style="color:#ae81ff">4.f</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">4.f</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">fabsf</span>(<span style="color:#ae81ff">0.7f</span> <span style="color:#f92672">-</span> (p.x <span style="color:#f92672">*</span> p.x <span style="color:#f92672">+</span> p.y <span style="color:#f92672">*</span> p.y));
+</span></span><span style="display:flex;"><span>        v.x <span style="color:#f92672">=</span> p.x <span style="color:#f92672">*</span> l.x;
+</span></span><span style="display:flex;"><span>        v.y <span style="color:#f92672">=</span> p.y <span style="color:#f92672">*</span> l.y;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> iter <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; iter <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">8</span>; <span style="color:#f92672">++</span>iter){
+</span></span><span style="display:flex;"><span>          k.y <span style="color:#f92672">=</span> (<span style="color:#66d9ef">float</span>)iter;
+</span></span><span style="display:flex;"><span>          tempV.x <span style="color:#f92672">=</span> <span style="color:#a6e22e">arm_cos_f32</span>(v.y <span style="color:#f92672">*</span> k.y <span style="color:#f92672">+</span> k.x <span style="color:#f92672">+</span> t) <span style="color:#f92672">/</span> k.y <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.7f</span>;
+</span></span><span style="display:flex;"><span>          tempV.y <span style="color:#f92672">=</span> <span style="color:#a6e22e">arm_cos_f32</span>(v.x <span style="color:#f92672">*</span> k.y <span style="color:#f92672">+</span> k.y <span style="color:#f92672">+</span> t) <span style="color:#f92672">/</span> k.y <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.7f</span>;<span style="color:#75715e">// 使用arm库，并只计算一次
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>          v.x <span style="color:#f92672">+=</span> tempV.x;
+</span></span><span style="display:flex;"><span>          v.y <span style="color:#f92672">+=</span> tempV.y;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">float32_t</span> sinVX <span style="color:#f92672">=</span> <span style="color:#a6e22e">arm_sin_f32</span>(v.x);
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">float32_t</span> sinVY <span style="color:#f92672">=</span> <span style="color:#a6e22e">arm_sin_f32</span>(v.y);
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">float32_t</span> absVXY <span style="color:#f92672">=</span> <span style="color:#a6e22e">fabsf</span>(v.x <span style="color:#f92672">-</span> v.y);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>          o.x <span style="color:#f92672">+=</span> (sinVX <span style="color:#f92672">+</span> <span style="color:#ae81ff">1.f</span>) <span style="color:#f92672">*</span> absVXY;
+</span></span><span style="display:flex;"><span>          o.y <span style="color:#f92672">+=</span> (sinVY <span style="color:#f92672">+</span> <span style="color:#ae81ff">1.f</span>) <span style="color:#f92672">*</span> absVXY;
+</span></span><span style="display:flex;"><span>          o.z <span style="color:#f92672">+=</span> (sinVY <span style="color:#f92672">+</span> <span style="color:#ae81ff">1.f</span>) <span style="color:#f92672">*</span> absVXY;
+</span></span><span style="display:flex;"><span>          o.w <span style="color:#f92672">+=</span> (sinVX <span style="color:#f92672">+</span> <span style="color:#ae81ff">1.f</span>) <span style="color:#f92672">*</span> absVXY;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>        ...
+</span></span></code></pre></div><p>这次优化效果拔群，使用示波器观察可以发现已经达到1.152fps了</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/93fc57b578a5fc858be4dbee14dd4905.png?imageslim" alt="93fc57b578a5fc858be4dbee14dd4905"></p>
+<p>但是其实还能优化，我们将原先的exp替换掉使用arm库中的向量化exp函数快速计算，然后将tanh替换为多项式近似，代码如下：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C" data-lang="C"><span style="display:flex;"><span><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">float</span> <span style="color:#a6e22e">fast_tanh</span>(<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">float</span> x)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (x <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">4.0f</span>)  <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1.0f</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (x <span style="color:#f92672">&lt;</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">4.0f</span>) <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1.0f</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">float</span> x2 <span style="color:#f92672">=</span> x <span style="color:#f92672">*</span> x;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> x <span style="color:#f92672">*</span> (<span style="color:#ae81ff">27.0f</span> <span style="color:#f92672">+</span> x2) <span style="color:#f92672">/</span> (<span style="color:#ae81ff">27.0f</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">9.0f</span> <span style="color:#f92672">*</span> x2);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C" data-lang="C"><span style="display:flex;"><span><span style="color:#66d9ef">float32_t</span> tempSrc[<span style="color:#ae81ff">4</span>], tempDst[<span style="color:#ae81ff">4</span>];
+</span></span><span style="display:flex;"><span>tempSrc[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> l.x <span style="color:#f92672">-</span> <span style="color:#ae81ff">4.0f</span> <span style="color:#f92672">-</span> p.y <span style="color:#f92672">*</span> (<span style="color:#f92672">-</span><span style="color:#ae81ff">1.0f</span>);
+</span></span><span style="display:flex;"><span>tempSrc[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> l.x <span style="color:#f92672">-</span> <span style="color:#ae81ff">4.0f</span> <span style="color:#f92672">-</span> p.y <span style="color:#f92672">*</span> (<span style="color:#ae81ff">1.0f</span>);
+</span></span><span style="display:flex;"><span>tempSrc[<span style="color:#ae81ff">2</span>] <span style="color:#f92672">=</span> l.x <span style="color:#f92672">-</span> <span style="color:#ae81ff">4.0f</span> <span style="color:#f92672">-</span> p.y <span style="color:#f92672">*</span> (<span style="color:#ae81ff">2.0f</span>);
+</span></span><span style="display:flex;"><span>tempSrc[<span style="color:#ae81ff">3</span>] <span style="color:#f92672">=</span> l.x <span style="color:#f92672">-</span> <span style="color:#ae81ff">4.0f</span> <span style="color:#f92672">-</span> p.y <span style="color:#f92672">*</span> (<span style="color:#ae81ff">0.0f</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">arm_vexp_f32</span>(tempSrc, tempDst, <span style="color:#ae81ff">4</span>);
+</span></span><span style="display:flex;"><span>o.x <span style="color:#f92672">=</span> <span style="color:#a6e22e">fast_tanh</span>(<span style="color:#ae81ff">5.f</span> <span style="color:#f92672">*</span> tempDst[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">/</span> o.x);
+</span></span><span style="display:flex;"><span>o.y <span style="color:#f92672">=</span> <span style="color:#a6e22e">fast_tanh</span>(<span style="color:#ae81ff">5.f</span> <span style="color:#f92672">*</span> tempDst[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">/</span> o.y);
+</span></span><span style="display:flex;"><span>o.z <span style="color:#f92672">=</span> <span style="color:#a6e22e">fast_tanh</span>(<span style="color:#ae81ff">5.f</span> <span style="color:#f92672">*</span> tempDst[<span style="color:#ae81ff">2</span>] <span style="color:#f92672">/</span> o.z);
+</span></span><span style="display:flex;"><span>o.w <span style="color:#f92672">=</span> <span style="color:#a6e22e">fast_tanh</span>(<span style="color:#ae81ff">5.f</span> <span style="color:#f92672">*</span> tempDst[<span style="color:#ae81ff">3</span>] <span style="color:#f92672">/</span> o.w);
+</span></span></code></pre></div><p>现在我们的帧率达到了1.312fps，应该是无法再优化了</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/1868bf4243361418aaf0467c8d85f74b.png?imageslim" alt="1868bf4243361418aaf0467c8d85f74b"></p>
+<p>使用示波器观察单个像素生成的波形，可以发现其实正弦和余弦的部分还可以优化，但因为没有深入分析这里传入函数的参数范围，没有办法做特殊的多项式近似。所以就不再做修改。</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/dd8639203fb54043f7ed62d16f36cbe6.png?imageslim" alt="dd8639203fb54043f7ed62d16f36cbe6"></p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/image-20251209185841339.png?imageslim" alt="image-20251209185841339"></p>
+
+  
+  <hr>
+<div class="footer">
+    
+	    
+            <a class="previous-post" href="https://www.tcmckrlitb.top/posts/mix/a-trojan-spread-by-usbdisk/?ref=footer"><span style="font-weight:bold;">« Previous</span><br>记录一个有趣的木马病毒</a>
+        
+	    
+    
+</div>
+
+  
+</div>
+            </main>
+            
+  
+    <div class="article-toc ">
+    <div class="toc-wrapper">
+      <h4 id="contents"></h4>
+      <nav id="TableOfContents"></nav>
+    </div>
+</div>
+
+  
+
+        </div>
+    </body>
+</html>

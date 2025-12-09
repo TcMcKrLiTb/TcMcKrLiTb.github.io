@@ -6,8 +6,15 @@
     <description>Recent content on TcMcKrLiTb Blog</description>
     <generator>Hugo</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 02 Dec 2025 19:46:50 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 08 Dec 2025 22:52:50 +0800</lastBuildDate>
     <atom:link href="https://www.tcmckrlitb.top/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>在stm32f411上运行着色器</title>
+      <link>https://www.tcmckrlitb.top/posts/stm32/shader-run-on-f411/</link>
+      <pubDate>Mon, 08 Dec 2025 22:52:50 +0800</pubDate>
+      <guid>https://www.tcmckrlitb.top/posts/stm32/shader-run-on-f411/</guid>
+      <description>&lt;p&gt;前两天偶然刷到了很喜欢的&lt;a href=&#34;https://x.com/tsoding&#34; target=&#34;_blank&#34;&gt;Тsфdiиg&lt;/a&gt;的一个视频，标题是图形库并不重要：&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://x.com/tsoding/status/1989446257882829223&#34; target=&#34;_blank&#34;&gt;Graphics API is irrelevant&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;视频中，他使用c++代码直接生成ppm格式图像，并使用ffmpeg去拼接这些图像，最终生成一段视频，这个过程中并没有依赖任何的图形库，实现了一个着色器视频，非常有趣。刚好有一块1.8寸的128x160的tft彩屏到我的手上，如果将生成ppm帧的这一步变为写入到tft屏幕的ram中，那么就可以不需要使用gui或者任何多余的库来实现一些效果。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>记录一个有趣的木马病毒</title>
       <link>https://www.tcmckrlitb.top/posts/mix/a-trojan-spread-by-usbdisk/</link>
