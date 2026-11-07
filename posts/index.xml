@@ -6,8 +6,15 @@
     <description>Recent content in Posts on TcMcKrLiTb Blog</description>
     <generator>Hugo</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 08 Dec 2025 22:52:50 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 08 Nov 2026 01:08:00 +0800</lastBuildDate>
     <atom:link href="https://www.tcmckrlitb.top/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>用 STM32G431 的 UCPD 请求 USB PD 9 V 和 20 V</title>
+      <link>https://www.tcmckrlitb.top/posts/stm32/stm32g431-ucpd-usb-pd/</link>
+      <pubDate>Sun, 08 Nov 2026 01:08:00 +0800</pubDate>
+      <guid>https://www.tcmckrlitb.top/posts/stm32/stm32g431-ucpd-usb-pd/</guid>
+      <description>&lt;p&gt;手上刚好有一块 STM32G431CBT6，想试试芯片自带的 UCPD 能不能把充电器的输出从 5 V 拉到 9 V。最开始只在 CubeMX 里把 UCPD 打开，把两根 CC 接到 Type-C 母座上，万用表测出来是 5.2 V。后来把协商、串口和电压回读都补上，顺手把适配器给出的档位读了一遍，最后又试了 20 V。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>在stm32f411上运行着色器</title>
       <link>https://www.tcmckrlitb.top/posts/stm32/shader-run-on-f411/</link>
