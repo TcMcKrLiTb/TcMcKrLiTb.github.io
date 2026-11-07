@@ -495,7 +495,7 @@ powered by <a target="_blank" href="https://gohugo.io">Hugo</a> | themed with <a
 
   <p>手上刚好有一块 STM32G431CBT6，想试试芯片自带的 UCPD 能不能把充电器的输出从 5 V 拉到 9 V。最开始只在 CubeMX 里把 UCPD 打开，把两根 CC 接到 Type-C 母座上，万用表测出来是 5.2 V。后来把协商、串口和电压回读都补上，顺手把适配器给出的档位读了一遍，最后又试了 20 V。</p>
 <h2 id="先把-cc-接通">先把 CC 接通</h2>
-<p>G431 这边用 PB6 接母座的 CC1，PB4 接 CC2，母座 GND 和板子共地。MCU 单独供电，VBUS 起初只接万用表，后来也只接到电压测量电路。软件让 UCPD 在两根 CC 上启用 Sink 的下拉，检测到对端的 Rp 以后再选实际通信的那根 CC。</p>
+<p>我直接从一只 16-pin Type-C 母座的 CC1、CC2 引脚飞线出来，分别接到 G431 的 PB6、PB4，母座 GND 和板子共地。单片机最小系统由外部 5 V 供电，母座 VBUS 起初只接万用表，后来接入分压测量电路。软件让 UCPD 在两根 CC 上启用 Sink 的下拉，检测到对端的 Rp 以后再选实际通信的那根 CC。</p>
 <p>这里有个容易踩的坑。标准 A 转 C 线在 C 插头里用 56 kΩ 把 CC 上拉到 VBUS，A 端没有贯通的 CC。G431 通过 CC 发送的 PD 报文需要一路到适配器，测到 5.2 V 只能说明 VBUS 有电。排查时可以用支持 PD 的 USB-C 输出口和 C 对 C 线，再看有没有收到 <code>Source_Capabilities</code>。<a href="https://developers.google.com/chromeos/peripherals/cc-cables-v1#usb-type-c-legacy-cable-and-adapter-requirements" target="_blank">USB-C 传统线缆接线要求</a></p>
 <h2 id="先跑通-9-v">先跑通 9 V</h2>
 <p>工程还是 CubeMX 生成 CMake，用 CLion、Ninja 和 STM32CubeCLT 1.21.0 编译。CubeMX 生成的初始化把 PB6 和 PB4 配成模拟模式，<code>pd_sink.c</code> 再用 LL 接口配置 UCPD 的 PHY 时序、打开 Sink 下拉并处理报文。<code>main</code> 里持续轮询 UCPD，这样收到报文后可以及时回 <code>GoodCRC</code>。</p>
@@ -505,9 +505,10 @@ powered by <a target="_blank" href="https://gohugo.io">Hugo</a> | themed with <a
 </span></span><span style="display:flex;"><span>适配器 -&gt; G431    Accept
 </span></span><span style="display:flex;"><span>适配器 -&gt; G431    PS_RDY
 </span></span></code></pre></div><p>上面省略了每条报文对应的 <code>GoodCRC</code>。它只确认报文已经收到，<code>Accept</code> 才表示适配器接受请求。等适配器发出 <code>PS_RDY</code>，固件才把 <code>contract_mv</code> 记为 <code>9000</code>。请求里填的是适配器列表中从 1 开始的 PDO 序号，所以得先读能力表，再决定发哪一档。适配器没有给出固定 9 V 档时，就请求固定 5 V。<a href="https://www.st.com/resource/en/technical_article/ta0356-usb-typec-and-power-delivery-displayport-alternate-mode-stmicroelectronics.pdf" target="_blank">ST 的 PD 报文流程</a></p>
-<p>第一轮用万用表测到 <strong>8.99 V</strong>。当时还没有电压采样电路，固件里能看到的是协议确认值，万用表看到的是 VBUS。</p>
+<p>第一轮用万用表直接量母座的 VBUS 和 GND，读到 <strong>8.99 V</strong>，离标称 9 V 只差 10 mV，第一次就跑得很漂亮。当时板上还没有电压回读，固件只记录了协议确认的 9 V。</p>
 <h2 id="加一个串口和电压回读">加一个串口和电压回读</h2>
-<p>电压回读用了一个电位器，把 VBUS 衰减到原来的 <strong>3/20</strong>，再经一个 <strong>5 V 供电的 LM358</strong> 跟随，送进 <strong>PA1 / ADC1_IN2</strong>。串口用 <strong>PB3 / USART2_TX</strong>，只接 TX 和 GND，电脑上用 COM7，参数是 <strong>115200 8N1</strong>。</p>
+<p>电压回读用了一个电位器，把 VBUS 衰减到原来的 <strong>3/20</strong>，再经 LM358 跟随，送进 <strong>PA1 / ADC1_IN2</strong>。LM358 和单片机最小系统共用外部 <strong>5 V</strong> 供电，和母座、串口共地。串口用 <strong>PB3 / USART2_TX</strong>，只接 TX 和 GND，电脑上用 COM7，参数是 <strong>115200 8N1</strong>。</p>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/stm32g431-ucpd-pd-schematic.png?imageslim" alt="STM32G431 USB PD 接线图，包含 CC 飞线、VBUS 分压、LM358 跟随和外部 5 V 供电"></p>
 <p>ADC 先做单端校准，再交替采 PA1 和内部 <code>VREFINT</code>。用出厂的 <code>VREFINT</code> 校准值估算实际 <code>VREF+</code>，多次采样取平均。本次串口读到的参考电压约为 3.095 V。12 位 ADC 下，换算用的是下面这个关系。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>V_PA1  = ADC_raw / 4095 × VREF+
 </span></span><span style="display:flex;"><span>V_VBUS = V_PA1 × 20 / 3
@@ -563,8 +564,10 @@ powered by <a target="_blank" href="https://gohugo.io">Hugo</a> | themed with <a
 </span></span></code></pre></div><p>烧录后，串口里看到选中了 PDO 4，合同已经进入 <code>READY</code>。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>PD cc=2 state=READY err=OK src=3.x link=3.x req=PDO4/20000mV/100mA contract=20000mV ext=received revision=unsupported
 </span></span><span style="display:flex;"><span>VBUS 19993 mV pin=2999 mV adc=3968 vref=3095 mV vref_raw=1600 clip=0
-</span></span></code></pre></div><p>连续三次回读都是 <strong>19.993 V</strong>。PA1 是 <strong>2.999 V</strong>，ADC 没有满量程。短测完烧回 9 V 固件，VBUS 又回到了 <strong>9.029 V</strong>。这次上板实际切换的是 9 V 和 20 V，15 V 和各档最大电流只是从适配器报文里读出的数值。</p>
+</span></span></code></pre></div><p>用万用表直接量母座 VBUS，<strong>20 V 档实测 19.98 V</strong>，离标称值只差 20 mV。这个档位下，ADC 连续三次回读都是 <strong>19.993 V</strong>，PA1 是 <strong>2.999 V</strong>，没有到满量程。短测完烧回 9 V 固件，VBUS 又回到了 <strong>9.029 V</strong>。这次上板实际切换的是 9 V 和 20 V，15 V 和各档最大电流只是从适配器报文里读出的数值。</p>
 <p>现有分压在 20 V 时已经把 PA1 推到了约 3.00 V，离这块板的 3.095 V 参考电压不远。按标称比例算，VBUS 到约 <strong>20.63 V</strong> 时 ADC 就会到满量程。用这套电路继续测 20 V 档的偏差时，得给分压和缓冲留出余量，看到 <code>clip=1</code> 就要用表直接核对 VBUS。<a href="https://www.st.com/resource/en/datasheet/stm32g431cb.pdf" target="_blank">STM32G431 数据手册</a> · <a href="https://www.ti.com/lit/ds/symlink/lm358.pdf" target="_blank">LM358 数据手册</a></p>
+<h2 id="实物">实物</h2>
+<p><img src="https://blogtuchuang123.oss-cn-beijing.aliyuncs.com/blogpicture/041c0c9b7bf238a169be991749ba456c.jpg?imageslim" alt="STM32G431 USB PD 实验实物，使用 16-pin Type-C 母座飞线"></p>
 
   
   <hr>
@@ -592,6 +595,7 @@ powered by <a target="_blank" href="https://gohugo.io">Hugo</a> | themed with <a
     <li><a href="#加一个串口和电压回读">加一个串口和电压回读</a></li>
     <li><a href="#看看适配器都给了什么档位">看看适配器都给了什么档位</a></li>
     <li><a href="#最后试一下-20-v">最后试一下 20 V</a></li>
+    <li><a href="#实物">实物</a></li>
   </ul>
 </nav>
     </div>
