@@ -2,19 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://www.tcmckrlitb.top/tags/adc/</loc>
-    <lastmod>2026-11-08T01:08:00+08:00</lastmod>
+    <loc>https://www.tcmckrlitb.top/tags/edge-ai/</loc>
+    <lastmod>2026-11-09T02:50:00+08:00</lastmod>
   </url><url>
     <loc>https://www.tcmckrlitb.top/posts/</loc>
-    <lastmod>2026-11-08T01:08:00+08:00</lastmod>
+    <lastmod>2026-11-09T02:50:00+08:00</lastmod>
+  </url><url>
+    <loc>https://www.tcmckrlitb.top/tags/pytorch/</loc>
+    <lastmod>2026-11-09T02:50:00+08:00</lastmod>
   </url><url>
     <loc>https://www.tcmckrlitb.top/tags/stm32/</loc>
-    <lastmod>2026-11-08T01:08:00+08:00</lastmod>
+    <lastmod>2026-11-09T02:50:00+08:00</lastmod>
   </url><url>
     <loc>https://www.tcmckrlitb.top/tags/</loc>
-    <lastmod>2026-11-08T01:08:00+08:00</lastmod>
+    <lastmod>2026-11-09T02:50:00+08:00</lastmod>
   </url><url>
     <loc>https://www.tcmckrlitb.top/</loc>
+    <lastmod>2026-11-09T02:50:00+08:00</lastmod>
+  </url><url>
+    <loc>https://www.tcmckrlitb.top/tags/touchgfx/</loc>
+    <lastmod>2026-11-09T02:50:00+08:00</lastmod>
+  </url><url>
+    <loc>https://www.tcmckrlitb.top/posts/stm32/touchdigit-stm32/</loc>
+    <lastmod>2026-11-09T02:50:00+08:00</lastmod>
+  </url><url>
+    <loc>https://www.tcmckrlitb.top/tags/adc/</loc>
     <lastmod>2026-11-08T01:08:00+08:00</lastmod>
   </url><url>
     <loc>https://www.tcmckrlitb.top/tags/usb-pd/</loc>

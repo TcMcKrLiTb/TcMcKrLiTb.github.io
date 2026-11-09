@@ -87,7 +87,7 @@
 <meta property="og:url" content="https://www.tcmckrlitb.top/" />
 
 
-<meta property="og:updated_time" content="2026-11-08T01:08:00&#43;08:00" />
+<meta property="og:updated_time" content="2026-11-09T02:50:00&#43;08:00" />
 
 
 <link rel="sitemap" type="application/xml" title="Sitemap" href='https://www.tcmckrlitb.top/sitemap.xml' />
@@ -240,6 +240,12 @@
                 
                         
                 
+                        
+                
+                        
+                
+                        
+                
             
         
         
@@ -263,6 +269,12 @@
                 
             
                 
+                
+                        
+                
+                        
+                
+                        
                 
                         
                 
@@ -320,6 +332,12 @@
                 
                         
                 
+                        
+                
+                        
+                
+                        
+                
             
         
         
@@ -337,6 +355,10 @@
                         </li>
                         
                             <li class="bullet">
+                                <a href="https://www.tcmckrlitb.top/posts/stm32/touchdigit-stm32/">在 STM32F746 上跑通手写数字识别</a>
+                            </li>
+                        
+                            <li class="bullet">
                                 <a href="https://www.tcmckrlitb.top/posts/stm32/stm32g431-ucpd-usb-pd/">用 STM32G431 的 UCPD 请求 USB PD 9 V 和 20 V</a>
                             </li>
                         
@@ -352,10 +374,6 @@
                                 <a href="https://www.tcmckrlitb.top/posts/stm32/how-to-use-clion-with-cube/">如何使用Clion配合cubeMX</a>
                             </li>
                         
-                            <li class="bullet">
-                                <a href="https://www.tcmckrlitb.top/posts/stm32/make-a-stlinkv2-1/">自己做一个带负载检测的STLinkV2.1</a>
-                            </li>
-                        
                     
                 
             
@@ -369,6 +387,12 @@
                 
             
                 
+                
+                        
+                
+                        
+                
+                        
                 
                         
                 
@@ -445,6 +469,68 @@ powered by <a target="_blank" href="https://gohugo.io">Hugo</a> | themed with <a
                 <div class="posts">
     
     
+    <article class="post">
+        <div class="info">
+  <h1 class="post-title">
+    <a href="https://www.tcmckrlitb.top/posts/stm32/touchdigit-stm32/">在 STM32F746 上跑通手写数字识别</a>
+  </h1>
+
+  <div class="headline">
+    <div>
+      
+      
+      <time datetime=" 2026-11-09T02:50:00&#43;0800" class="post-date">
+        November 9, 2026
+      </time>
+      
+      <span> - </span>
+      <span class="reading-time">
+        
+          
+        
+
+        <span>3 mins read</span>
+      </span>
+    </div>
+
+    
+    <ul class="tags">
+      
+      <li class="tag-stm32">
+        <a href="https://www.tcmckrlitb.top/tags/stm32">stm32</a>
+      </li>
+      
+      <li class="tag-TouchGFX">
+        <a href="https://www.tcmckrlitb.top/tags/touchgfx">TouchGFX</a>
+      </li>
+      
+      <li class="tag-PyTorch">
+        <a href="https://www.tcmckrlitb.top/tags/pytorch">PyTorch</a>
+      </li>
+      
+      <li class="tag-Edge AI">
+        <a href="https://www.tcmckrlitb.top/tags/edge-ai">Edge AI</a>
+      </li>
+      
+    </ul>
+    
+  </div>
+
+  
+  
+
+  
+</div>
+
+        
+        <p>今天在 STM32F746G-DISCO 上做了一个手写数字识别 Demo，工程叫 <code>TouchDigit_STM32</code>。左边是一块 256×256 的画板，右边显示识别结果和置信度。屏幕上写一个数字，点 <strong>RUN</strong>，板子就会用本地模型跑一次推理。下面这张是烧录后写的 <strong>5</strong>，结果显示为 <strong>5</strong>，置信度读数是 <strong>99.3</strong>。</p>
+        
+        <div class="read-more-link">
+            <a href="/posts/stm32/touchdigit-stm32/">Read More…</a>
+        </div>
+        
+        
+    </article>
     <article class="post">
         <div class="info">
   <h1 class="post-title">
@@ -932,61 +1018,6 @@ powered by <a target="_blank" href="https://gohugo.io">Hugo</a> | themed with <a
         
         <div class="read-more-link">
             <a href="/posts/network/install-ns2-on-ubuntu/">Read More…</a>
-        </div>
-        
-        
-    </article>
-    <article class="post">
-        <div class="info">
-  <h1 class="post-title">
-    <a href="https://www.tcmckrlitb.top/posts/network/install-ns3-on-ubuntu/">网络仿真软件ns3的下载与安装（VMware&amp;ubuntu）</a>
-  </h1>
-
-  <div class="headline">
-    <div>
-      
-      
-      <time datetime=" 2024-11-07T19:14:34&#43;0800" class="post-date">
-        November 7, 2024
-      </time>
-      
-      <span> - </span>
-      <span class="reading-time">
-        
-          
-        
-
-        <span>3 mins read</span>
-      </span>
-    </div>
-
-    
-    <ul class="tags">
-      
-      <li class="tag-network">
-        <a href="https://www.tcmckrlitb.top/tags/network">network</a>
-      </li>
-      
-    </ul>
-    
-  </div>
-
-  
-  
-
-  
-</div>
-
-        
-        <h3 id="一vmware安装">一、VMware安装</h3>
-<p>VMware虚拟机安装多种多样，可参考下方链接：</p>
-<p><a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzA4MjU4MTg2Ng==&amp;action=getalbum&amp;album_id=3421466920749137927&amp;scene=21#wechat_redirect" target="_blank">https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzA4MjU4MTg2Ng==&action=getalbum&album_id=3421466920749137927&scene=21#wechat_redirect</a></p>
-<p>大家根据自身电脑配置情况酌情选择版本，这里不再赘述</p>
-<h3 id="二ubuntu安装">二、Ubuntu安装</h3>
-<p>此文写自2024-11-7，截止目前ns-3官网最高版本是3.43，根据官方安装手册，安装所需依赖版本如下表：</p>
-        
-        <div class="read-more-link">
-            <a href="/posts/network/install-ns3-on-ubuntu/">Read More…</a>
         </div>
         
         

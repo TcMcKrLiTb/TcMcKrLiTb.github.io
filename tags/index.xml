@@ -6,20 +6,41 @@
     <description>Recent content in Tags on TcMcKrLiTb Blog</description>
     <generator>Hugo</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 08 Nov 2026 01:08:00 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 09 Nov 2026 02:50:00 +0800</lastBuildDate>
     <atom:link href="https://www.tcmckrlitb.top/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>ADC</title>
-      <link>https://www.tcmckrlitb.top/tags/adc/</link>
-      <pubDate>Sun, 08 Nov 2026 01:08:00 +0800</pubDate>
-      <guid>https://www.tcmckrlitb.top/tags/adc/</guid>
+      <title>Edge AI</title>
+      <link>https://www.tcmckrlitb.top/tags/edge-ai/</link>
+      <pubDate>Mon, 09 Nov 2026 02:50:00 +0800</pubDate>
+      <guid>https://www.tcmckrlitb.top/tags/edge-ai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>PyTorch</title>
+      <link>https://www.tcmckrlitb.top/tags/pytorch/</link>
+      <pubDate>Mon, 09 Nov 2026 02:50:00 +0800</pubDate>
+      <guid>https://www.tcmckrlitb.top/tags/pytorch/</guid>
       <description></description>
     </item>
     <item>
       <title>Stm32</title>
       <link>https://www.tcmckrlitb.top/tags/stm32/</link>
-      <pubDate>Sun, 08 Nov 2026 01:08:00 +0800</pubDate>
+      <pubDate>Mon, 09 Nov 2026 02:50:00 +0800</pubDate>
       <guid>https://www.tcmckrlitb.top/tags/stm32/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>TouchGFX</title>
+      <link>https://www.tcmckrlitb.top/tags/touchgfx/</link>
+      <pubDate>Mon, 09 Nov 2026 02:50:00 +0800</pubDate>
+      <guid>https://www.tcmckrlitb.top/tags/touchgfx/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>ADC</title>
+      <link>https://www.tcmckrlitb.top/tags/adc/</link>
+      <pubDate>Sun, 08 Nov 2026 01:08:00 +0800</pubDate>
+      <guid>https://www.tcmckrlitb.top/tags/adc/</guid>
       <description></description>
     </item>
     <item>

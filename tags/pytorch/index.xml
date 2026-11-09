@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>PyTorch on TcMcKrLiTb Blog</title>
+    <link>https://www.tcmckrlitb.top/tags/pytorch/</link>
+    <description>Recent content in PyTorch on TcMcKrLiTb Blog</description>
+    <generator>Hugo</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 09 Nov 2026 02:50:00 +0800</lastBuildDate>
+    <atom:link href="https://www.tcmckrlitb.top/tags/pytorch/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>在 STM32F746 上跑通手写数字识别</title>
+      <link>https://www.tcmckrlitb.top/posts/stm32/touchdigit-stm32/</link>
+      <pubDate>Mon, 09 Nov 2026 02:50:00 +0800</pubDate>
+      <guid>https://www.tcmckrlitb.top/posts/stm32/touchdigit-stm32/</guid>
+      <description>&lt;p&gt;今天在 STM32F746G-DISCO 上做了一个手写数字识别 Demo，工程叫 &lt;code&gt;TouchDigit_STM32&lt;/code&gt;。左边是一块 256×256 的画板，右边显示识别结果和置信度。屏幕上写一个数字，点 &lt;strong&gt;RUN&lt;/strong&gt;，板子就会用本地模型跑一次推理。下面这张是烧录后写的 &lt;strong&gt;5&lt;/strong&gt;，结果显示为 &lt;strong&gt;5&lt;/strong&gt;，置信度读数是 &lt;strong&gt;99.3&lt;/strong&gt;。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
